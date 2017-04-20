@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace UberFrba.Abm_Rol
+namespace UberFrba.Abm_Turno
 {
-    public partial class Form1 : Form
+    public partial class ListadoTurno : Form
     {
-        public Form1()
+        public ListadoTurno()
         {
             InitializeComponent();
         }

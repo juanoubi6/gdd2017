@@ -8,13 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace UberFrba.Abm_Chofer
+namespace UberFrba.Abm_Automovil
 {
-    public partial class Form1 : Form
+    public partial class ListadoAutomovil : Form
     {
-        public Form1()
+        public ListadoAutomovil()
         {
             InitializeComponent();
         }
+
+
     }
 }

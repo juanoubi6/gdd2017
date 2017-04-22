@@ -28,26 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnRegresar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lstFuncionalidad = new System.Windows.Forms.ListBox();
             this.chkHabilitado = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.lstFuncionalidad = new System.Windows.Forms.ListBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btnRegresar
-            // 
-            this.btnRegresar.Location = new System.Drawing.Point(123, 192);
-            this.btnRegresar.Name = "btnRegresar";
-            this.btnRegresar.Size = new System.Drawing.Size(75, 23);
-            this.btnRegresar.TabIndex = 7;
-            this.btnRegresar.Text = "Volver";
-            this.btnRegresar.UseVisualStyleBackColor = true;
             // 
             // btnGuardar
             // 
@@ -80,6 +70,14 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Carga de Campos";
+            // 
+            // lstFuncionalidad
+            // 
+            this.lstFuncionalidad.FormattingEnabled = true;
+            this.lstFuncionalidad.Location = new System.Drawing.Point(85, 53);
+            this.lstFuncionalidad.Name = "lstFuncionalidad";
+            this.lstFuncionalidad.Size = new System.Drawing.Size(120, 95);
+            this.lstFuncionalidad.TabIndex = 13;
             // 
             // chkHabilitado
             // 
@@ -117,20 +115,11 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre";
             // 
-            // lstFuncionalidad
-            // 
-            this.lstFuncionalidad.FormattingEnabled = true;
-            this.lstFuncionalidad.Location = new System.Drawing.Point(85, 53);
-            this.lstFuncionalidad.Name = "lstFuncionalidad";
-            this.lstFuncionalidad.Size = new System.Drawing.Size(120, 95);
-            this.lstFuncionalidad.TabIndex = 13;
-            // 
             // AltaRol
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(321, 233);
-            this.Controls.Add(this.btnRegresar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.groupBox1);
@@ -144,7 +133,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnRegresar;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.GroupBox groupBox1;

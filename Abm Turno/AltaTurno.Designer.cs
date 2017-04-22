@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnRegresar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -45,15 +44,6 @@
             this.txtHoraInicio = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btnRegresar
-            // 
-            this.btnRegresar.Location = new System.Drawing.Point(127, 194);
-            this.btnRegresar.Name = "btnRegresar";
-            this.btnRegresar.Size = new System.Drawing.Size(75, 23);
-            this.btnRegresar.TabIndex = 15;
-            this.btnRegresar.Text = "Volver";
-            this.btnRegresar.UseVisualStyleBackColor = true;
             // 
             // btnGuardar
             // 
@@ -191,7 +181,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(332, 228);
-            this.Controls.Add(this.btnRegresar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.groupBox1);
@@ -205,7 +194,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnRegresar;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.GroupBox groupBox1;

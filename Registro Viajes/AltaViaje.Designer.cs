@@ -28,10 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnRegresar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dtpFin = new System.Windows.Forms.DateTimePicker();
+            this.dtpInicio = new System.Windows.Forms.DateTimePicker();
+            this.btnSelectCliente = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.txtCliente = new System.Windows.Forms.TextBox();
+            this.btnSelectTurno = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtTurno = new System.Windows.Forms.TextBox();
             this.bntSelectChofer = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.txtChofer = new System.Windows.Forms.TextBox();
@@ -42,25 +49,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnSelectAuto = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnSelectTurno = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtTurno = new System.Windows.Forms.TextBox();
-            this.btnSelectCliente = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtCliente = new System.Windows.Forms.TextBox();
-            this.dtpInicio = new System.Windows.Forms.DateTimePicker();
-            this.dtpFin = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btnRegresar
-            // 
-            this.btnRegresar.Location = new System.Drawing.Point(164, 235);
-            this.btnRegresar.Name = "btnRegresar";
-            this.btnRegresar.Size = new System.Drawing.Size(75, 23);
-            this.btnRegresar.TabIndex = 7;
-            this.btnRegresar.Text = "Volver";
-            this.btnRegresar.UseVisualStyleBackColor = true;
             // 
             // btnGuardar
             // 
@@ -106,6 +96,72 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Carga de Campos";
+            // 
+            // dtpFin
+            // 
+            this.dtpFin.Location = new System.Drawing.Point(107, 54);
+            this.dtpFin.Name = "dtpFin";
+            this.dtpFin.Size = new System.Drawing.Size(200, 20);
+            this.dtpFin.TabIndex = 19;
+            // 
+            // dtpInicio
+            // 
+            this.dtpInicio.Location = new System.Drawing.Point(107, 28);
+            this.dtpInicio.Name = "dtpInicio";
+            this.dtpInicio.Size = new System.Drawing.Size(200, 20);
+            this.dtpInicio.TabIndex = 18;
+            // 
+            // btnSelectCliente
+            // 
+            this.btnSelectCliente.Location = new System.Drawing.Point(179, 182);
+            this.btnSelectCliente.Name = "btnSelectCliente";
+            this.btnSelectCliente.Size = new System.Drawing.Size(75, 23);
+            this.btnSelectCliente.TabIndex = 17;
+            this.btnSelectCliente.Text = "Seleccionar";
+            this.btnSelectCliente.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(6, 187);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(39, 13);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "Cliente";
+            // 
+            // txtCliente
+            // 
+            this.txtCliente.Location = new System.Drawing.Point(53, 184);
+            this.txtCliente.Name = "txtCliente";
+            this.txtCliente.ReadOnly = true;
+            this.txtCliente.Size = new System.Drawing.Size(121, 20);
+            this.txtCliente.TabIndex = 15;
+            // 
+            // btnSelectTurno
+            // 
+            this.btnSelectTurno.Location = new System.Drawing.Point(179, 156);
+            this.btnSelectTurno.Name = "btnSelectTurno";
+            this.btnSelectTurno.Size = new System.Drawing.Size(75, 23);
+            this.btnSelectTurno.TabIndex = 14;
+            this.btnSelectTurno.Text = "Seleccionar";
+            this.btnSelectTurno.UseVisualStyleBackColor = true;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 161);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(35, 13);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Turno";
+            // 
+            // txtTurno
+            // 
+            this.txtTurno.Location = new System.Drawing.Point(53, 158);
+            this.txtTurno.Name = "txtTurno";
+            this.txtTurno.ReadOnly = true;
+            this.txtTurno.Size = new System.Drawing.Size(121, 20);
+            this.txtTurno.TabIndex = 12;
             // 
             // bntSelectChofer
             // 
@@ -193,78 +249,11 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Fecha y Hora Inicio";
             // 
-            // btnSelectTurno
-            // 
-            this.btnSelectTurno.Location = new System.Drawing.Point(179, 156);
-            this.btnSelectTurno.Name = "btnSelectTurno";
-            this.btnSelectTurno.Size = new System.Drawing.Size(75, 23);
-            this.btnSelectTurno.TabIndex = 14;
-            this.btnSelectTurno.Text = "Seleccionar";
-            this.btnSelectTurno.UseVisualStyleBackColor = true;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 161);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(35, 13);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "Turno";
-            // 
-            // txtTurno
-            // 
-            this.txtTurno.Location = new System.Drawing.Point(53, 158);
-            this.txtTurno.Name = "txtTurno";
-            this.txtTurno.ReadOnly = true;
-            this.txtTurno.Size = new System.Drawing.Size(121, 20);
-            this.txtTurno.TabIndex = 12;
-            // 
-            // btnSelectCliente
-            // 
-            this.btnSelectCliente.Location = new System.Drawing.Point(179, 182);
-            this.btnSelectCliente.Name = "btnSelectCliente";
-            this.btnSelectCliente.Size = new System.Drawing.Size(75, 23);
-            this.btnSelectCliente.TabIndex = 17;
-            this.btnSelectCliente.Text = "Seleccionar";
-            this.btnSelectCliente.UseVisualStyleBackColor = true;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(6, 187);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(39, 13);
-            this.label7.TabIndex = 16;
-            this.label7.Text = "Cliente";
-            // 
-            // txtCliente
-            // 
-            this.txtCliente.Location = new System.Drawing.Point(53, 184);
-            this.txtCliente.Name = "txtCliente";
-            this.txtCliente.ReadOnly = true;
-            this.txtCliente.Size = new System.Drawing.Size(121, 20);
-            this.txtCliente.TabIndex = 15;
-            // 
-            // dtpInicio
-            // 
-            this.dtpInicio.Location = new System.Drawing.Point(107, 28);
-            this.dtpInicio.Name = "dtpInicio";
-            this.dtpInicio.Size = new System.Drawing.Size(200, 20);
-            this.dtpInicio.TabIndex = 18;
-            // 
-            // dtpFin
-            // 
-            this.dtpFin.Location = new System.Drawing.Point(107, 54);
-            this.dtpFin.Name = "dtpFin";
-            this.dtpFin.Size = new System.Drawing.Size(200, 20);
-            this.dtpFin.TabIndex = 19;
-            // 
             // AltaViaje
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(405, 273);
-            this.Controls.Add(this.btnRegresar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.groupBox1);
@@ -278,7 +267,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnRegresar;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.GroupBox groupBox1;

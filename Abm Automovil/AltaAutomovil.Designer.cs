@@ -88,6 +88,7 @@
             this.bntSelectChofer.TabIndex = 11;
             this.bntSelectChofer.Text = "Seleccionar";
             this.bntSelectChofer.UseVisualStyleBackColor = true;
+            this.bntSelectChofer.Click += new System.EventHandler(this.bntSelectChofer_Click);
             // 
             // label5
             // 
@@ -156,6 +157,7 @@
             this.btnSelecTurno.TabIndex = 3;
             this.btnSelecTurno.Text = "Seleccionar";
             this.btnSelecTurno.UseVisualStyleBackColor = true;
+            this.btnSelecTurno.Click += new System.EventHandler(this.btnSelecTurno_Click);
             // 
             // txtModelo
             // 

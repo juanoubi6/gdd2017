@@ -1,6 +1,6 @@
-﻿namespace UberFrba.Registro_Viajes
+﻿namespace UberFrba.Abm_Automovil
 {
-    partial class GrillaChofer
+    partial class GrillaChofer_Auto
     {
         /// <summary>
         /// Required designer variable.
@@ -38,7 +38,6 @@
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.grillaAutomovil = new System.Windows.Forms.DataGridView();
-            this.btnCerrar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grillaAutomovil)).BeginInit();
             this.SuspendLayout();
@@ -132,27 +131,17 @@
             this.grillaAutomovil.Size = new System.Drawing.Size(606, 179);
             this.grillaAutomovil.TabIndex = 18;
             // 
-            // btnCerrar
-            // 
-            this.btnCerrar.Location = new System.Drawing.Point(249, 330);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(75, 23);
-            this.btnCerrar.TabIndex = 22;
-            this.btnCerrar.Text = "Cerrar";
-            this.btnCerrar.UseVisualStyleBackColor = true;
-            // 
             // GrillaChofer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(628, 368);
-            this.Controls.Add(this.btnCerrar);
+            this.ClientSize = new System.Drawing.Size(633, 340);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.grillaAutomovil);
             this.Name = "GrillaChofer";
-            this.Text = "GrillaChofer";
+            this.Text = "Seleccion de Chofer";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grillaAutomovil)).EndInit();
@@ -172,6 +161,5 @@
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.DataGridView grillaAutomovil;
-        private System.Windows.Forms.Button btnCerrar;
     }
 }

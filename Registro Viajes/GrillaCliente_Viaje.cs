@@ -8,11 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace UberFrba.Abm_Automovil
+namespace UberFrba.Registro_Viajes
 {
-    public partial class GrillaTurno : Form
+    public partial class GrillaCliente_Viaje : Form
     {
-        public GrillaTurno()
+
+        public AltaViaje formularioAlta;
+
+        public GrillaCliente_Viaje(AltaViaje formulario)
         {
             InitializeComponent();
         }

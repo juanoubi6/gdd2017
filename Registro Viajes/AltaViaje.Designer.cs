@@ -119,6 +119,7 @@
             this.btnSelectCliente.TabIndex = 17;
             this.btnSelectCliente.Text = "Seleccionar";
             this.btnSelectCliente.UseVisualStyleBackColor = true;
+            this.btnSelectCliente.Click += new System.EventHandler(this.btnSelectCliente_Click);
             // 
             // label7
             // 
@@ -145,6 +146,7 @@
             this.btnSelectTurno.TabIndex = 14;
             this.btnSelectTurno.Text = "Seleccionar";
             this.btnSelectTurno.UseVisualStyleBackColor = true;
+            this.btnSelectTurno.Click += new System.EventHandler(this.btnSelectTurno_Click);
             // 
             // label6
             // 
@@ -171,6 +173,7 @@
             this.bntSelectChofer.TabIndex = 11;
             this.bntSelectChofer.Text = "Seleccionar";
             this.bntSelectChofer.UseVisualStyleBackColor = true;
+            this.bntSelectChofer.Click += new System.EventHandler(this.bntSelectChofer_Click);
             // 
             // label5
             // 
@@ -239,6 +242,7 @@
             this.btnSelectAuto.TabIndex = 3;
             this.btnSelectAuto.Text = "Seleccionar";
             this.btnSelectAuto.UseVisualStyleBackColor = true;
+            this.btnSelectAuto.Click += new System.EventHandler(this.btnSelectAuto_Click);
             // 
             // label1
             // 

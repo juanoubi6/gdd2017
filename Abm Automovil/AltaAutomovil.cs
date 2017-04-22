@@ -16,5 +16,17 @@ namespace UberFrba.Abm_Automovil
         {
             InitializeComponent();
         }
+
+        private void btnSelecTurno_Click(object sender, EventArgs e)
+        {
+            GrillaTurno_Auto grillaTurno = new GrillaTurno_Auto(this);
+            grillaTurno.Show();
+        }
+
+        private void bntSelectChofer_Click(object sender, EventArgs e)
+        {
+            GrillaChofer_Auto grillaChofer = new GrillaChofer_Auto(this);
+            grillaChofer.Show();
+        }
     }
 }

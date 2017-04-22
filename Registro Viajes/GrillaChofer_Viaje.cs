@@ -10,9 +10,12 @@ using System.Windows.Forms;
 
 namespace UberFrba.Registro_Viajes
 {
-    public partial class GrillaTurno : Form
+    public partial class GrillaChofer_Viaje : Form
     {
-        public GrillaTurno()
+
+        public AltaViaje formularioAlta;
+
+        public GrillaChofer_Viaje(AltaViaje formulario)
         {
             InitializeComponent();
         }

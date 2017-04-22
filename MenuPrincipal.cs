@@ -61,7 +61,8 @@ namespace UberFrba
 
         private void registroDeViajeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            AltaViaje altaViaje = new AltaViaje();
+            altaViaje.Show();
         }
 
         private void rendiconDeViajeToolStripMenuItem_Click(object sender, EventArgs e)

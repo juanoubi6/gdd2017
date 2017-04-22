@@ -8,16 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace UberFrba
+namespace UberFrba.Registro_Viajes
 {
-    public partial class Form1 : Form
+    public partial class GrillaCliente : Form
     {
-        public Form1()
+        public GrillaCliente()
         {
             InitializeComponent();
         }
-
-
-
     }
 }

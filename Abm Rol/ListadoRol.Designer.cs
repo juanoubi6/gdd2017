@@ -38,7 +38,7 @@
             // 
             // btnAltaRol
             // 
-            this.btnAltaRol.Location = new System.Drawing.Point(533, 282);
+            this.btnAltaRol.Location = new System.Drawing.Point(496, 259);
             this.btnAltaRol.Name = "btnAltaRol";
             this.btnAltaRol.Size = new System.Drawing.Size(122, 23);
             this.btnAltaRol.TabIndex = 9;
@@ -47,7 +47,7 @@
             // 
             // btnRegresar
             // 
-            this.btnRegresar.Location = new System.Drawing.Point(49, 282);
+            this.btnRegresar.Location = new System.Drawing.Point(12, 259);
             this.btnRegresar.Name = "btnRegresar";
             this.btnRegresar.Size = new System.Drawing.Size(122, 23);
             this.btnRegresar.TabIndex = 8;
@@ -56,7 +56,7 @@
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(580, 34);
+            this.btnLimpiar.Location = new System.Drawing.Point(543, 11);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
             this.btnLimpiar.TabIndex = 7;
@@ -65,7 +65,7 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(49, 34);
+            this.btnBuscar.Location = new System.Drawing.Point(12, 11);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
             this.btnBuscar.TabIndex = 6;
@@ -75,7 +75,7 @@
             // grillaRol
             // 
             this.grillaRol.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grillaRol.Location = new System.Drawing.Point(49, 67);
+            this.grillaRol.Location = new System.Drawing.Point(12, 44);
             this.grillaRol.Name = "grillaRol";
             this.grillaRol.Size = new System.Drawing.Size(606, 179);
             this.grillaRol.TabIndex = 5;
@@ -84,7 +84,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(705, 339);
+            this.ClientSize = new System.Drawing.Size(637, 295);
             this.Controls.Add(this.btnAltaRol);
             this.Controls.Add(this.btnRegresar);
             this.Controls.Add(this.btnLimpiar);

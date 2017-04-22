@@ -1,6 +1,6 @@
-﻿namespace UberFrba.Abm_Automovil
+﻿namespace UberFrba.Registro_Viajes
 {
-    partial class ListadoAutomovil
+    partial class GrillaAuto
     {
         /// <summary>
         /// Required designer variable.
@@ -28,11 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.grillaAutomovil = new System.Windows.Forms.DataGridView();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.btnLimpiar = new System.Windows.Forms.Button();
-            this.btnRegresar = new System.Windows.Forms.Button();
-            this.btnAltaAutomovil = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnBuscarChofer = new System.Windows.Forms.Button();
             this.txtChofer = new System.Windows.Forms.TextBox();
@@ -43,53 +38,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.grillaAutomovil)).BeginInit();
+            this.btnLimpiar = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.grillaAutomovil = new System.Windows.Forms.DataGridView();
+            this.btnCerrar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grillaAutomovil)).BeginInit();
             this.SuspendLayout();
-            // 
-            // grillaAutomovil
-            // 
-            this.grillaAutomovil.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grillaAutomovil.Location = new System.Drawing.Point(12, 145);
-            this.grillaAutomovil.Name = "grillaAutomovil";
-            this.grillaAutomovil.Size = new System.Drawing.Size(606, 179);
-            this.grillaAutomovil.TabIndex = 0;
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Location = new System.Drawing.Point(12, 116);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
-            this.btnBuscar.TabIndex = 1;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            // 
-            // btnLimpiar
-            // 
-            this.btnLimpiar.Location = new System.Drawing.Point(543, 116);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
-            this.btnLimpiar.TabIndex = 2;
-            this.btnLimpiar.Text = "Limpiar";
-            this.btnLimpiar.UseVisualStyleBackColor = true;
-            // 
-            // btnRegresar
-            // 
-            this.btnRegresar.Location = new System.Drawing.Point(12, 344);
-            this.btnRegresar.Name = "btnRegresar";
-            this.btnRegresar.Size = new System.Drawing.Size(122, 23);
-            this.btnRegresar.TabIndex = 3;
-            this.btnRegresar.Text = "Regresar";
-            this.btnRegresar.UseVisualStyleBackColor = true;
-            // 
-            // btnAltaAutomovil
-            // 
-            this.btnAltaAutomovil.Location = new System.Drawing.Point(496, 344);
-            this.btnAltaAutomovil.Name = "btnAltaAutomovil";
-            this.btnAltaAutomovil.Size = new System.Drawing.Size(122, 23);
-            this.btnAltaAutomovil.TabIndex = 4;
-            this.btnAltaAutomovil.Text = "Alta automovil";
-            this.btnAltaAutomovil.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
@@ -105,7 +60,7 @@
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(606, 98);
-            this.groupBox1.TabIndex = 5;
+            this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros de búsqueda";
             // 
@@ -184,33 +139,62 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Marca";
             // 
-            // ListadoAutomovil
+            // btnLimpiar
+            // 
+            this.btnLimpiar.Location = new System.Drawing.Point(543, 116);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
+            this.btnLimpiar.TabIndex = 8;
+            this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.UseVisualStyleBackColor = true;
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Location = new System.Drawing.Point(12, 116);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscar.TabIndex = 7;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            // 
+            // grillaAutomovil
+            // 
+            this.grillaAutomovil.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grillaAutomovil.Location = new System.Drawing.Point(12, 145);
+            this.grillaAutomovil.Name = "grillaAutomovil";
+            this.grillaAutomovil.Size = new System.Drawing.Size(606, 179);
+            this.grillaAutomovil.TabIndex = 6;
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Location = new System.Drawing.Point(246, 330);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(75, 23);
+            this.btnCerrar.TabIndex = 16;
+            this.btnCerrar.Text = "Cerrar";
+            this.btnCerrar.UseVisualStyleBackColor = true;
+            // 
+            // GrillaAuto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(634, 384);
+            this.ClientSize = new System.Drawing.Size(631, 364);
+            this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.btnAltaAutomovil);
-            this.Controls.Add(this.btnRegresar);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.grillaAutomovil);
-            this.Name = "ListadoAutomovil";
-            this.Text = "Listado Automovil";
-            ((System.ComponentModel.ISupportInitialize)(this.grillaAutomovil)).EndInit();
+            this.Name = "GrillaAuto";
+            this.Text = "GrillaAuto";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grillaAutomovil)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView grillaAutomovil;
-        private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.Button btnLimpiar;
-        private System.Windows.Forms.Button btnRegresar;
-        private System.Windows.Forms.Button btnAltaAutomovil;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnBuscarChofer;
         private System.Windows.Forms.TextBox txtChofer;
@@ -221,5 +205,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnLimpiar;
+        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.DataGridView grillaAutomovil;
+        private System.Windows.Forms.Button btnCerrar;
     }
 }

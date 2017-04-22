@@ -1,6 +1,6 @@
-﻿namespace UberFrba.Abm_Cliente
+﻿namespace UberFrba.Abm_Automovil
 {
-    partial class ListadoCliente
+    partial class GrillaChofer
     {
         /// <summary>
         /// Required designer variable.
@@ -35,8 +35,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnAltaCliente = new System.Windows.Forms.Button();
-            this.btnRegresar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.grillaAutomovil = new System.Windows.Forms.DataGridView();
@@ -55,7 +53,7 @@
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(606, 98);
-            this.groupBox1.TabIndex = 11;
+            this.groupBox1.TabIndex = 21;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros de búsqueda";
             // 
@@ -107,30 +105,12 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre";
             // 
-            // btnAltaCliente
-            // 
-            this.btnAltaCliente.Location = new System.Drawing.Point(496, 344);
-            this.btnAltaCliente.Name = "btnAltaCliente";
-            this.btnAltaCliente.Size = new System.Drawing.Size(122, 23);
-            this.btnAltaCliente.TabIndex = 10;
-            this.btnAltaCliente.Text = "Alta cliente";
-            this.btnAltaCliente.UseVisualStyleBackColor = true;
-            // 
-            // btnRegresar
-            // 
-            this.btnRegresar.Location = new System.Drawing.Point(12, 344);
-            this.btnRegresar.Name = "btnRegresar";
-            this.btnRegresar.Size = new System.Drawing.Size(122, 23);
-            this.btnRegresar.TabIndex = 9;
-            this.btnRegresar.Text = "Regresar";
-            this.btnRegresar.UseVisualStyleBackColor = true;
-            // 
             // btnLimpiar
             // 
             this.btnLimpiar.Location = new System.Drawing.Point(543, 116);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
-            this.btnLimpiar.TabIndex = 8;
+            this.btnLimpiar.TabIndex = 20;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
             // 
@@ -139,7 +119,7 @@
             this.btnBuscar.Location = new System.Drawing.Point(12, 116);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
-            this.btnBuscar.TabIndex = 7;
+            this.btnBuscar.TabIndex = 19;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
             // 
@@ -149,21 +129,19 @@
             this.grillaAutomovil.Location = new System.Drawing.Point(12, 145);
             this.grillaAutomovil.Name = "grillaAutomovil";
             this.grillaAutomovil.Size = new System.Drawing.Size(606, 179);
-            this.grillaAutomovil.TabIndex = 6;
+            this.grillaAutomovil.TabIndex = 18;
             // 
-            // ListadoCliente
+            // GrillaChofer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(631, 380);
+            this.ClientSize = new System.Drawing.Size(633, 340);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.btnAltaCliente);
-            this.Controls.Add(this.btnRegresar);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.grillaAutomovil);
-            this.Name = "ListadoCliente";
-            this.Text = "Listado Cliente";
+            this.Name = "GrillaChofer";
+            this.Text = "Seleccion de Chofer";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grillaAutomovil)).EndInit();
@@ -174,17 +152,14 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.TextBox txtDni;
         private System.Windows.Forms.TextBox txtApellido;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnAltaCliente;
-        private System.Windows.Forms.Button btnRegresar;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.DataGridView grillaAutomovil;
-        private System.Windows.Forms.TextBox txtNombre;
-
     }
 }

@@ -52,7 +52,7 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(41, 11);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(606, 98);
             this.groupBox1.TabIndex = 17;
@@ -109,7 +109,7 @@
             // 
             // btnAltaChofer
             // 
-            this.btnAltaChofer.Location = new System.Drawing.Point(525, 343);
+            this.btnAltaChofer.Location = new System.Drawing.Point(496, 344);
             this.btnAltaChofer.Name = "btnAltaChofer";
             this.btnAltaChofer.Size = new System.Drawing.Size(122, 23);
             this.btnAltaChofer.TabIndex = 16;
@@ -118,7 +118,7 @@
             // 
             // btnRegresar
             // 
-            this.btnRegresar.Location = new System.Drawing.Point(41, 343);
+            this.btnRegresar.Location = new System.Drawing.Point(12, 344);
             this.btnRegresar.Name = "btnRegresar";
             this.btnRegresar.Size = new System.Drawing.Size(122, 23);
             this.btnRegresar.TabIndex = 15;
@@ -127,7 +127,7 @@
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(572, 115);
+            this.btnLimpiar.Location = new System.Drawing.Point(543, 116);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
             this.btnLimpiar.TabIndex = 14;
@@ -136,7 +136,7 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(41, 115);
+            this.btnBuscar.Location = new System.Drawing.Point(12, 116);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
             this.btnBuscar.TabIndex = 13;
@@ -146,7 +146,7 @@
             // grillaAutomovil
             // 
             this.grillaAutomovil.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grillaAutomovil.Location = new System.Drawing.Point(41, 144);
+            this.grillaAutomovil.Location = new System.Drawing.Point(12, 145);
             this.grillaAutomovil.Name = "grillaAutomovil";
             this.grillaAutomovil.Size = new System.Drawing.Size(606, 179);
             this.grillaAutomovil.TabIndex = 12;
@@ -155,7 +155,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(688, 377);
+            this.ClientSize = new System.Drawing.Size(630, 381);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnAltaChofer);
             this.Controls.Add(this.btnRegresar);

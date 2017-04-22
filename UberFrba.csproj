@@ -44,11 +44,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abm Automovil\AltaAutomovil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Automovil\AltaAutomovil.Designer.cs">
+      <DependentUpon>AltaAutomovil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Abm Automovil\GrillaChofer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Automovil\GrillaChofer.Designer.cs">
+      <DependentUpon>GrillaChofer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Abm Automovil\GrillaTurno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Automovil\GrillaTurno.Designer.cs">
+      <DependentUpon>GrillaTurno.cs</DependentUpon>
+    </Compile>
     <Compile Include="Abm Automovil\ListadoAutomovil.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Abm Automovil\ListadoAutomovil.Designer.cs">
       <DependentUpon>ListadoAutomovil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Abm Chofer\AltaChofer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Chofer\AltaChofer.Designer.cs">
+      <DependentUpon>AltaChofer.cs</DependentUpon>
     </Compile>
     <Compile Include="Abm Chofer\ListadoChofer.cs">
       <SubType>Form</SubType>
@@ -56,17 +80,35 @@
     <Compile Include="Abm Chofer\ListadoChofer.Designer.cs">
       <DependentUpon>ListadoChofer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Abm Cliente\AltaCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Cliente\AltaCliente.Designer.cs">
+      <DependentUpon>AltaCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Abm Cliente\ListadoCliente.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Abm Cliente\ListadoCliente.Designer.cs">
       <DependentUpon>ListadoCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Abm Rol\AltaRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Rol\AltaRol.Designer.cs">
+      <DependentUpon>AltaRol.cs</DependentUpon>
+    </Compile>
     <Compile Include="Abm Rol\ListadoRol.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Abm Rol\ListadoRol.Designer.cs">
       <DependentUpon>ListadoRol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Abm Turno\AltaTurno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Turno\AltaTurno.Designer.cs">
+      <DependentUpon>AltaTurno.cs</DependentUpon>
     </Compile>
     <Compile Include="Abm Turno\ListadoTurno.cs">
       <SubType>Form</SubType>
@@ -94,11 +136,35 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Registro Viajes\Form1.cs">
+    <Compile Include="Registro Viajes\AltaViaje.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Registro Viajes\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Registro Viajes\AltaViaje.Designer.cs">
+      <DependentUpon>AltaViaje.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registro Viajes\GrillaAuto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registro Viajes\GrillaAuto.Designer.cs">
+      <DependentUpon>GrillaAuto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registro Viajes\GrillaChofer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registro Viajes\GrillaChofer.Designer.cs">
+      <DependentUpon>GrillaChofer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registro Viajes\GrillaCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registro Viajes\GrillaCliente.Designer.cs">
+      <DependentUpon>GrillaCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registro Viajes\GrillaTurno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registro Viajes\GrillaTurno.Designer.cs">
+      <DependentUpon>GrillaTurno.cs</DependentUpon>
     </Compile>
     <Compile Include="Rendicion Viajes\Form1.cs">
       <SubType>Form</SubType>
@@ -106,20 +172,44 @@
     <Compile Include="Rendicion Viajes\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Abm Automovil\AltaAutomovil.resx">
+      <DependentUpon>AltaAutomovil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Automovil\GrillaChofer.resx">
+      <DependentUpon>GrillaChofer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Automovil\GrillaTurno.resx">
+      <DependentUpon>GrillaTurno.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Abm Automovil\ListadoAutomovil.resx">
       <DependentUpon>ListadoAutomovil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Chofer\AltaChofer.resx">
+      <DependentUpon>AltaChofer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Chofer\ListadoChofer.resx">
       <DependentUpon>ListadoChofer.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Abm Cliente\AltaCliente.resx">
+      <DependentUpon>AltaCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Abm Cliente\ListadoCliente.resx">
       <DependentUpon>ListadoCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Rol\AltaRol.resx">
+      <DependentUpon>AltaRol.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Rol\ListadoRol.resx">
       <DependentUpon>ListadoRol.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Abm Turno\AltaTurno.resx">
+      <DependentUpon>AltaTurno.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Abm Turno\ListadoTurno.resx">
       <DependentUpon>ListadoTurno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -130,6 +220,21 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Registro Viajes\AltaViaje.resx">
+      <DependentUpon>AltaViaje.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registro Viajes\GrillaAuto.resx">
+      <DependentUpon>GrillaAuto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registro Viajes\GrillaChofer.resx">
+      <DependentUpon>GrillaChofer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registro Viajes\GrillaCliente.resx">
+      <DependentUpon>GrillaCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registro Viajes\GrillaTurno.resx">
+      <DependentUpon>GrillaTurno.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

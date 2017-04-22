@@ -8,16 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace UberFrba
+namespace UberFrba.Abm_Chofer
 {
-    public partial class Form1 : Form
+    public partial class AltaChofer : Form
     {
-        public Form1()
+        public AltaChofer()
         {
             InitializeComponent();
         }
-
-
-
     }
 }

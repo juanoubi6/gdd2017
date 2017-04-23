@@ -82,7 +82,7 @@
             // 
             // bntSelectChofer
             // 
-            this.bntSelectChofer.Location = new System.Drawing.Point(176, 130);
+            this.bntSelectChofer.Location = new System.Drawing.Point(180, 130);
             this.bntSelectChofer.Name = "bntSelectChofer";
             this.bntSelectChofer.Size = new System.Drawing.Size(75, 23);
             this.bntSelectChofer.TabIndex = 11;
@@ -95,13 +95,13 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(6, 135);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(38, 13);
+            this.label5.Size = new System.Drawing.Size(42, 13);
             this.label5.TabIndex = 10;
-            this.label5.Text = "Chofer";
+            this.label5.Text = "Chofer*";
             // 
             // txtChofer
             // 
-            this.txtChofer.Location = new System.Drawing.Point(50, 132);
+            this.txtChofer.Location = new System.Drawing.Point(54, 132);
             this.txtChofer.Name = "txtChofer";
             this.txtChofer.ReadOnly = true;
             this.txtChofer.Size = new System.Drawing.Size(121, 20);
@@ -112,13 +112,13 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(6, 109);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.Size = new System.Drawing.Size(39, 13);
             this.label4.TabIndex = 8;
-            this.label4.Text = "Turno";
+            this.label4.Text = "Turno*";
             // 
             // txtTurno
             // 
-            this.txtTurno.Location = new System.Drawing.Point(50, 106);
+            this.txtTurno.Location = new System.Drawing.Point(54, 106);
             this.txtTurno.Name = "txtTurno";
             this.txtTurno.ReadOnly = true;
             this.txtTurno.Size = new System.Drawing.Size(121, 20);
@@ -129,13 +129,13 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(6, 83);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 13);
+            this.label3.Size = new System.Drawing.Size(48, 13);
             this.label3.TabIndex = 6;
-            this.label3.Text = "Patente";
+            this.label3.Text = "Patente*";
             // 
             // txtPatente
             // 
-            this.txtPatente.Location = new System.Drawing.Point(50, 80);
+            this.txtPatente.Location = new System.Drawing.Point(54, 80);
             this.txtPatente.Name = "txtPatente";
             this.txtPatente.Size = new System.Drawing.Size(121, 20);
             this.txtPatente.TabIndex = 5;
@@ -145,13 +145,13 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(6, 57);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(42, 13);
+            this.label2.Size = new System.Drawing.Size(46, 13);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Modelo";
+            this.label2.Text = "Modelo*";
             // 
             // btnSelecTurno
             // 
-            this.btnSelecTurno.Location = new System.Drawing.Point(176, 103);
+            this.btnSelecTurno.Location = new System.Drawing.Point(180, 103);
             this.btnSelecTurno.Name = "btnSelecTurno";
             this.btnSelecTurno.Size = new System.Drawing.Size(75, 23);
             this.btnSelecTurno.TabIndex = 3;
@@ -161,7 +161,7 @@
             // 
             // txtModelo
             // 
-            this.txtModelo.Location = new System.Drawing.Point(50, 54);
+            this.txtModelo.Location = new System.Drawing.Point(54, 54);
             this.txtModelo.Name = "txtModelo";
             this.txtModelo.Size = new System.Drawing.Size(121, 20);
             this.txtModelo.TabIndex = 2;
@@ -169,7 +169,7 @@
             // cmbMarca
             // 
             this.cmbMarca.FormattingEnabled = true;
-            this.cmbMarca.Location = new System.Drawing.Point(50, 27);
+            this.cmbMarca.Location = new System.Drawing.Point(54, 27);
             this.cmbMarca.Name = "cmbMarca";
             this.cmbMarca.Size = new System.Drawing.Size(121, 21);
             this.cmbMarca.TabIndex = 1;
@@ -179,9 +179,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(6, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(37, 13);
+            this.label1.Size = new System.Drawing.Size(41, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Marca";
+            this.label1.Text = "Marca*";
             // 
             // btnLimpiar
             // 

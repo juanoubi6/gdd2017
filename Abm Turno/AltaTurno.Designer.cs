@@ -85,7 +85,7 @@
             // 
             // txtHoraFin
             // 
-            this.txtHoraFin.Location = new System.Drawing.Point(70, 47);
+            this.txtHoraFin.Location = new System.Drawing.Point(74, 47);
             this.txtHoraFin.Name = "txtHoraFin";
             this.txtHoraFin.Size = new System.Drawing.Size(121, 20);
             this.txtHoraFin.TabIndex = 34;
@@ -95,22 +95,22 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(7, 50);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 13);
+            this.label1.Size = new System.Drawing.Size(51, 13);
             this.label1.TabIndex = 33;
-            this.label1.Text = "Hora Fin";
+            this.label1.Text = "Hora Fin*";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(6, 76);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 13);
+            this.label3.Size = new System.Drawing.Size(67, 13);
             this.label3.TabIndex = 32;
-            this.label3.Text = "Descripcion";
+            this.label3.Text = "Descripcion*";
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(70, 73);
+            this.txtDescripcion.Location = new System.Drawing.Point(74, 73);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(121, 20);
             this.txtDescripcion.TabIndex = 31;
@@ -120,13 +120,13 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(6, 128);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(64, 13);
+            this.label6.Size = new System.Drawing.Size(68, 13);
             this.label6.TabIndex = 14;
-            this.label6.Text = "Precio Base";
+            this.label6.Text = "Precio Base*";
             // 
             // txtPrecioBase
             // 
-            this.txtPrecioBase.Location = new System.Drawing.Point(70, 125);
+            this.txtPrecioBase.Location = new System.Drawing.Point(74, 125);
             this.txtPrecioBase.Name = "txtPrecioBase";
             this.txtPrecioBase.ReadOnly = true;
             this.txtPrecioBase.Size = new System.Drawing.Size(121, 20);
@@ -148,13 +148,13 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(6, 102);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(49, 13);
+            this.label5.Size = new System.Drawing.Size(53, 13);
             this.label5.TabIndex = 10;
-            this.label5.Text = "Valor Km";
+            this.label5.Text = "Valor Km*";
             // 
             // txtValorkm
             // 
-            this.txtValorkm.Location = new System.Drawing.Point(70, 99);
+            this.txtValorkm.Location = new System.Drawing.Point(74, 99);
             this.txtValorkm.Name = "txtValorkm";
             this.txtValorkm.ReadOnly = true;
             this.txtValorkm.Size = new System.Drawing.Size(121, 20);
@@ -165,13 +165,13 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(6, 24);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 13);
+            this.label2.Size = new System.Drawing.Size(62, 13);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Hora Inicio";
+            this.label2.Text = "Hora Inicio*";
             // 
             // txtHoraInicio
             // 
-            this.txtHoraInicio.Location = new System.Drawing.Point(70, 21);
+            this.txtHoraInicio.Location = new System.Drawing.Point(74, 21);
             this.txtHoraInicio.Name = "txtHoraInicio";
             this.txtHoraInicio.Size = new System.Drawing.Size(121, 20);
             this.txtHoraInicio.TabIndex = 2;

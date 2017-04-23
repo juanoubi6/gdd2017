@@ -49,17 +49,25 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnSelectAuto = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.errorFechaHoraIni = new System.Windows.Forms.Label();
+            this.errorFechaHoraFin = new System.Windows.Forms.Label();
+            this.errorCantKm = new System.Windows.Forms.Label();
+            this.errorAuto = new System.Windows.Forms.Label();
+            this.errorChofer = new System.Windows.Forms.Label();
+            this.errorTurno = new System.Windows.Forms.Label();
+            this.errorCliente = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(319, 235);
+            this.btnGuardar.Location = new System.Drawing.Point(618, 235);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 6;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnLimpiar
             // 
@@ -72,6 +80,13 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.errorCliente);
+            this.groupBox1.Controls.Add(this.errorTurno);
+            this.groupBox1.Controls.Add(this.errorChofer);
+            this.groupBox1.Controls.Add(this.errorAuto);
+            this.groupBox1.Controls.Add(this.errorCantKm);
+            this.groupBox1.Controls.Add(this.errorFechaHoraFin);
+            this.groupBox1.Controls.Add(this.errorFechaHoraIni);
             this.groupBox1.Controls.Add(this.dtpFin);
             this.groupBox1.Controls.Add(this.dtpInicio);
             this.groupBox1.Controls.Add(this.btnSelectCliente);
@@ -92,7 +107,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(382, 217);
+            this.groupBox1.Size = new System.Drawing.Size(681, 217);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Carga de Campos";
@@ -253,11 +268,74 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Fecha y Hora Inicio*";
             // 
+            // errorFechaHoraIni
+            // 
+            this.errorFechaHoraIni.AutoSize = true;
+            this.errorFechaHoraIni.ForeColor = System.Drawing.Color.Red;
+            this.errorFechaHoraIni.Location = new System.Drawing.Point(313, 31);
+            this.errorFechaHoraIni.Name = "errorFechaHoraIni";
+            this.errorFechaHoraIni.Size = new System.Drawing.Size(0, 13);
+            this.errorFechaHoraIni.TabIndex = 20;
+            // 
+            // errorFechaHoraFin
+            // 
+            this.errorFechaHoraFin.AutoSize = true;
+            this.errorFechaHoraFin.ForeColor = System.Drawing.Color.Red;
+            this.errorFechaHoraFin.Location = new System.Drawing.Point(313, 57);
+            this.errorFechaHoraFin.Name = "errorFechaHoraFin";
+            this.errorFechaHoraFin.Size = new System.Drawing.Size(0, 13);
+            this.errorFechaHoraFin.TabIndex = 21;
+            // 
+            // errorCantKm
+            // 
+            this.errorCantKm.AutoSize = true;
+            this.errorCantKm.ForeColor = System.Drawing.Color.Red;
+            this.errorCantKm.Location = new System.Drawing.Point(313, 83);
+            this.errorCantKm.Name = "errorCantKm";
+            this.errorCantKm.Size = new System.Drawing.Size(0, 13);
+            this.errorCantKm.TabIndex = 22;
+            // 
+            // errorAuto
+            // 
+            this.errorAuto.AutoSize = true;
+            this.errorAuto.ForeColor = System.Drawing.Color.Red;
+            this.errorAuto.Location = new System.Drawing.Point(313, 108);
+            this.errorAuto.Name = "errorAuto";
+            this.errorAuto.Size = new System.Drawing.Size(0, 13);
+            this.errorAuto.TabIndex = 23;
+            // 
+            // errorChofer
+            // 
+            this.errorChofer.AutoSize = true;
+            this.errorChofer.ForeColor = System.Drawing.Color.Red;
+            this.errorChofer.Location = new System.Drawing.Point(313, 135);
+            this.errorChofer.Name = "errorChofer";
+            this.errorChofer.Size = new System.Drawing.Size(0, 13);
+            this.errorChofer.TabIndex = 24;
+            // 
+            // errorTurno
+            // 
+            this.errorTurno.AutoSize = true;
+            this.errorTurno.ForeColor = System.Drawing.Color.Red;
+            this.errorTurno.Location = new System.Drawing.Point(313, 161);
+            this.errorTurno.Name = "errorTurno";
+            this.errorTurno.Size = new System.Drawing.Size(0, 13);
+            this.errorTurno.TabIndex = 25;
+            // 
+            // errorCliente
+            // 
+            this.errorCliente.AutoSize = true;
+            this.errorCliente.ForeColor = System.Drawing.Color.Red;
+            this.errorCliente.Location = new System.Drawing.Point(313, 187);
+            this.errorCliente.Name = "errorCliente";
+            this.errorCliente.Size = new System.Drawing.Size(0, 13);
+            this.errorCliente.TabIndex = 26;
+            // 
             // AltaViaje
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(405, 273);
+            this.ClientSize = new System.Drawing.Size(708, 316);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.groupBox1);
@@ -292,5 +370,12 @@
         private System.Windows.Forms.TextBox txtTurno;
         private System.Windows.Forms.DateTimePicker dtpFin;
         private System.Windows.Forms.DateTimePicker dtpInicio;
+        private System.Windows.Forms.Label errorCliente;
+        private System.Windows.Forms.Label errorTurno;
+        private System.Windows.Forms.Label errorChofer;
+        private System.Windows.Forms.Label errorAuto;
+        private System.Windows.Forms.Label errorCantKm;
+        private System.Windows.Forms.Label errorFechaHoraFin;
+        private System.Windows.Forms.Label errorFechaHoraIni;
     }
 }

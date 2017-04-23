@@ -40,5 +40,51 @@ namespace UberFrba.Registro_Viajes
             GrillaCliente_Viaje grillaCliente = new GrillaCliente_Viaje(this);
             grillaCliente.Show();
         }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            int contadorErrores = 0;
+
+            errorFechaHoraIni.Text = Viaje.validarFechaHoraInicio(dtpInicio.Value);
+            if (errorFechaHoraIni.Text != "") contadorErrores++;
+
+            errorFechaHoraFin.Text = Viaje.validarFechaHoraFin(dtpInicio.Value);
+            if (errorFechaHoraFin.Text != "") contadorErrores++;
+
+            errorCantKm.Text = Viaje.validarCantKm(txtCantidad.Text);
+            if (errorCantKm.Text != "") contadorErrores++;
+
+            errorAuto.Text = Viaje.validarAuto(txtAuto.Text);
+            if (errorAuto.Text != "") contadorErrores++;
+
+            errorChofer.Text = Viaje.validarChofer(txtChofer.Text);
+            if (errorChofer.Text != "") contadorErrores++;
+
+            errorTurno.Text = Viaje.validarTurno(txtTurno.Text);
+            if (errorTurno.Text != "") contadorErrores++;
+
+            errorCliente.Text = Viaje.validarCliente(txtCliente.Text);
+            if (errorCliente.Text != "") contadorErrores++;
+
+            ////Validaciones adicionales
+            //Fecha y hora de inicio y fin son iguales
+            if (dtpInicio.Value == dtpFin.Value)
+            {
+                errorFechaHoraFin.Text = "Las fechas y horas de inicio y fin deben ser distintas";
+                errorFechaHoraIni.Text = "Las fechas y horas de inicio y fin deben ser distintas";
+                contadorErrores++;
+            }
+
+            //Fecha de inicio es mas grande que la fecha de fin
+            if (dtpInicio.Value > dtpFin.Value)
+            {
+                errorFechaHoraFin.Text = "La fecha y hora de inicio no puede ser mayor a la fecha y hora de fin";
+                errorFechaHoraIni.Text = "La fecha y hora de fin no puede ser menor a la fecha y hora de inicio";
+                contadorErrores++;
+            }
+
+
+
+        }
     }
 }

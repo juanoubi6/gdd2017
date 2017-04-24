@@ -31,22 +31,28 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.errorFuncionalidad = new System.Windows.Forms.Label();
+            this.errorNombre = new System.Windows.Forms.Label();
             this.lstFuncionalidad = new System.Windows.Forms.ListBox();
             this.chkHabilitado = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.grpErrorBaseDatos = new System.Windows.Forms.GroupBox();
+            this.lblErrorBaseDatos = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
+            this.grpErrorBaseDatos.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(238, 192);
+            this.btnGuardar.Location = new System.Drawing.Point(443, 192);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 6;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnLimpiar
             // 
@@ -59,6 +65,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.errorFuncionalidad);
+            this.groupBox1.Controls.Add(this.errorNombre);
             this.groupBox1.Controls.Add(this.lstFuncionalidad);
             this.groupBox1.Controls.Add(this.chkHabilitado);
             this.groupBox1.Controls.Add(this.label2);
@@ -66,10 +74,26 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(301, 174);
+            this.groupBox1.Size = new System.Drawing.Size(506, 174);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Carga de Campos";
+            // 
+            // errorFuncionalidad
+            // 
+            this.errorFuncionalidad.AutoSize = true;
+            this.errorFuncionalidad.Location = new System.Drawing.Point(219, 88);
+            this.errorFuncionalidad.Name = "errorFuncionalidad";
+            this.errorFuncionalidad.Size = new System.Drawing.Size(0, 13);
+            this.errorFuncionalidad.TabIndex = 15;
+            // 
+            // errorNombre
+            // 
+            this.errorNombre.AutoSize = true;
+            this.errorNombre.Location = new System.Drawing.Point(212, 30);
+            this.errorNombre.Name = "errorNombre";
+            this.errorNombre.Size = new System.Drawing.Size(0, 13);
+            this.errorNombre.TabIndex = 14;
             // 
             // lstFuncionalidad
             // 
@@ -82,7 +106,7 @@
             // chkHabilitado
             // 
             this.chkHabilitado.AutoSize = true;
-            this.chkHabilitado.Location = new System.Drawing.Point(222, 151);
+            this.chkHabilitado.Location = new System.Drawing.Point(6, 151);
             this.chkHabilitado.Name = "chkHabilitado";
             this.chkHabilitado.Size = new System.Drawing.Size(73, 17);
             this.chkHabilitado.TabIndex = 12;
@@ -115,11 +139,31 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre*";
             // 
+            // grpErrorBaseDatos
+            // 
+            this.grpErrorBaseDatos.Controls.Add(this.lblErrorBaseDatos);
+            this.grpErrorBaseDatos.Location = new System.Drawing.Point(12, 232);
+            this.grpErrorBaseDatos.Name = "grpErrorBaseDatos";
+            this.grpErrorBaseDatos.Size = new System.Drawing.Size(506, 67);
+            this.grpErrorBaseDatos.TabIndex = 16;
+            this.grpErrorBaseDatos.TabStop = false;
+            this.grpErrorBaseDatos.Text = "Error de base de datos";
+            this.grpErrorBaseDatos.Visible = false;
+            // 
+            // lblErrorBaseDatos
+            // 
+            this.lblErrorBaseDatos.AutoSize = true;
+            this.lblErrorBaseDatos.Location = new System.Drawing.Point(10, 30);
+            this.lblErrorBaseDatos.Name = "lblErrorBaseDatos";
+            this.lblErrorBaseDatos.Size = new System.Drawing.Size(0, 13);
+            this.lblErrorBaseDatos.TabIndex = 0;
+            // 
             // AltaRol
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(321, 233);
+            this.ClientSize = new System.Drawing.Size(530, 321);
+            this.Controls.Add(this.grpErrorBaseDatos);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.groupBox1);
@@ -127,6 +171,8 @@
             this.Text = "AltaRol";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.grpErrorBaseDatos.ResumeLayout(false);
+            this.grpErrorBaseDatos.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -141,5 +187,9 @@
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox lstFuncionalidad;
+        private System.Windows.Forms.Label errorFuncionalidad;
+        private System.Windows.Forms.Label errorNombre;
+        private System.Windows.Forms.GroupBox grpErrorBaseDatos;
+        private System.Windows.Forms.Label lblErrorBaseDatos;
     }
 }

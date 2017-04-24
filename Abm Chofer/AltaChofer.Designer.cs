@@ -31,6 +31,13 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.errorFechaNac = new System.Windows.Forms.Label();
+            this.errorDireccion = new System.Windows.Forms.Label();
+            this.errorEmail = new System.Windows.Forms.Label();
+            this.errorTelefono = new System.Windows.Forms.Label();
+            this.errorDni = new System.Windows.Forms.Label();
+            this.errorNombre = new System.Windows.Forms.Label();
+            this.errorApellido = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -48,17 +55,21 @@
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtApellido = new System.Windows.Forms.TextBox();
+            this.grpErrorBaseDatos = new System.Windows.Forms.GroupBox();
+            this.lblErrorBaseDatos = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
+            this.grpErrorBaseDatos.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(248, 254);
+            this.btnGuardar.Location = new System.Drawing.Point(591, 254);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 6;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnLimpiar
             // 
@@ -71,6 +82,13 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.errorFechaNac);
+            this.groupBox1.Controls.Add(this.errorDireccion);
+            this.groupBox1.Controls.Add(this.errorEmail);
+            this.groupBox1.Controls.Add(this.errorTelefono);
+            this.groupBox1.Controls.Add(this.errorDni);
+            this.groupBox1.Controls.Add(this.errorNombre);
+            this.groupBox1.Controls.Add(this.errorApellido);
             this.groupBox1.Controls.Add(this.txtNombre);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.label3);
@@ -90,10 +108,66 @@
             this.groupBox1.Controls.Add(this.txtApellido);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(311, 236);
+            this.groupBox1.Size = new System.Drawing.Size(654, 236);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Carga de Campos";
+            // 
+            // errorFechaNac
+            // 
+            this.errorFechaNac.AutoSize = true;
+            this.errorFechaNac.Location = new System.Drawing.Point(284, 30);
+            this.errorFechaNac.Name = "errorFechaNac";
+            this.errorFechaNac.Size = new System.Drawing.Size(0, 13);
+            this.errorFechaNac.TabIndex = 51;
+            // 
+            // errorDireccion
+            // 
+            this.errorDireccion.AutoSize = true;
+            this.errorDireccion.Location = new System.Drawing.Point(189, 187);
+            this.errorDireccion.Name = "errorDireccion";
+            this.errorDireccion.Size = new System.Drawing.Size(0, 13);
+            this.errorDireccion.TabIndex = 50;
+            // 
+            // errorEmail
+            // 
+            this.errorEmail.AutoSize = true;
+            this.errorEmail.Location = new System.Drawing.Point(189, 161);
+            this.errorEmail.Name = "errorEmail";
+            this.errorEmail.Size = new System.Drawing.Size(0, 13);
+            this.errorEmail.TabIndex = 49;
+            // 
+            // errorTelefono
+            // 
+            this.errorTelefono.AutoSize = true;
+            this.errorTelefono.Location = new System.Drawing.Point(189, 135);
+            this.errorTelefono.Name = "errorTelefono";
+            this.errorTelefono.Size = new System.Drawing.Size(0, 13);
+            this.errorTelefono.TabIndex = 48;
+            // 
+            // errorDni
+            // 
+            this.errorDni.AutoSize = true;
+            this.errorDni.Location = new System.Drawing.Point(189, 109);
+            this.errorDni.Name = "errorDni";
+            this.errorDni.Size = new System.Drawing.Size(0, 13);
+            this.errorDni.TabIndex = 47;
+            // 
+            // errorNombre
+            // 
+            this.errorNombre.AutoSize = true;
+            this.errorNombre.Location = new System.Drawing.Point(189, 83);
+            this.errorNombre.Name = "errorNombre";
+            this.errorNombre.Size = new System.Drawing.Size(0, 13);
+            this.errorNombre.TabIndex = 46;
+            // 
+            // errorApellido
+            // 
+            this.errorApellido.AutoSize = true;
+            this.errorApellido.Location = new System.Drawing.Point(189, 57);
+            this.errorApellido.Name = "errorApellido";
+            this.errorApellido.Size = new System.Drawing.Size(0, 13);
+            this.errorApellido.TabIndex = 45;
             // 
             // txtNombre
             // 
@@ -146,19 +220,21 @@
             // 
             // calendarioFechaNac
             // 
-            this.calendarioFechaNac.Location = new System.Drawing.Point(115, 26);
+            this.calendarioFechaNac.Location = new System.Drawing.Point(122, 25);
             this.calendarioFechaNac.Name = "calendarioFechaNac";
             this.calendarioFechaNac.TabIndex = 26;
             this.calendarioFechaNac.Visible = false;
+            this.calendarioFechaNac.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.calendarioFechaNac_DateSelected);
             // 
             // btnCalendario
             // 
-            this.btnCalendario.Location = new System.Drawing.Point(242, 25);
+            this.btnCalendario.Location = new System.Drawing.Point(249, 25);
             this.btnCalendario.Name = "btnCalendario";
             this.btnCalendario.Size = new System.Drawing.Size(29, 23);
             this.btnCalendario.TabIndex = 25;
             this.btnCalendario.Text = "...";
             this.btnCalendario.UseVisualStyleBackColor = true;
+            this.btnCalendario.Click += new System.EventHandler(this.btnCalendario_Click);
             // 
             // label7
             // 
@@ -171,7 +247,7 @@
             // 
             // txtFechaNac
             // 
-            this.txtFechaNac.Location = new System.Drawing.Point(115, 26);
+            this.txtFechaNac.Location = new System.Drawing.Point(122, 26);
             this.txtFechaNac.Name = "txtFechaNac";
             this.txtFechaNac.ReadOnly = true;
             this.txtFechaNac.Size = new System.Drawing.Size(121, 20);
@@ -197,7 +273,7 @@
             // chkHabilitado
             // 
             this.chkHabilitado.AutoSize = true;
-            this.chkHabilitado.Location = new System.Drawing.Point(232, 213);
+            this.chkHabilitado.Location = new System.Drawing.Point(6, 210);
             this.chkHabilitado.Name = "chkHabilitado";
             this.chkHabilitado.Size = new System.Drawing.Size(73, 17);
             this.chkHabilitado.TabIndex = 12;
@@ -238,11 +314,31 @@
             this.txtApellido.Size = new System.Drawing.Size(121, 20);
             this.txtApellido.TabIndex = 2;
             // 
+            // grpErrorBaseDatos
+            // 
+            this.grpErrorBaseDatos.Controls.Add(this.lblErrorBaseDatos);
+            this.grpErrorBaseDatos.Location = new System.Drawing.Point(12, 287);
+            this.grpErrorBaseDatos.Name = "grpErrorBaseDatos";
+            this.grpErrorBaseDatos.Size = new System.Drawing.Size(654, 74);
+            this.grpErrorBaseDatos.TabIndex = 17;
+            this.grpErrorBaseDatos.TabStop = false;
+            this.grpErrorBaseDatos.Text = "Error de base de datos";
+            this.grpErrorBaseDatos.Visible = false;
+            // 
+            // lblErrorBaseDatos
+            // 
+            this.lblErrorBaseDatos.AutoSize = true;
+            this.lblErrorBaseDatos.Location = new System.Drawing.Point(10, 30);
+            this.lblErrorBaseDatos.Name = "lblErrorBaseDatos";
+            this.lblErrorBaseDatos.Size = new System.Drawing.Size(0, 13);
+            this.lblErrorBaseDatos.TabIndex = 0;
+            // 
             // AltaChofer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(335, 289);
+            this.ClientSize = new System.Drawing.Size(678, 373);
+            this.Controls.Add(this.grpErrorBaseDatos);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.groupBox1);
@@ -250,6 +346,8 @@
             this.Text = "Alta Chofer";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.grpErrorBaseDatos.ResumeLayout(false);
+            this.grpErrorBaseDatos.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -276,6 +374,15 @@
         private System.Windows.Forms.TextBox txtDni;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtDireccion;
+        private System.Windows.Forms.GroupBox grpErrorBaseDatos;
+        private System.Windows.Forms.Label lblErrorBaseDatos;
+        private System.Windows.Forms.Label errorFechaNac;
+        private System.Windows.Forms.Label errorDireccion;
+        private System.Windows.Forms.Label errorEmail;
+        private System.Windows.Forms.Label errorTelefono;
+        private System.Windows.Forms.Label errorDni;
+        private System.Windows.Forms.Label errorNombre;
+        private System.Windows.Forms.Label errorApellido;
 
     }
 }

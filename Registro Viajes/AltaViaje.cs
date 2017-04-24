@@ -15,6 +15,10 @@ namespace UberFrba.Registro_Viajes
         public AltaViaje()
         {
             InitializeComponent();
+            dtpInicio.Format = DateTimePickerFormat.Custom;
+            dtpInicio.CustomFormat = "MM/dd/yyyy hh:mm:ss";  
+            dtpFin.Format = DateTimePickerFormat.Custom;
+            dtpFin.CustomFormat = "MM/dd/yyyy hh:mm:ss";  
         }
 
         private void btnSelectAuto_Click(object sender, EventArgs e)

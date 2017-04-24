@@ -44,11 +44,24 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
+            this.grpErrorBaseDatos = new System.Windows.Forms.GroupBox();
+            this.lblErrorBaseDatos = new System.Windows.Forms.Label();
+            this.errorMarca = new System.Windows.Forms.Label();
+            this.errorModelo = new System.Windows.Forms.Label();
+            this.errorPatente = new System.Windows.Forms.Label();
+            this.errorTurno = new System.Windows.Forms.Label();
+            this.errorChofer = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
+            this.grpErrorBaseDatos.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.errorChofer);
+            this.groupBox1.Controls.Add(this.errorTurno);
+            this.groupBox1.Controls.Add(this.errorPatente);
+            this.groupBox1.Controls.Add(this.errorModelo);
+            this.groupBox1.Controls.Add(this.errorMarca);
             this.groupBox1.Controls.Add(this.chkHabilitado);
             this.groupBox1.Controls.Add(this.bntSelectChofer);
             this.groupBox1.Controls.Add(this.label5);
@@ -64,7 +77,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(301, 186);
+            this.groupBox1.Size = new System.Drawing.Size(654, 186);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Carga de Campos";
@@ -72,7 +85,7 @@
             // chkHabilitado
             // 
             this.chkHabilitado.AutoSize = true;
-            this.chkHabilitado.Location = new System.Drawing.Point(215, 163);
+            this.chkHabilitado.Location = new System.Drawing.Point(6, 163);
             this.chkHabilitado.Name = "chkHabilitado";
             this.chkHabilitado.Size = new System.Drawing.Size(73, 17);
             this.chkHabilitado.TabIndex = 12;
@@ -194,18 +207,79 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(238, 204);
+            this.btnGuardar.Location = new System.Drawing.Point(591, 204);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 2;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
+            // grpErrorBaseDatos
+            // 
+            this.grpErrorBaseDatos.Controls.Add(this.lblErrorBaseDatos);
+            this.grpErrorBaseDatos.Location = new System.Drawing.Point(12, 245);
+            this.grpErrorBaseDatos.Name = "grpErrorBaseDatos";
+            this.grpErrorBaseDatos.Size = new System.Drawing.Size(654, 74);
+            this.grpErrorBaseDatos.TabIndex = 17;
+            this.grpErrorBaseDatos.TabStop = false;
+            this.grpErrorBaseDatos.Text = "Error de base de datos";
+            this.grpErrorBaseDatos.Visible = false;
+            // 
+            // lblErrorBaseDatos
+            // 
+            this.lblErrorBaseDatos.AutoSize = true;
+            this.lblErrorBaseDatos.Location = new System.Drawing.Point(10, 30);
+            this.lblErrorBaseDatos.Name = "lblErrorBaseDatos";
+            this.lblErrorBaseDatos.Size = new System.Drawing.Size(0, 13);
+            this.lblErrorBaseDatos.TabIndex = 0;
+            // 
+            // errorMarca
+            // 
+            this.errorMarca.AutoSize = true;
+            this.errorMarca.Location = new System.Drawing.Point(180, 30);
+            this.errorMarca.Name = "errorMarca";
+            this.errorMarca.Size = new System.Drawing.Size(0, 13);
+            this.errorMarca.TabIndex = 13;
+            // 
+            // errorModelo
+            // 
+            this.errorModelo.AutoSize = true;
+            this.errorModelo.Location = new System.Drawing.Point(181, 57);
+            this.errorModelo.Name = "errorModelo";
+            this.errorModelo.Size = new System.Drawing.Size(0, 13);
+            this.errorModelo.TabIndex = 14;
+            // 
+            // errorPatente
+            // 
+            this.errorPatente.AutoSize = true;
+            this.errorPatente.Location = new System.Drawing.Point(181, 83);
+            this.errorPatente.Name = "errorPatente";
+            this.errorPatente.Size = new System.Drawing.Size(0, 13);
+            this.errorPatente.TabIndex = 15;
+            // 
+            // errorTurno
+            // 
+            this.errorTurno.AutoSize = true;
+            this.errorTurno.Location = new System.Drawing.Point(261, 108);
+            this.errorTurno.Name = "errorTurno";
+            this.errorTurno.Size = new System.Drawing.Size(0, 13);
+            this.errorTurno.TabIndex = 16;
+            // 
+            // errorChofer
+            // 
+            this.errorChofer.AutoSize = true;
+            this.errorChofer.Location = new System.Drawing.Point(261, 135);
+            this.errorChofer.Name = "errorChofer";
+            this.errorChofer.Size = new System.Drawing.Size(0, 13);
+            this.errorChofer.TabIndex = 17;
             // 
             // AltaAutomovil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(323, 241);
+            this.ClientSize = new System.Drawing.Size(680, 366);
+            this.Controls.Add(this.grpErrorBaseDatos);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.groupBox1);
@@ -213,6 +287,8 @@
             this.Text = "Alta Automovil";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.grpErrorBaseDatos.ResumeLayout(false);
+            this.grpErrorBaseDatos.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -235,5 +311,12 @@
         private System.Windows.Forms.CheckBox chkHabilitado;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.GroupBox grpErrorBaseDatos;
+        private System.Windows.Forms.Label lblErrorBaseDatos;
+        private System.Windows.Forms.Label errorChofer;
+        private System.Windows.Forms.Label errorTurno;
+        private System.Windows.Forms.Label errorPatente;
+        private System.Windows.Forms.Label errorModelo;
+        private System.Windows.Forms.Label errorMarca;
     }
 }

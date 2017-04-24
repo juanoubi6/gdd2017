@@ -31,6 +31,13 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.errorCliente = new System.Windows.Forms.Label();
+            this.errorTurno = new System.Windows.Forms.Label();
+            this.errorChofer = new System.Windows.Forms.Label();
+            this.errorAuto = new System.Windows.Forms.Label();
+            this.errorCantKm = new System.Windows.Forms.Label();
+            this.errorFechaHoraFin = new System.Windows.Forms.Label();
+            this.errorFechaHoraIni = new System.Windows.Forms.Label();
             this.dtpFin = new System.Windows.Forms.DateTimePicker();
             this.dtpInicio = new System.Windows.Forms.DateTimePicker();
             this.btnSelectCliente = new System.Windows.Forms.Button();
@@ -49,14 +56,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnSelectAuto = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.errorFechaHoraIni = new System.Windows.Forms.Label();
-            this.errorFechaHoraFin = new System.Windows.Forms.Label();
-            this.errorCantKm = new System.Windows.Forms.Label();
-            this.errorAuto = new System.Windows.Forms.Label();
-            this.errorChofer = new System.Windows.Forms.Label();
-            this.errorTurno = new System.Windows.Forms.Label();
-            this.errorCliente = new System.Windows.Forms.Label();
+            this.grpErrorBaseDatos = new System.Windows.Forms.GroupBox();
+            this.lblErrorBaseDatos = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
+            this.grpErrorBaseDatos.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnGuardar
@@ -112,18 +115,83 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Carga de Campos";
             // 
+            // errorCliente
+            // 
+            this.errorCliente.AutoSize = true;
+            this.errorCliente.ForeColor = System.Drawing.Color.Red;
+            this.errorCliente.Location = new System.Drawing.Point(313, 187);
+            this.errorCliente.Name = "errorCliente";
+            this.errorCliente.Size = new System.Drawing.Size(0, 13);
+            this.errorCliente.TabIndex = 26;
+            // 
+            // errorTurno
+            // 
+            this.errorTurno.AutoSize = true;
+            this.errorTurno.ForeColor = System.Drawing.Color.Red;
+            this.errorTurno.Location = new System.Drawing.Point(313, 161);
+            this.errorTurno.Name = "errorTurno";
+            this.errorTurno.Size = new System.Drawing.Size(0, 13);
+            this.errorTurno.TabIndex = 25;
+            // 
+            // errorChofer
+            // 
+            this.errorChofer.AutoSize = true;
+            this.errorChofer.ForeColor = System.Drawing.Color.Red;
+            this.errorChofer.Location = new System.Drawing.Point(313, 135);
+            this.errorChofer.Name = "errorChofer";
+            this.errorChofer.Size = new System.Drawing.Size(0, 13);
+            this.errorChofer.TabIndex = 24;
+            // 
+            // errorAuto
+            // 
+            this.errorAuto.AutoSize = true;
+            this.errorAuto.ForeColor = System.Drawing.Color.Red;
+            this.errorAuto.Location = new System.Drawing.Point(313, 108);
+            this.errorAuto.Name = "errorAuto";
+            this.errorAuto.Size = new System.Drawing.Size(0, 13);
+            this.errorAuto.TabIndex = 23;
+            // 
+            // errorCantKm
+            // 
+            this.errorCantKm.AutoSize = true;
+            this.errorCantKm.ForeColor = System.Drawing.Color.Red;
+            this.errorCantKm.Location = new System.Drawing.Point(313, 83);
+            this.errorCantKm.Name = "errorCantKm";
+            this.errorCantKm.Size = new System.Drawing.Size(0, 13);
+            this.errorCantKm.TabIndex = 22;
+            // 
+            // errorFechaHoraFin
+            // 
+            this.errorFechaHoraFin.AutoSize = true;
+            this.errorFechaHoraFin.ForeColor = System.Drawing.Color.Red;
+            this.errorFechaHoraFin.Location = new System.Drawing.Point(313, 57);
+            this.errorFechaHoraFin.Name = "errorFechaHoraFin";
+            this.errorFechaHoraFin.Size = new System.Drawing.Size(0, 13);
+            this.errorFechaHoraFin.TabIndex = 21;
+            // 
+            // errorFechaHoraIni
+            // 
+            this.errorFechaHoraIni.AutoSize = true;
+            this.errorFechaHoraIni.ForeColor = System.Drawing.Color.Red;
+            this.errorFechaHoraIni.Location = new System.Drawing.Point(313, 31);
+            this.errorFechaHoraIni.Name = "errorFechaHoraIni";
+            this.errorFechaHoraIni.Size = new System.Drawing.Size(0, 13);
+            this.errorFechaHoraIni.TabIndex = 20;
+            // 
             // dtpFin
             // 
+            this.dtpFin.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpFin.Location = new System.Drawing.Point(107, 54);
             this.dtpFin.Name = "dtpFin";
-            this.dtpFin.Size = new System.Drawing.Size(200, 20);
+            this.dtpFin.Size = new System.Drawing.Size(151, 20);
             this.dtpFin.TabIndex = 19;
             // 
             // dtpInicio
             // 
+            this.dtpInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpInicio.Location = new System.Drawing.Point(107, 28);
             this.dtpInicio.Name = "dtpInicio";
-            this.dtpInicio.Size = new System.Drawing.Size(200, 20);
+            this.dtpInicio.Size = new System.Drawing.Size(151, 20);
             this.dtpInicio.TabIndex = 18;
             // 
             // btnSelectCliente
@@ -268,74 +336,31 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Fecha y Hora Inicio*";
             // 
-            // errorFechaHoraIni
+            // grpErrorBaseDatos
             // 
-            this.errorFechaHoraIni.AutoSize = true;
-            this.errorFechaHoraIni.ForeColor = System.Drawing.Color.Red;
-            this.errorFechaHoraIni.Location = new System.Drawing.Point(313, 31);
-            this.errorFechaHoraIni.Name = "errorFechaHoraIni";
-            this.errorFechaHoraIni.Size = new System.Drawing.Size(0, 13);
-            this.errorFechaHoraIni.TabIndex = 20;
+            this.grpErrorBaseDatos.Controls.Add(this.lblErrorBaseDatos);
+            this.grpErrorBaseDatos.Location = new System.Drawing.Point(12, 272);
+            this.grpErrorBaseDatos.Name = "grpErrorBaseDatos";
+            this.grpErrorBaseDatos.Size = new System.Drawing.Size(681, 67);
+            this.grpErrorBaseDatos.TabIndex = 16;
+            this.grpErrorBaseDatos.TabStop = false;
+            this.grpErrorBaseDatos.Text = "Error de base de datos";
+            this.grpErrorBaseDatos.Visible = false;
             // 
-            // errorFechaHoraFin
+            // lblErrorBaseDatos
             // 
-            this.errorFechaHoraFin.AutoSize = true;
-            this.errorFechaHoraFin.ForeColor = System.Drawing.Color.Red;
-            this.errorFechaHoraFin.Location = new System.Drawing.Point(313, 57);
-            this.errorFechaHoraFin.Name = "errorFechaHoraFin";
-            this.errorFechaHoraFin.Size = new System.Drawing.Size(0, 13);
-            this.errorFechaHoraFin.TabIndex = 21;
-            // 
-            // errorCantKm
-            // 
-            this.errorCantKm.AutoSize = true;
-            this.errorCantKm.ForeColor = System.Drawing.Color.Red;
-            this.errorCantKm.Location = new System.Drawing.Point(313, 83);
-            this.errorCantKm.Name = "errorCantKm";
-            this.errorCantKm.Size = new System.Drawing.Size(0, 13);
-            this.errorCantKm.TabIndex = 22;
-            // 
-            // errorAuto
-            // 
-            this.errorAuto.AutoSize = true;
-            this.errorAuto.ForeColor = System.Drawing.Color.Red;
-            this.errorAuto.Location = new System.Drawing.Point(313, 108);
-            this.errorAuto.Name = "errorAuto";
-            this.errorAuto.Size = new System.Drawing.Size(0, 13);
-            this.errorAuto.TabIndex = 23;
-            // 
-            // errorChofer
-            // 
-            this.errorChofer.AutoSize = true;
-            this.errorChofer.ForeColor = System.Drawing.Color.Red;
-            this.errorChofer.Location = new System.Drawing.Point(313, 135);
-            this.errorChofer.Name = "errorChofer";
-            this.errorChofer.Size = new System.Drawing.Size(0, 13);
-            this.errorChofer.TabIndex = 24;
-            // 
-            // errorTurno
-            // 
-            this.errorTurno.AutoSize = true;
-            this.errorTurno.ForeColor = System.Drawing.Color.Red;
-            this.errorTurno.Location = new System.Drawing.Point(313, 161);
-            this.errorTurno.Name = "errorTurno";
-            this.errorTurno.Size = new System.Drawing.Size(0, 13);
-            this.errorTurno.TabIndex = 25;
-            // 
-            // errorCliente
-            // 
-            this.errorCliente.AutoSize = true;
-            this.errorCliente.ForeColor = System.Drawing.Color.Red;
-            this.errorCliente.Location = new System.Drawing.Point(313, 187);
-            this.errorCliente.Name = "errorCliente";
-            this.errorCliente.Size = new System.Drawing.Size(0, 13);
-            this.errorCliente.TabIndex = 26;
+            this.lblErrorBaseDatos.AutoSize = true;
+            this.lblErrorBaseDatos.Location = new System.Drawing.Point(10, 30);
+            this.lblErrorBaseDatos.Name = "lblErrorBaseDatos";
+            this.lblErrorBaseDatos.Size = new System.Drawing.Size(0, 13);
+            this.lblErrorBaseDatos.TabIndex = 0;
             // 
             // AltaViaje
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(708, 316);
+            this.ClientSize = new System.Drawing.Size(708, 360);
+            this.Controls.Add(this.grpErrorBaseDatos);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.groupBox1);
@@ -343,6 +368,8 @@
             this.Text = "Registro de Viaje";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.grpErrorBaseDatos.ResumeLayout(false);
+            this.grpErrorBaseDatos.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -377,5 +404,7 @@
         private System.Windows.Forms.Label errorCantKm;
         private System.Windows.Forms.Label errorFechaHoraFin;
         private System.Windows.Forms.Label errorFechaHoraIni;
+        private System.Windows.Forms.GroupBox grpErrorBaseDatos;
+        private System.Windows.Forms.Label lblErrorBaseDatos;
     }
 }

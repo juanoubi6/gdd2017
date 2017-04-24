@@ -28,5 +28,29 @@ namespace UberFrba.Abm_Automovil
             GrillaChofer_Auto grillaChofer = new GrillaChofer_Auto(this);
             grillaChofer.Show();
         }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            int contadorErrores = 0;
+
+            if (cmbMarca.SelectedValue == null)
+            {
+                contadorErrores++;
+                errorMarca.Text = "El campo no puede ser vacio";
+            }
+
+            errorModelo.Text = Automovil.validarModelo(txtModelo.Text);
+            if (errorModelo.Text != "") contadorErrores++;
+
+            errorPatente.Text = Automovil.validarPatente(txtPatente.Text);
+            if (errorPatente.Text != "") contadorErrores++;
+
+            errorTurno.Text = Automovil.validarTurno(txtTurno.Text);
+            if (errorTurno.Text != "") contadorErrores++;
+
+            errorChofer.Text = Automovil.validarChofer(txtChofer.Text);
+            if (errorChofer.Text != "") contadorErrores++;
+
+        }
     }
 }

@@ -23,7 +23,8 @@ namespace UberFrba.Registro_Viajes
             int cantNumerica;
             if (String.IsNullOrEmpty(cantidad))             return "El valor no puede ser vacio";
             if (!int.TryParse(cantidad, out cantNumerica))  return "El valor no es numérico";
-            if (Int32.Parse(cantidad) <= 0)                 return "El valor de los kilómetros debe ser mayor o igual a 0"; 
+            if (Int32.Parse(cantidad) <= 0)                 return "El valor de los kilómetros debe ser mayor a 0";
+            if (cantidad.Length > 17)                       return "El valor ingresado es demasiado grande";
             return "";
         }
 

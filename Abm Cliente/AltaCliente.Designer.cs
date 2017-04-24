@@ -31,6 +31,14 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.errorCodPostal = new System.Windows.Forms.Label();
+            this.errorDireccion = new System.Windows.Forms.Label();
+            this.errorEmail = new System.Windows.Forms.Label();
+            this.errorTelefono = new System.Windows.Forms.Label();
+            this.errorDni = new System.Windows.Forms.Label();
+            this.errorNombre = new System.Windows.Forms.Label();
+            this.errorApellido = new System.Windows.Forms.Label();
+            this.errorFechaNac = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.txtCodpostal = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
@@ -50,17 +58,21 @@
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtApellido = new System.Windows.Forms.TextBox();
+            this.grpErrorBaseDatos = new System.Windows.Forms.GroupBox();
+            this.lblErrorBaseDatos = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
+            this.grpErrorBaseDatos.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(248, 280);
+            this.btnGuardar.Location = new System.Drawing.Point(591, 280);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 10;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnLimpiar
             // 
@@ -73,6 +85,14 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.errorCodPostal);
+            this.groupBox1.Controls.Add(this.errorDireccion);
+            this.groupBox1.Controls.Add(this.errorEmail);
+            this.groupBox1.Controls.Add(this.errorTelefono);
+            this.groupBox1.Controls.Add(this.errorDni);
+            this.groupBox1.Controls.Add(this.errorNombre);
+            this.groupBox1.Controls.Add(this.errorApellido);
+            this.groupBox1.Controls.Add(this.errorFechaNac);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.txtCodpostal);
             this.groupBox1.Controls.Add(this.txtNombre);
@@ -94,10 +114,74 @@
             this.groupBox1.Controls.Add(this.txtApellido);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(311, 262);
+            this.groupBox1.Size = new System.Drawing.Size(654, 262);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Carga de Campos";
+            // 
+            // errorCodPostal
+            // 
+            this.errorCodPostal.AutoSize = true;
+            this.errorCodPostal.Location = new System.Drawing.Point(195, 213);
+            this.errorCodPostal.Name = "errorCodPostal";
+            this.errorCodPostal.Size = new System.Drawing.Size(0, 13);
+            this.errorCodPostal.TabIndex = 44;
+            // 
+            // errorDireccion
+            // 
+            this.errorDireccion.AutoSize = true;
+            this.errorDireccion.Location = new System.Drawing.Point(195, 187);
+            this.errorDireccion.Name = "errorDireccion";
+            this.errorDireccion.Size = new System.Drawing.Size(0, 13);
+            this.errorDireccion.TabIndex = 43;
+            // 
+            // errorEmail
+            // 
+            this.errorEmail.AutoSize = true;
+            this.errorEmail.Location = new System.Drawing.Point(195, 161);
+            this.errorEmail.Name = "errorEmail";
+            this.errorEmail.Size = new System.Drawing.Size(0, 13);
+            this.errorEmail.TabIndex = 42;
+            // 
+            // errorTelefono
+            // 
+            this.errorTelefono.AutoSize = true;
+            this.errorTelefono.Location = new System.Drawing.Point(195, 135);
+            this.errorTelefono.Name = "errorTelefono";
+            this.errorTelefono.Size = new System.Drawing.Size(0, 13);
+            this.errorTelefono.TabIndex = 41;
+            // 
+            // errorDni
+            // 
+            this.errorDni.AutoSize = true;
+            this.errorDni.Location = new System.Drawing.Point(195, 109);
+            this.errorDni.Name = "errorDni";
+            this.errorDni.Size = new System.Drawing.Size(0, 13);
+            this.errorDni.TabIndex = 40;
+            // 
+            // errorNombre
+            // 
+            this.errorNombre.AutoSize = true;
+            this.errorNombre.Location = new System.Drawing.Point(195, 83);
+            this.errorNombre.Name = "errorNombre";
+            this.errorNombre.Size = new System.Drawing.Size(0, 13);
+            this.errorNombre.TabIndex = 39;
+            // 
+            // errorApellido
+            // 
+            this.errorApellido.AutoSize = true;
+            this.errorApellido.Location = new System.Drawing.Point(195, 57);
+            this.errorApellido.Name = "errorApellido";
+            this.errorApellido.Size = new System.Drawing.Size(0, 13);
+            this.errorApellido.TabIndex = 38;
+            // 
+            // errorFechaNac
+            // 
+            this.errorFechaNac.AutoSize = true;
+            this.errorFechaNac.Location = new System.Drawing.Point(278, 31);
+            this.errorFechaNac.Name = "errorFechaNac";
+            this.errorFechaNac.Size = new System.Drawing.Size(0, 13);
+            this.errorFechaNac.TabIndex = 37;
             // 
             // label8
             // 
@@ -112,7 +196,6 @@
             // 
             this.txtCodpostal.Location = new System.Drawing.Point(68, 210);
             this.txtCodpostal.Name = "txtCodpostal";
-            this.txtCodpostal.ReadOnly = true;
             this.txtCodpostal.Size = new System.Drawing.Size(121, 20);
             this.txtCodpostal.TabIndex = 35;
             // 
@@ -161,16 +244,16 @@
             // 
             this.txtDireccion.Location = new System.Drawing.Point(68, 184);
             this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.ReadOnly = true;
             this.txtDireccion.Size = new System.Drawing.Size(121, 20);
             this.txtDireccion.TabIndex = 29;
             // 
             // calendarioFechaNac
             // 
-            this.calendarioFechaNac.Location = new System.Drawing.Point(115, 26);
+            this.calendarioFechaNac.Location = new System.Drawing.Point(115, 25);
             this.calendarioFechaNac.Name = "calendarioFechaNac";
             this.calendarioFechaNac.TabIndex = 26;
             this.calendarioFechaNac.Visible = false;
+            this.calendarioFechaNac.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.calendarioFechaNac_DateSelected);
             // 
             // btnCalendario
             // 
@@ -180,6 +263,7 @@
             this.btnCalendario.TabIndex = 25;
             this.btnCalendario.Text = "...";
             this.btnCalendario.UseVisualStyleBackColor = true;
+            this.btnCalendario.Click += new System.EventHandler(this.btnCalendario_Click);
             // 
             // label7
             // 
@@ -211,14 +295,13 @@
             // 
             this.txtEmail.Location = new System.Drawing.Point(68, 158);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.ReadOnly = true;
             this.txtEmail.Size = new System.Drawing.Size(121, 20);
             this.txtEmail.TabIndex = 13;
             // 
             // chkHabilitado
             // 
             this.chkHabilitado.AutoSize = true;
-            this.chkHabilitado.Location = new System.Drawing.Point(232, 239);
+            this.chkHabilitado.Location = new System.Drawing.Point(10, 236);
             this.chkHabilitado.Name = "chkHabilitado";
             this.chkHabilitado.Size = new System.Drawing.Size(73, 17);
             this.chkHabilitado.TabIndex = 12;
@@ -239,7 +322,6 @@
             // 
             this.txtTelefono.Location = new System.Drawing.Point(68, 132);
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.ReadOnly = true;
             this.txtTelefono.Size = new System.Drawing.Size(121, 20);
             this.txtTelefono.TabIndex = 9;
             // 
@@ -259,11 +341,31 @@
             this.txtApellido.Size = new System.Drawing.Size(121, 20);
             this.txtApellido.TabIndex = 2;
             // 
+            // grpErrorBaseDatos
+            // 
+            this.grpErrorBaseDatos.Controls.Add(this.lblErrorBaseDatos);
+            this.grpErrorBaseDatos.Location = new System.Drawing.Point(12, 321);
+            this.grpErrorBaseDatos.Name = "grpErrorBaseDatos";
+            this.grpErrorBaseDatos.Size = new System.Drawing.Size(654, 74);
+            this.grpErrorBaseDatos.TabIndex = 16;
+            this.grpErrorBaseDatos.TabStop = false;
+            this.grpErrorBaseDatos.Text = "Error de base de datos";
+            this.grpErrorBaseDatos.Visible = false;
+            // 
+            // lblErrorBaseDatos
+            // 
+            this.lblErrorBaseDatos.AutoSize = true;
+            this.lblErrorBaseDatos.Location = new System.Drawing.Point(10, 30);
+            this.lblErrorBaseDatos.Name = "lblErrorBaseDatos";
+            this.lblErrorBaseDatos.Size = new System.Drawing.Size(0, 13);
+            this.lblErrorBaseDatos.TabIndex = 0;
+            // 
             // AltaCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(337, 324);
+            this.ClientSize = new System.Drawing.Size(678, 407);
+            this.Controls.Add(this.grpErrorBaseDatos);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.groupBox1);
@@ -271,6 +373,8 @@
             this.Text = "Alta Cliente";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.grpErrorBaseDatos.ResumeLayout(false);
+            this.grpErrorBaseDatos.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -299,5 +403,15 @@
         private System.Windows.Forms.TextBox txtApellido;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtCodpostal;
+        private System.Windows.Forms.Label errorCodPostal;
+        private System.Windows.Forms.Label errorDireccion;
+        private System.Windows.Forms.Label errorEmail;
+        private System.Windows.Forms.Label errorTelefono;
+        private System.Windows.Forms.Label errorDni;
+        private System.Windows.Forms.Label errorNombre;
+        private System.Windows.Forms.Label errorApellido;
+        private System.Windows.Forms.Label errorFechaNac;
+        private System.Windows.Forms.GroupBox grpErrorBaseDatos;
+        private System.Windows.Forms.Label lblErrorBaseDatos;
     }
 }

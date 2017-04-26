@@ -19,9 +19,21 @@ namespace UberFrba
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            MenuPrincipal menuPrincipal = new MenuPrincipal();
-            this.Hide();
-            menuPrincipal.Show();
+            try
+            {
+                if (LoginClass.login(txtUsuario.Text, txtContraseña.Text) == null)
+                {
+                    //MenuPrincipal menuPrincipal = new MenuPrincipal();
+                    //menuPrincipal.Show();
+                }
+                //MenuPrincipal menuPrincipal = new MenuPrincipal();
+                //this.Hide();
+                //menuPrincipal.Show();
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
 
 

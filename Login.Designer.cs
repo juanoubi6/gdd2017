@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnLogin = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.txtContraseña = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtUsuario = new System.Windows.Forms.TextBox();
-            this.btnLogin = new System.Windows.Forms.Button();
             this.gridRoles = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridRoles)).BeginInit();
@@ -53,6 +53,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Login";
             // 
+            // btnLogin
+            // 
+            this.btnLogin.Location = new System.Drawing.Point(191, 86);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(75, 23);
+            this.btnLogin.TabIndex = 36;
+            this.btnLogin.Text = "Login";
+            this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -66,7 +76,6 @@
             // 
             this.txtContraseña.Location = new System.Drawing.Point(71, 55);
             this.txtContraseña.Name = "txtContraseña";
-            this.txtContraseña.ReadOnly = true;
             this.txtContraseña.Size = new System.Drawing.Size(121, 20);
             this.txtContraseña.TabIndex = 34;
             // 
@@ -83,19 +92,8 @@
             // 
             this.txtUsuario.Location = new System.Drawing.Point(71, 29);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.ReadOnly = true;
             this.txtUsuario.Size = new System.Drawing.Size(121, 20);
             this.txtUsuario.TabIndex = 31;
-            // 
-            // btnLogin
-            // 
-            this.btnLogin.Location = new System.Drawing.Point(191, 86);
-            this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(75, 23);
-            this.btnLogin.TabIndex = 36;
-            this.btnLogin.Text = "Login";
-            this.btnLogin.UseVisualStyleBackColor = true;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // gridRoles
             // 

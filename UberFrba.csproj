@@ -33,6 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -121,6 +122,7 @@
       <DependentUpon>ListadoTurno.cs</DependentUpon>
     </Compile>
     <Compile Include="Abm Turno\Turno.cs" />
+    <Compile Include="DBconnection.cs" />
     <Compile Include="Facturacion\Factura.cs" />
     <Compile Include="Facturacion\Form1.cs">
       <SubType>Form</SubType>
@@ -140,6 +142,7 @@
     <Compile Include="Listado Estadistico\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="LoginClass.cs" />
     <Compile Include="MenuPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>

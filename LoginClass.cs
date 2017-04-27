@@ -16,29 +16,54 @@ namespace UberFrba
 
                 DataTable dtUsuario = new DataTable();
 
-                //Creo el comando a ejecutar y sus parametros
-                SqlCommand cmd = new SqlCommand("SELECT * FROM Usuario where Usuario_Username=@username and Usuario_Password=@password");
+                //Voy a buscar si existe el usuario
+                SqlCommand cmd = new SqlCommand("SELECT * FROM Usuario where Usuario_Username=@username");
                 cmd.Connection = DBconnection.getInstance();
                 cmd.Parameters.Add("@username", SqlDbType.VarChar);
-                cmd.Parameters.Add("@password", SqlDbType.VarChar);
                 cmd.Parameters["@username"].Value = username;
-                cmd.Parameters["@password"].Value = hash;
 
                 SqlDataAdapter adapterUsuario = new SqlDataAdapter(cmd);
 
                 try
                 {
-                    //El metodo Fill() te abre y cierra la conexion solo, por eso no la abri
                     adapterUsuario.Fill(dtUsuario);
 
-                    //Si encuentra el usuario, voy a buscar sus roles
+                    //Si encuentra el usuario, voy a verificar si la contraseña es correcta
                     if (dtUsuario.Rows.Count > 0)
                     {
-                        return buscarRoles(username);
+                        DataTable dtUsuarioYPassword = new DataTable();
+
+                        SqlCommand cmd2 = new SqlCommand("SELECT * FROM Usuario where Usuario_Username=@username and Usuario_Password=@password");
+                        cmd2.Connection = DBconnection.getInstance();
+                        cmd2.Parameters.Add("@username", SqlDbType.VarChar);
+                        cmd2.Parameters.Add("@password", SqlDbType.VarChar);
+                        cmd2.Parameters["@username"].Value = username;
+                        cmd2.Parameters["@password"].Value = hash;
+
+                        SqlDataAdapter adapterUsuarioYContraseña = new SqlDataAdapter(cmd2);
+                        adapterUsuarioYContraseña.Fill(dtUsuarioYPassword);
+
+                        //Si encuentro el usuario y la contraseña es correcta, verifico que no tenga 3 reintentos o se lo informo
+                        if (dtUsuarioYPassword.Rows.Count > 0)
+                        {
+                            if ((Int16)(dtUsuarioYPassword.Rows[0]["Usuario_Reintentos"]) >= 3)
+                            {
+                                throw new DataException("Usuario bloqueado");
+                            }
+                            else
+                            {
+                                return buscarRoles(username);
+                            }
+                        }
+                        else
+                        {
+                            aumentarReintentos(username);
+                            throw new DataException("Contraseña incorrecta");
+                        }
                     }
                     else
                     {
-                        throw new Exception("No se encontraron datos para el usuario y contraseña informados");
+                        throw new DataException("Usuario inexistente");
                     }
 
                 }
@@ -46,6 +71,26 @@ namespace UberFrba
                 {
                     throw ex;
                 }
+
+        }
+
+        private static void aumentarReintentos(String username)
+        {
+            SqlCommand cmd = new SqlCommand("UPDATE Usuario SET Usuario_Reintentos = Usuario_Reintentos + 1 WHERE Usuario_Username = @username");
+            cmd.Connection = DBconnection.getInstance();
+            cmd.Parameters.Add("@username", SqlDbType.VarChar);
+            cmd.Parameters["@username"].Value = username;
+
+            try
+            {
+                cmd.Connection.Open();
+                cmd.ExecuteNonQuery();
+                cmd.Connection.Close();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
 
         }
 
@@ -61,7 +106,15 @@ namespace UberFrba
 
             SqlDataAdapter adapterRoles = new SqlDataAdapter(cmd2);
 
-            adapterRoles.Fill(dtRoles);
+            try
+            {
+                adapterRoles.Fill(dtRoles);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
             return dtRoles;
         }
 
@@ -75,22 +128,21 @@ namespace UberFrba
             cmd.Parameters.Add("@codigoRol", SqlDbType.Int);
             cmd.Parameters["@codigoRol"].Value = codigo_rol;
 
+            SqlDataReader reader;
+
             try
             {
 
-                SqlConnection connection = DBconnection.getInstance();
-                SqlDataReader reader;
+                cmd.Connection.Open();
+                reader = cmd.ExecuteReader();
 
-                using (connection)
+                while (reader.Read())
                 {
-                    connection.Open();
-                    reader = cmd.ExecuteReader();
-
-                    while (reader.Read())
-                    {
-                        funcionalidades.Add(reader["Funcionalidad_Nombre"].ToString());
-                    }
+                    funcionalidades.Add(reader["Funcionalidad_Nombre"].ToString());
                 }
+
+                cmd.Connection.Close();
+
             }
             catch (Exception ex)
             {

@@ -147,10 +147,10 @@ namespace UberFrba
             if (!funcionalidades.Contains("ABMcliente")) clienteToolStripMenuItem.Visible = false;
             if (!funcionalidades.Contains("ABMturno")) turnoToolStripMenuItem.Visible = false;
             if (!funcionalidades.Contains("ABMrol")) rolToolStripMenuItem.Visible = false;
-            if (!funcionalidades.Contains("Facturacion")) facturacionToolStripMenuItem.Visible = false;
+            if (!funcionalidades.Contains("Facturacion")) facturacionToolStripMenuItem1.Visible = false;
             if (!funcionalidades.Contains("RegistroViaje")) registroDeViajeToolStripMenuItem.Visible = false;
             if (!funcionalidades.Contains("RendicionViaje")) rendiconDeViajeToolStripMenuItem.Visible = false;
-            if (!funcionalidades.Contains("ListadoEstadistico")) listadoEstadisticoToolStripMenuItem.Visible = false;
+            if (!funcionalidades.Contains("ListadoEstadistico")) listadoEstadisticoToolStripMenuItem1.Visible = false;
         }
 
     }

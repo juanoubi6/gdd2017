@@ -19,6 +19,13 @@ namespace UberFrba
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+
+            if (String.IsNullOrEmpty(txtContraseña.Text) || String.IsNullOrEmpty(txtUsuario.Text)) 
+            { 
+                MessageBox.Show("No se ha ingresado usuario y/o contraseña", "Error", MessageBoxButtons.OK);
+                return;
+            }
+
             try
             {
                 DataTable dtRoles = LoginClass.login(txtUsuario.Text, txtContraseña.Text);
@@ -43,9 +50,15 @@ namespace UberFrba
                 }
 
             }
-            catch (Exception ex)
+            catch (DataException ex)
             {
                 MessageBox.Show("Ha ocurrido un error al realizar el login: " + ex.Message, "Error", MessageBoxButtons.OK);
+                gridRoles.Visible = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error inesperado: " + ex.Message, "Error", MessageBoxButtons.OK);
+                gridRoles.Visible = false;
             }
         }
 

@@ -34,18 +34,7 @@ namespace UberFrba
                     //Si encuentra el usuario, voy a buscar sus roles
                     if (dtUsuario.Rows.Count > 0)
                     {
-                        DataTable dtRoles = new DataTable();
-
-                        //Creo el comando a ejecutar y sus parametros
-                        SqlCommand cmd2 = new SqlCommand("SELECT R.Rol_Codigo,R.Rol_Nombre FROM Rol R join Rol_x_Usuario RU on R.Rol_Codigo = RU.Rol_Codigo where RU.Usuario_Username=@username");
-                        cmd2.Connection = DBconnection.getInstance();
-                        cmd2.Parameters.Add("@username", SqlDbType.VarChar);
-                        cmd2.Parameters["@username"].Value = username;
-
-                        SqlDataAdapter adapterRoles = new SqlDataAdapter(cmd2);
-
-                        adapterRoles.Fill(dtRoles);
-                        return dtRoles;
+                        return buscarRoles(username);
                     }
                     else
                     {
@@ -58,6 +47,22 @@ namespace UberFrba
                     throw ex;
                 }
 
+        }
+
+        private static DataTable buscarRoles(String username)
+        {
+            DataTable dtRoles = new DataTable();
+
+            //Creo el comando a ejecutar y sus parametros
+            SqlCommand cmd2 = new SqlCommand("SELECT R.Rol_Codigo,R.Rol_Nombre FROM Rol R join Rol_x_Usuario RU on R.Rol_Codigo = RU.Rol_Codigo where RU.Usuario_Username=@username");
+            cmd2.Connection = DBconnection.getInstance();
+            cmd2.Parameters.Add("@username", SqlDbType.VarChar);
+            cmd2.Parameters["@username"].Value = username;
+
+            SqlDataAdapter adapterRoles = new SqlDataAdapter(cmd2);
+
+            adapterRoles.Fill(dtRoles);
+            return dtRoles;
         }
 
         public static List<String> buscarPermisos(Int32 codigo_rol)

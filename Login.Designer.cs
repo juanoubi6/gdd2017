@@ -48,14 +48,14 @@
             this.groupBox1.Controls.Add(this.txtUsuario);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(272, 115);
+            this.groupBox1.Size = new System.Drawing.Size(348, 115);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Login";
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(191, 86);
+            this.btnLogin.Location = new System.Drawing.Point(267, 86);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(75, 23);
             this.btnLogin.TabIndex = 36;
@@ -100,15 +100,16 @@
             this.gridRoles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridRoles.Location = new System.Drawing.Point(12, 133);
             this.gridRoles.Name = "gridRoles";
-            this.gridRoles.Size = new System.Drawing.Size(272, 144);
+            this.gridRoles.Size = new System.Drawing.Size(348, 144);
             this.gridRoles.TabIndex = 19;
             this.gridRoles.Visible = false;
+            this.gridRoles.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridRoles_CellContentClick);
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(296, 283);
+            this.ClientSize = new System.Drawing.Size(369, 283);
             this.Controls.Add(this.gridRoles);
             this.Controls.Add(this.groupBox1);
             this.Name = "Login";

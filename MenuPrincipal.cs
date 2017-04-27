@@ -21,9 +21,14 @@ namespace UberFrba
 {
     public partial class MenuPrincipal : Form
     {
-        public MenuPrincipal()
+
+        private List<String> funcionalidades;
+
+        public MenuPrincipal(List<String> funcionalidadesDelRol)
         {
             InitializeComponent();
+            this.funcionalidades = funcionalidadesDelRol;
+            evaluarPermisos();
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
@@ -133,6 +138,19 @@ namespace UberFrba
         {
             ListadoTurno listadoTurno = new ListadoTurno();
             listadoTurno.Show();
+        }
+
+        private void evaluarPermisos()
+        {
+            if (!funcionalidades.Contains("ABMauto")) automovilToolStripMenuItem.Visible = false;
+            if (!funcionalidades.Contains("ABMchofer")) choferToolStripMenuItem.Visible = false;
+            if (!funcionalidades.Contains("ABMcliente")) clienteToolStripMenuItem.Visible = false;
+            if (!funcionalidades.Contains("ABMturno")) turnoToolStripMenuItem.Visible = false;
+            if (!funcionalidades.Contains("ABMrol")) rolToolStripMenuItem.Visible = false;
+            if (!funcionalidades.Contains("Facturacion")) facturacionToolStripMenuItem.Visible = false;
+            if (!funcionalidades.Contains("RegistroViaje")) registroDeViajeToolStripMenuItem.Visible = false;
+            if (!funcionalidades.Contains("RendicionViaje")) rendiconDeViajeToolStripMenuItem.Visible = false;
+            if (!funcionalidades.Contains("ListadoEstadistico")) listadoEstadisticoToolStripMenuItem.Visible = false;
         }
 
     }

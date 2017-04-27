@@ -163,14 +163,14 @@
             // altaRolOpt
             // 
             this.altaRolOpt.Name = "altaRolOpt";
-            this.altaRolOpt.Size = new System.Drawing.Size(152, 22);
+            this.altaRolOpt.Size = new System.Drawing.Size(140, 22);
             this.altaRolOpt.Text = "Alta rol";
             this.altaRolOpt.Click += new System.EventHandler(this.altaRolOpt_Click);
             // 
             // listadoRolOpt
             // 
             this.listadoRolOpt.Name = "listadoRolOpt";
-            this.listadoRolOpt.Size = new System.Drawing.Size(152, 22);
+            this.listadoRolOpt.Size = new System.Drawing.Size(140, 22);
             this.listadoRolOpt.Text = "Listado roles";
             this.listadoRolOpt.Click += new System.EventHandler(this.listadoRolOpt_Click);
             // 
@@ -186,14 +186,14 @@
             // altaTurnoOpt
             // 
             this.altaTurnoOpt.Name = "altaTurnoOpt";
-            this.altaTurnoOpt.Size = new System.Drawing.Size(152, 22);
+            this.altaTurnoOpt.Size = new System.Drawing.Size(144, 22);
             this.altaTurnoOpt.Text = "Alta turno";
             this.altaTurnoOpt.Click += new System.EventHandler(this.altaTurnoOpt_Click);
             // 
             // listadoTurnoOpt
             // 
             this.listadoTurnoOpt.Name = "listadoTurnoOpt";
-            this.listadoTurnoOpt.Size = new System.Drawing.Size(152, 22);
+            this.listadoTurnoOpt.Size = new System.Drawing.Size(144, 22);
             this.listadoTurnoOpt.Text = "Listado turno";
             this.listadoTurnoOpt.Click += new System.EventHandler(this.listadoTurnoOpt_Click);
             // 
@@ -208,7 +208,7 @@
             // facturacionToolStripMenuItem1
             // 
             this.facturacionToolStripMenuItem1.Name = "facturacionToolStripMenuItem1";
-            this.facturacionToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.facturacionToolStripMenuItem1.Size = new System.Drawing.Size(136, 22);
             this.facturacionToolStripMenuItem1.Text = "Facturacion";
             this.facturacionToolStripMenuItem1.Click += new System.EventHandler(this.facturacionToolStripMenuItem1_Click);
             // 

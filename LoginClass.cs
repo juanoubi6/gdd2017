@@ -43,21 +43,22 @@ namespace UberFrba
                         SqlDataAdapter adapterUsuarioYContraseña = new SqlDataAdapter(cmd2);
                         adapterUsuarioYContraseña.Fill(dtUsuarioYPassword);
 
-                        //Si encuentro el usuario y la contraseña es correcta, verifico que no tenga 3 reintentos o se lo informo
+                        //Si encuentro el usuario y la contraseña es correcta, verifico que no este bloqueado
                         if (dtUsuarioYPassword.Rows.Count > 0)
                         {
-                            if ((Int16)(dtUsuarioYPassword.Rows[0]["Usuario_Reintentos"]) >= 3)
+                            if ((Byte)(dtUsuarioYPassword.Rows[0]["Usuario_Activo"]) == 0)
                             {
                                 throw new DataException("Usuario bloqueado");
                             }
                             else
                             {
+                                borrarReintentos(dtUsuarioYPassword.Rows[0]["Usuario_Username"].ToString());
                                 return buscarRoles(username);
                             }
                         }
                         else
                         {
-                            aumentarReintentos(username);
+                            aumentarReintentos(dtUsuario);
                             throw new DataException("Contraseña incorrecta");
                         }
                     }
@@ -74,13 +75,42 @@ namespace UberFrba
 
         }
 
-        private static void aumentarReintentos(String username)
+        private static void aumentarReintentos(DataTable dtUsuario)
         {
+
             SqlCommand cmd = new SqlCommand("UPDATE Usuario SET Usuario_Reintentos = Usuario_Reintentos + 1 WHERE Usuario_Username = @username");
             cmd.Connection = DBconnection.getInstance();
             cmd.Parameters.Add("@username", SqlDbType.VarChar);
-            cmd.Parameters["@username"].Value = username;
+            cmd.Parameters["@username"].Value = (dtUsuario.Rows[0]["Usuario_Username"]);
 
+            //Reviso si al aumentar la cantidad de reintentos se llega a los 3. De ser asi, bloqueo el usuario. Caso contrario, incremento el contador de reintentos
+            if ((Int16)(dtUsuario.Rows[0]["Usuario_Reintentos"]) + 1 == 3)
+            {
+                //Sobreescribo el comando anterior para que además de incrementar el contador, cambie el estado del usuario
+                cmd.CommandText = "UPDATE Usuario SET Usuario_Reintentos = Usuario_Reintentos + 1,Usuario_Activo = 0 WHERE Usuario_Username = @username";
+            }
+
+            try
+            {
+                cmd.Connection.Open();
+                cmd.ExecuteNonQuery();
+                cmd.Connection.Close();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
+        private static void borrarReintentos(String username)
+        {
+
+            SqlCommand cmd = new SqlCommand("UPDATE Usuario SET Usuario_Reintentos = 0 WHERE Usuario_Username = @username");
+            cmd.Connection = DBconnection.getInstance();
+            cmd.Parameters.Add("@username", SqlDbType.VarChar);
+            cmd.Parameters["@username"].Value = username;
+          
             try
             {
                 cmd.Connection.Open();

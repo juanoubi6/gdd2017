@@ -33,9 +33,9 @@ namespace UberFrba
                 {
                     //Le asigno a la grilla los roles
                     gridRoles.DataSource = dtRoles;
-                    DataGridViewButtonColumn btnSeleccionar = new DataGridViewButtonColumn();
 
                     //Agrego un boton para seleccionar el rol en la grilla
+                    DataGridViewButtonColumn btnSeleccionar = new DataGridViewButtonColumn();
                     btnSeleccionar.HeaderText = "Seleccionar";
                     btnSeleccionar.Text = "Seleccionar";
                     btnSeleccionar.UseColumnTextForButtonValue = true;

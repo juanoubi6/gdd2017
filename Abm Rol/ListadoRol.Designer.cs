@@ -44,6 +44,7 @@
             this.btnAltaRol.TabIndex = 9;
             this.btnAltaRol.Text = "Crear rol";
             this.btnAltaRol.UseVisualStyleBackColor = true;
+            this.btnAltaRol.Click += new System.EventHandler(this.btnAltaRol_Click);
             // 
             // btnRegresar
             // 
@@ -53,6 +54,7 @@
             this.btnRegresar.TabIndex = 8;
             this.btnRegresar.Text = "Regresar";
             this.btnRegresar.UseVisualStyleBackColor = true;
+            this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
             // 
             // btnLimpiar
             // 
@@ -71,6 +73,7 @@
             this.btnBuscar.TabIndex = 6;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // grillaRol
             // 
@@ -79,6 +82,7 @@
             this.grillaRol.Name = "grillaRol";
             this.grillaRol.Size = new System.Drawing.Size(606, 179);
             this.grillaRol.TabIndex = 5;
+            this.grillaRol.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grillaRol_CellContentClick);
             // 
             // ListadoRol
             // 

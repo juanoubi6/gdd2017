@@ -224,10 +224,10 @@ namespace UberFrba.Abm_Rol
             }
             catch (Exception ex)
             {
-                return new String[2] { "Error", "No se pudo insertar alguna de las funcionalidades del rol en la base de datos" };
+                return new String[2] { "Error", "No se pudo dar de baja el rol" };
             }
 
-            return new String[2] { "Ok", "Rol eliminado satisfactoriamente" };
+            return new String[2] { "Ok", "Rol dado de baja satisfactoriamente" };
         }
 
         public static List<Int32> obtenerFuncionalidadesDeRol(Int32 codigoRol)

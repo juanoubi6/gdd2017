@@ -38,8 +38,8 @@ namespace UberFrba.Abm_Rol
                 grillaRol.Columns.Add(btnModificar);
 
                 DataGridViewButtonColumn btnBorrar = new DataGridViewButtonColumn();
-                btnBorrar.HeaderText = "Eliminar";
-                btnBorrar.Text = "Eliminar";
+                btnBorrar.HeaderText = "Dar de baja";
+                btnBorrar.Text = "Dar de baja";
                 btnBorrar.UseColumnTextForButtonValue = true;
                 grillaRol.Columns.Add(btnBorrar);
 
@@ -72,17 +72,17 @@ namespace UberFrba.Abm_Rol
                     MessageBox.Show("Ha ocurrido un error al realizar la seleccion de rol " + ex.Message, "Error", MessageBoxButtons.OK);
                 }
             }
-            else if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && senderGrid.CurrentCell.Value.ToString() == "Eliminar" && e.RowIndex >= 0)
+            else if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && senderGrid.CurrentCell.Value.ToString() == "Dar de baja" && e.RowIndex >= 0)
             {
                 try
                 {
-                    DialogResult dialogResult = MessageBox.Show("Esta seguro que desea eliminar este rol?", "Confirmación", MessageBoxButtons.YesNo);
+                    DialogResult dialogResult = MessageBox.Show("Esta seguro que desea dar de baja este rol?", "Confirmación", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {
                         String[] respuesta = Rol.eliminarRol((Int32)senderGrid.CurrentRow.Cells["Rol_Codigo"].Value);
                         if (respuesta[0] == "Error")
                         {
-                            MessageBox.Show("Error al eliminar rol: " + respuesta[1], "Error", MessageBoxButtons.OK);
+                            MessageBox.Show("Error al dar de baja rol: " + respuesta[1], "Error", MessageBoxButtons.OK);
                         }
                         else
                         {

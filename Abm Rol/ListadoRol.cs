@@ -22,7 +22,7 @@ namespace UberFrba.Abm_Rol
             try
             {
                 //Limpio la tabla de roles
-                grillaRol.DataSource = null;
+                grillaRol.Columns.Clear();
 
                 //Busco los roles activos en base de datos
                 DataTable dtRoles = Rol.buscarRoles();
@@ -65,7 +65,6 @@ namespace UberFrba.Abm_Rol
                     rolAModificar.Codigo = (Int32)senderGrid.CurrentRow.Cells["Rol_Codigo"].Value;
                     rolAModificar.Activo = (Byte)senderGrid.CurrentRow.Cells["Rol_Activo"].Value;
                     ModificarRol modificarRol = new ModificarRol(rolAModificar);
-                    this.Hide();
                     modificarRol.Show();
                 }
                 catch (Exception ex)
@@ -109,6 +108,12 @@ namespace UberFrba.Abm_Rol
             AltaRol altaRol = new AltaRol();
             altaRol.Show();
             this.Hide();
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            grillaRol.DataSource = null;
+            grillaRol.Columns.Clear();
         }
 
     }

@@ -125,6 +125,68 @@ namespace UberFrba.Abm_Rol
             return new String[2] { "Ok", "Rol creado satisfactoriamente" };
         }
 
+        public static String[] modificarRol(String nombreRol, List<Int32> codigos, Int32 codigoRol, Byte activo)
+        {
+
+            //Creo el comando necesario para modificar el rol
+            SqlCommand cmd = new SqlCommand("UPDATE Rol SET Rol_Nombre = @nombreRol, Rol_Activo = @activo WHERE Rol_Codigo = @codigoRol");
+            cmd.Connection = DBconnection.getInstance();
+            cmd.Parameters.Add("@nombreRol", SqlDbType.VarChar);
+            cmd.Parameters.Add("@activo", SqlDbType.TinyInt);
+            cmd.Parameters.Add("@codigoRol", SqlDbType.Int);
+            cmd.Parameters["@nombreRol"].Value = nombreRol;
+            cmd.Parameters["@activo"].Value = activo;
+            cmd.Parameters["@codigoRol"].Value = codigoRol;
+
+            try
+            {
+                cmd.Connection.Open();
+                if (cmd.ExecuteNonQuery() == 0) return new String[2] { "Error", "No se pudo actualizar el rol en la base de datos" };
+                cmd.Connection.Close();
+            }
+            catch (Exception ex)
+            {
+                return new String[2] { "Error", "No se pudo actualizar el rol en la base de datos" };
+            }
+
+            //Primero borro todas las antiguas funcionalidades del rol. Luego, agrego las nuevas
+            SqlCommand cmdBorrar = new SqlCommand("DELETE FROM Funcionalidad_x_Rol WHERE Rol_Codigo = @codigoRol");
+            cmdBorrar.Connection = DBconnection.getInstance();
+            cmdBorrar.Parameters.Add("@codigoRol", SqlDbType.Int);
+            cmdBorrar.Parameters["@codigoRol"].Value = codigoRol;
+         
+            //Creo el comando necesario para agregar las nuevas funcionalidades
+            SqlCommand cmdInsertar = new SqlCommand("INSERT INTO Funcionalidad_x_Rol (Rol_Codigo,Funcionalidad_Codigo) VALUES (@codigoRol,@codigoFuncionalidad)");
+            cmdInsertar.Connection = DBconnection.getInstance();
+            cmdInsertar.Parameters.Add("@codigoRol", SqlDbType.Int);
+            cmdInsertar.Parameters.Add("@codigoFuncionalidad", SqlDbType.Int);
+            cmdInsertar.Parameters["@codigoRol"].Value = codigoRol;
+
+            try
+            {
+                cmdInsertar.Connection.Open();
+
+                //Ejecuto la query para borrar las viejas funcionalidades
+                if (cmdBorrar.ExecuteNonQuery() == 0) return new String[2] { "Error", "No se pudieron actualizar las funcionalidades del rol" };
+               
+                //Ejecuto la query para agregar las nuevas funcionalidades al rol
+                foreach (Int32 codigoFuncionalidad in codigos)
+                {
+                    cmdInsertar.Parameters["@codigoFuncionalidad"].Value = codigoFuncionalidad;
+                    if (cmdInsertar.ExecuteNonQuery() == 0) return new String[2] { "Error", "No se pudieron actualizar las funcionalidades del rol" };
+                }
+
+                cmdInsertar.Connection.Close();
+            }
+            catch (Exception ex)
+            {
+                return new String[2] { "Error", "No se pudo actualizar alguna de las funcionalidades del rol en la base de datos" };
+            }
+
+
+            return new String[2] { "Ok", "Rol actualizado satisfactoriamente" };
+        }
+
         public static DataTable buscarRoles()
         {
             DataTable dtRoles = new DataTable();

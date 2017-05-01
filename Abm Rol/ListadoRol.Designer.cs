@@ -78,6 +78,7 @@
             // 
             // grillaRol
             // 
+            this.grillaRol.AllowUserToAddRows = false;
             this.grillaRol.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grillaRol.Location = new System.Drawing.Point(12, 44);
             this.grillaRol.Name = "grillaRol";

@@ -99,6 +99,7 @@
             // 
             // gridRoles
             // 
+            this.gridRoles.AllowUserToAddRows = false;
             this.gridRoles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridRoles.Location = new System.Drawing.Point(12, 133);
             this.gridRoles.Name = "gridRoles";

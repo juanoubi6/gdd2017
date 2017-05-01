@@ -91,6 +91,7 @@ namespace UberFrba.Abm_Rol
             }
             catch (Exception ex)
             {
+                cmd.Connection.Close();
                 return new String[2] { "Error", "No se pudo insertar el rol en la base de datos" };
             }
 
@@ -116,6 +117,7 @@ namespace UberFrba.Abm_Rol
                 }
                 catch (Exception ex)
                 {
+                    cmd2.Connection.Close();
                     return new String[2] { "Error", "No se pudo insertar alguna de las funcionalidades del rol en la base de datos" };
                 }
 
@@ -146,6 +148,7 @@ namespace UberFrba.Abm_Rol
             }
             catch (Exception ex)
             {
+                cmd.Connection.Close();
                 return new String[2] { "Error", "No se pudo actualizar el rol en la base de datos" };
             }
 
@@ -180,6 +183,7 @@ namespace UberFrba.Abm_Rol
             }
             catch (Exception ex)
             {
+                cmdInsertar.Connection.Close();
                 return new String[2] { "Error", "No se pudo actualizar alguna de las funcionalidades del rol en la base de datos" };
             }
 
@@ -224,6 +228,7 @@ namespace UberFrba.Abm_Rol
             }
             catch (Exception ex)
             {
+                cmd.Connection.Close();
                 return new String[2] { "Error", "No se pudo dar de baja el rol" };
             }
 
@@ -258,6 +263,7 @@ namespace UberFrba.Abm_Rol
             }
             catch (Exception ex)
             {
+                cmd.Connection.Close();
                 throw ex;
             }
 

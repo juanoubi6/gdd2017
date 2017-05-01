@@ -48,7 +48,7 @@ namespace UberFrba
                         {
                             if ((Byte)(dtUsuarioYPassword.Rows[0]["Usuario_Activo"]) == 0)
                             {
-                                throw new DataException("Usuario bloqueado");
+                                throw new DataException("Usuario bloqueado o inactivo");
                             }
                             else
                             {

@@ -60,6 +60,28 @@ namespace UberFrba.Abm_Cliente
             if (!Decimal.TryParse(telefono, out cantNumerica))  return "El valor no es numérico";
             if (Decimal.Parse(telefono) <= 0)                   return "El valor debe ser mayor a 0";
             if (telefono.Length > 18)                           return "El valor ingresado es demasiado grande";
+
+            //Valido si el telefono del cliente ya existe en la base de datos
+            DataTable dtCliente = new DataTable();
+
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Cliente WHERE Cliente_Telefono = @telefono");
+            cmd.Connection = DBconnection.getInstance();
+            cmd.Parameters.Add("@telefono", SqlDbType.Decimal);
+            cmd.Parameters["@telefono"].Value = Decimal.Parse(telefono);
+
+            SqlDataAdapter adapterCliente = new SqlDataAdapter(cmd);
+
+            try
+            {
+                adapterCliente.Fill(dtCliente);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            if (dtCliente.Rows.Count > 0) return "El numero de telefono del cliente ingresado ya esta en uso";
+
             return "";
         }
 
@@ -145,15 +167,73 @@ namespace UberFrba.Abm_Cliente
             {
                 cmdCliente.Connection.Open();
                 if (cmdCliente.ExecuteNonQuery() == 0) return new String[2] { "Error", "No se pudo dar de baja el cliente" };
-                if (cmdUsuario.ExecuteNonQuery() == 0) return new String[2] { "Error", "No se pudo dar de baja el usuario" };
+                if (cmdUsuario.ExecuteNonQuery() == 0) return new String[2] { "Error", "No se pudo dar de baja el usuario asociado al cliente" };
                 cmdCliente.Connection.Close();
             }
             catch (Exception ex)
             {
+                cmdCliente.Connection.Close();
                 return new String[2] { "Error", "No se pudo dar de baja el cliente" };
             }
 
             return new String[2] { "Ok", "Cliente dado de baja satisfactoriamente" };
+        }
+
+        public static String[] grabarCliente(Cliente clienteAGrabar)
+        {
+
+            //Creo el comando necesario para grabar el cliente en la tabla de clientes
+            SqlCommand cmdCliente = new SqlCommand("INSERT INTO Cliente (Cliente_Nombre,Cliente_Apellido,Cliente_Dni,Cliente_Mail,Cliente_Telefono,Cliente_Direccion,Cliente_Fecha_Nac,Cliente_Codigo_Postal,Cliente_Activo) values (@nombre,@apellido,@dni,@mail,@telefono,@direccion,@fechaNacimiento,@codigoPostal,@activo)");
+            cmdCliente.Connection = DBconnection.getInstance();
+            cmdCliente.Parameters.Add("@nombre", SqlDbType.VarChar);
+            cmdCliente.Parameters.Add("@apellido", SqlDbType.VarChar);
+            cmdCliente.Parameters.Add("@dni", SqlDbType.Decimal);
+            cmdCliente.Parameters.Add("@mail", SqlDbType.VarChar);
+            cmdCliente.Parameters.Add("@telefono", SqlDbType.Decimal);
+            cmdCliente.Parameters.Add("@direccion", SqlDbType.VarChar);
+            cmdCliente.Parameters.Add("@fechaNacimiento", SqlDbType.DateTime);
+            cmdCliente.Parameters.Add("@codigoPostal", SqlDbType.Decimal);
+            cmdCliente.Parameters.Add("@activo", SqlDbType.TinyInt);
+            cmdCliente.Parameters["@nombre"].Value = clienteAGrabar.Nombre;
+            cmdCliente.Parameters["@apellido"].Value = clienteAGrabar.Apellido;
+            cmdCliente.Parameters["@dni"].Value = clienteAGrabar.Dni;
+            cmdCliente.Parameters["@mail"].Value = clienteAGrabar.Mail ?? Convert.DBNull;
+            cmdCliente.Parameters["@telefono"].Value = clienteAGrabar.Telefono; 
+            cmdCliente.Parameters["@direccion"].Value = clienteAGrabar.Direccion;
+            cmdCliente.Parameters["@fechaNacimiento"].Value = clienteAGrabar.FechaNacimiento;
+            cmdCliente.Parameters["@codigoPostal"].Value = clienteAGrabar.CodigoPostal;
+            cmdCliente.Parameters["@activo"].Value = clienteAGrabar.Activo;
+
+            //Creo el comando necesario para crear el usuario asociado al cliente
+            SqlCommand cmdUsuarioCliente = new SqlCommand("INSERT INTO Usuario(Usuario_Username,Usuario_Password,Usuario_Reintentos,Usuario_Activo) VALUES (@telefono,@dni,0,1)");
+            cmdUsuarioCliente.Connection = DBconnection.getInstance();
+            cmdUsuarioCliente.Parameters.Add("@telefono", SqlDbType.VarChar);
+            cmdUsuarioCliente.Parameters.Add("@dni", SqlDbType.VarChar);
+            cmdUsuarioCliente.Parameters["@telefono"].Value = clienteAGrabar.Telefono.ToString();
+            cmdUsuarioCliente.Parameters["@dni"].Value = clienteAGrabar.Dni.ToString();
+
+
+            //Creo el comando necesario para asignar el rol de "Cliente" al usuario del cliente
+            SqlCommand cmdRolCliente = new SqlCommand("INSERT INTO Rol_x_Usuario(Usuario_Username,Rol_Codigo) values (@usuario,(SELECT Rol_Codigo FROM Rol WHERE Rol_Nombre = 'Cliente'))");
+            cmdRolCliente.Connection = DBconnection.getInstance();
+            cmdRolCliente.Parameters.Add("@usuario", SqlDbType.VarChar);
+            cmdRolCliente.Parameters["@usuario"].Value = clienteAGrabar.Telefono.ToString();
+            
+            try
+            {
+                cmdCliente.Connection.Open();
+                if (cmdCliente.ExecuteNonQuery() == 0) return new String[2] { "Error", "No se pudo grabar el cliente" };
+                if (cmdUsuarioCliente.ExecuteNonQuery() == 0) return new String[2] { "Error", "No se pudo crear el usuario asociado para el cliente" };
+                if (cmdRolCliente.ExecuteNonQuery() == 0) return new String[2] { "Error", "No se pudo asignar el rol de 'Cliente' al usuario del cliente" };
+                cmdCliente.Connection.Close();
+            }
+            catch (Exception ex)
+            {
+                cmdCliente.Connection.Close();
+                return new String[2] { "Error", "No se pudo realizar la operacion de alta: " + ex.Message };
+            }
+
+            return new String[2] { "Ok", "Cliente creado satisfactoriamente. Puede hacer un Login como usuario utilizando su Telefono como Username y DNI como Password" };
         }
 
 

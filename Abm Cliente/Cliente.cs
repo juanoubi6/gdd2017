@@ -205,10 +205,12 @@ namespace UberFrba.Abm_Cliente
             cmdCliente.Parameters["@activo"].Value = clienteAGrabar.Activo;
 
             //Creo el comando necesario para crear el usuario asociado al cliente
-            SqlCommand cmdUsuarioCliente = new SqlCommand("INSERT INTO Usuario(Usuario_Username,Usuario_Password,Usuario_Reintentos,Usuario_Activo) VALUES (@telefono,@telefono,0,1)");
+            SqlCommand cmdUsuarioCliente = new SqlCommand("INSERT INTO Usuario(Usuario_Username,Usuario_Password,Usuario_Reintentos,Usuario_Activo) VALUES (@telefono,@telefonoHash,0,1)");
             cmdUsuarioCliente.Connection = DBconnection.getInstance();
             cmdUsuarioCliente.Parameters.Add("@telefono", SqlDbType.VarChar);
+            cmdUsuarioCliente.Parameters.Add("@telefonoHash", SqlDbType.VarChar);
             cmdUsuarioCliente.Parameters["@telefono"].Value = clienteAGrabar.Telefono.ToString();
+            cmdUsuarioCliente.Parameters["@telefonoHash"].Value = LoginClass.GenerateSHA256String(clienteAGrabar.Telefono.ToString());
 
             //Creo el comando necesario para asignar el rol de "Cliente" al usuario del cliente
             SqlCommand cmdRolCliente = new SqlCommand("INSERT INTO Rol_x_Usuario(Usuario_Username,Rol_Codigo) values (@usuario,(SELECT Rol_Codigo FROM Rol WHERE Rol_Nombre = 'Cliente'))");

@@ -31,6 +31,9 @@ namespace UberFrba
                 DataTable dtRoles = LoginClass.login(txtUsuario.Text, txtContraseña.Text);
                 if (dtRoles.Rows.Count != 0)
                 {
+                    //Limpio la grilla de roles
+                    gridRoles.Columns.Clear();
+
                     //Le asigno a la grilla los roles
                     gridRoles.DataSource = dtRoles;
 

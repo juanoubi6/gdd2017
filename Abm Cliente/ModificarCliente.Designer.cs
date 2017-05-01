@@ -31,7 +31,6 @@
             this.grpErrorBaseDatos = new System.Windows.Forms.GroupBox();
             this.lblErrorBaseDatos = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnLimpiar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.errorCodPostal = new System.Windows.Forms.Label();
             this.errorDireccion = new System.Windows.Forms.Label();
@@ -85,21 +84,13 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(591, 280);
+            this.btnGuardar.Location = new System.Drawing.Point(12, 280);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 19;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
-            // 
-            // btnLimpiar
-            // 
-            this.btnLimpiar.Location = new System.Drawing.Point(12, 280);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
-            this.btnLimpiar.TabIndex = 18;
-            this.btnLimpiar.Text = "Limpiar";
-            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // groupBox1
             // 
@@ -271,6 +262,7 @@
             this.calendarioFechaNac.Name = "calendarioFechaNac";
             this.calendarioFechaNac.TabIndex = 26;
             this.calendarioFechaNac.Visible = false;
+            this.calendarioFechaNac.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.calendarioFechaNac_DateSelected);
             // 
             // btnCalendario
             // 
@@ -280,6 +272,7 @@
             this.btnCalendario.TabIndex = 25;
             this.btnCalendario.Text = "...";
             this.btnCalendario.UseVisualStyleBackColor = true;
+            this.btnCalendario.Click += new System.EventHandler(this.btnCalendario_Click);
             // 
             // label7
             // 
@@ -323,7 +316,6 @@
             this.chkHabilitado.TabIndex = 12;
             this.chkHabilitado.Text = "Habilitado";
             this.chkHabilitado.UseVisualStyleBackColor = true;
-            this.chkHabilitado.Visible = false;
             // 
             // label5
             // 
@@ -364,10 +356,10 @@
             this.ClientSize = new System.Drawing.Size(688, 408);
             this.Controls.Add(this.grpErrorBaseDatos);
             this.Controls.Add(this.btnGuardar);
-            this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.groupBox1);
             this.Name = "ModificarCliente";
             this.Text = "ModificarCliente";
+            this.Load += new System.EventHandler(this.ModificarCliente_Load);
             this.grpErrorBaseDatos.ResumeLayout(false);
             this.grpErrorBaseDatos.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -381,7 +373,6 @@
         private System.Windows.Forms.GroupBox grpErrorBaseDatos;
         private System.Windows.Forms.Label lblErrorBaseDatos;
         private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label errorCodPostal;
         private System.Windows.Forms.Label errorDireccion;

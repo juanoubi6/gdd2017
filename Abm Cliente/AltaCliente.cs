@@ -103,5 +103,27 @@ namespace UberFrba.Abm_Cliente
             calendarioFechaNac.Visible = false;
             btnCalendario.Visible = true;           
         }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            txtNombre.Text = String.Empty;
+            txtApellido.Text = String.Empty;
+            txtCodpostal.Text = String.Empty;
+            txtDireccion.Text = String.Empty;
+            txtEmail.Text = String.Empty;
+            txtDni.Text = String.Empty;
+            txtFechaNac.Text = String.Empty;
+            txtTelefono.Text = String.Empty;
+            errorNombre.Text = String.Empty;
+            errorApellido.Text = String.Empty;
+            errorCodPostal.Text = String.Empty;
+            errorDireccion.Text = String.Empty;
+            errorEmail.Text = String.Empty;
+            errorDni.Text = String.Empty;
+            errorFechaNac.Text = String.Empty;
+            errorTelefono.Text = String.Empty;
+            lblErrorBaseDatos.Text = String.Empty;
+            grpErrorBaseDatos.Visible = false;
+        }
     }
 }

@@ -81,6 +81,7 @@
             this.grillaRol.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grillaRol.Location = new System.Drawing.Point(12, 44);
             this.grillaRol.Name = "grillaRol";
+            this.grillaRol.ReadOnly = true;
             this.grillaRol.Size = new System.Drawing.Size(606, 179);
             this.grillaRol.TabIndex = 5;
             this.grillaRol.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grillaRol_CellContentClick);

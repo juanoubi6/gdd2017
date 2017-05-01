@@ -92,7 +92,7 @@ namespace UberFrba.Abm_Rol
             catch (Exception ex)
             {
                 cmd.Connection.Close();
-                return new String[2] { "Error", "No se pudo insertar el rol en la base de datos" };
+                return new String[2] { "Error", "No se pudo insertar el rol en la base de datos: " + ex.Message };
             }
 
             //Verifico si se inserto el rol en la base de datos. En ese caso, inserto las funcionalidades en el rol
@@ -118,7 +118,7 @@ namespace UberFrba.Abm_Rol
                 catch (Exception ex)
                 {
                     cmd2.Connection.Close();
-                    return new String[2] { "Error", "No se pudo insertar alguna de las funcionalidades del rol en la base de datos" };
+                    return new String[2] { "Error", "No se pudo insertar alguna de las funcionalidades del rol en la base de datos: " + ex.Message };
                 }
 
 
@@ -149,7 +149,7 @@ namespace UberFrba.Abm_Rol
             catch (Exception ex)
             {
                 cmd.Connection.Close();
-                return new String[2] { "Error", "No se pudo actualizar el rol en la base de datos" };
+                return new String[2] { "Error", "No se pudo actualizar el rol en la base de datos: " + ex.Message };
             }
 
             //Primero borro todas las antiguas funcionalidades del rol. Luego, agrego las nuevas
@@ -184,7 +184,7 @@ namespace UberFrba.Abm_Rol
             catch (Exception ex)
             {
                 cmdInsertar.Connection.Close();
-                return new String[2] { "Error", "No se pudo actualizar alguna de las funcionalidades del rol en la base de datos" };
+                return new String[2] { "Error", "No se pudo actualizar alguna de las funcionalidades del rol en la base de datos: " + ex.Message };
             }
 
 
@@ -229,7 +229,7 @@ namespace UberFrba.Abm_Rol
             catch (Exception ex)
             {
                 cmd.Connection.Close();
-                return new String[2] { "Error", "No se pudo dar de baja el rol" };
+                return new String[2] { "Error", "No se pudo dar de baja el rol: " + ex.Message };
             }
 
             return new String[2] { "Ok", "Rol dado de baja satisfactoriamente" };

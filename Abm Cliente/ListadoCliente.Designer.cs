@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.errorDni = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.txtDni = new System.Windows.Forms.TextBox();
             this.txtApellido = new System.Windows.Forms.TextBox();
@@ -40,7 +41,6 @@
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.grillaCliente = new System.Windows.Forms.DataGridView();
-            this.errorDni = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grillaCliente)).BeginInit();
             this.SuspendLayout();
@@ -60,6 +60,14 @@
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros de búsqueda";
+            // 
+            // errorDni
+            // 
+            this.errorDni.AutoSize = true;
+            this.errorDni.Location = new System.Drawing.Point(177, 91);
+            this.errorDni.Name = "errorDni";
+            this.errorDni.Size = new System.Drawing.Size(0, 13);
+            this.errorDni.TabIndex = 8;
             // 
             // txtNombre
             // 
@@ -154,17 +162,10 @@
             this.grillaCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grillaCliente.Location = new System.Drawing.Point(12, 179);
             this.grillaCliente.Name = "grillaCliente";
+            this.grillaCliente.ReadOnly = true;
             this.grillaCliente.Size = new System.Drawing.Size(1159, 179);
             this.grillaCliente.TabIndex = 6;
             this.grillaCliente.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grillaCliente_CellContentClick);
-            // 
-            // errorDni
-            // 
-            this.errorDni.AutoSize = true;
-            this.errorDni.Location = new System.Drawing.Point(177, 91);
-            this.errorDni.Name = "errorDni";
-            this.errorDni.Size = new System.Drawing.Size(0, 13);
-            this.errorDni.TabIndex = 8;
             // 
             // ListadoCliente
             // 

@@ -96,6 +96,12 @@
     <Compile Include="Abm Cliente\ListadoCliente.Designer.cs">
       <DependentUpon>ListadoCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Abm Cliente\ModificarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Cliente\ModificarCliente.Designer.cs">
+      <DependentUpon>ModificarCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Abm Rol\AltaRol.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -218,6 +224,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Cliente\ListadoCliente.resx">
       <DependentUpon>ListadoCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Cliente\ModificarCliente.resx">
+      <DependentUpon>ModificarCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Rol\AltaRol.resx">
       <DependentUpon>AltaRol.cs</DependentUpon>

@@ -39,13 +39,15 @@
             this.btnRegresar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.grillaAutomovil = new System.Windows.Forms.DataGridView();
+            this.grillaCliente = new System.Windows.Forms.DataGridView();
+            this.errorDni = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grillaAutomovil)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grillaCliente)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.errorDni);
             this.groupBox1.Controls.Add(this.txtNombre);
             this.groupBox1.Controls.Add(this.txtDni);
             this.groupBox1.Controls.Add(this.txtApellido);
@@ -54,7 +56,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(606, 98);
+            this.groupBox1.Size = new System.Drawing.Size(1159, 129);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros de búsqueda";
@@ -68,7 +70,7 @@
             // 
             // txtDni
             // 
-            this.txtDni.Location = new System.Drawing.Point(416, 28);
+            this.txtDni.Location = new System.Drawing.Point(49, 87);
             this.txtDni.Name = "txtDni";
             this.txtDni.Size = new System.Drawing.Size(121, 20);
             this.txtDni.TabIndex = 6;
@@ -83,7 +85,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(391, 31);
+            this.label3.Location = new System.Drawing.Point(6, 90);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(26, 13);
             this.label3.TabIndex = 2;
@@ -109,64 +111,77 @@
             // 
             // btnAltaCliente
             // 
-            this.btnAltaCliente.Location = new System.Drawing.Point(496, 344);
+            this.btnAltaCliente.Location = new System.Drawing.Point(1049, 378);
             this.btnAltaCliente.Name = "btnAltaCliente";
             this.btnAltaCliente.Size = new System.Drawing.Size(122, 23);
             this.btnAltaCliente.TabIndex = 10;
             this.btnAltaCliente.Text = "Alta cliente";
             this.btnAltaCliente.UseVisualStyleBackColor = true;
+            this.btnAltaCliente.Click += new System.EventHandler(this.btnAltaCliente_Click);
             // 
             // btnRegresar
             // 
-            this.btnRegresar.Location = new System.Drawing.Point(12, 344);
+            this.btnRegresar.Location = new System.Drawing.Point(12, 378);
             this.btnRegresar.Name = "btnRegresar";
             this.btnRegresar.Size = new System.Drawing.Size(122, 23);
             this.btnRegresar.TabIndex = 9;
             this.btnRegresar.Text = "Regresar";
             this.btnRegresar.UseVisualStyleBackColor = true;
+            this.btnRegresar.Click += new System.EventHandler(this.btnRegresar_Click);
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(543, 116);
+            this.btnLimpiar.Location = new System.Drawing.Point(1096, 150);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
             this.btnLimpiar.TabIndex = 8;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(12, 116);
+            this.btnBuscar.Location = new System.Drawing.Point(12, 150);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
             this.btnBuscar.TabIndex = 7;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
-            // grillaAutomovil
+            // grillaCliente
             // 
-            this.grillaAutomovil.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grillaAutomovil.Location = new System.Drawing.Point(12, 145);
-            this.grillaAutomovil.Name = "grillaAutomovil";
-            this.grillaAutomovil.Size = new System.Drawing.Size(606, 179);
-            this.grillaAutomovil.TabIndex = 6;
+            this.grillaCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grillaCliente.Location = new System.Drawing.Point(12, 179);
+            this.grillaCliente.Name = "grillaCliente";
+            this.grillaCliente.Size = new System.Drawing.Size(1159, 179);
+            this.grillaCliente.TabIndex = 6;
+            this.grillaCliente.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grillaCliente_CellContentClick);
+            // 
+            // errorDni
+            // 
+            this.errorDni.AutoSize = true;
+            this.errorDni.Location = new System.Drawing.Point(177, 91);
+            this.errorDni.Name = "errorDni";
+            this.errorDni.Size = new System.Drawing.Size(0, 13);
+            this.errorDni.TabIndex = 8;
             // 
             // ListadoCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(631, 380);
+            this.ClientSize = new System.Drawing.Size(1185, 426);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnAltaCliente);
             this.Controls.Add(this.btnRegresar);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnBuscar);
-            this.Controls.Add(this.grillaAutomovil);
+            this.Controls.Add(this.grillaCliente);
             this.Name = "ListadoCliente";
             this.Text = "Listado Cliente";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grillaAutomovil)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grillaCliente)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -183,8 +198,9 @@
         private System.Windows.Forms.Button btnRegresar;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.DataGridView grillaAutomovil;
+        private System.Windows.Forms.DataGridView grillaCliente;
         private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.Label errorDni;
 
     }
 }

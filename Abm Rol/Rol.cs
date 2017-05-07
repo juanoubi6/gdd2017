@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
+using System.Transactions;
 
 namespace UberFrba.Abm_Rol
 {
@@ -81,49 +82,42 @@ namespace UberFrba.Abm_Rol
             cmd.Connection = DBconnection.getInstance();
             cmd.Parameters.Add("@nombreRol", SqlDbType.VarChar);
             cmd.Parameters["@nombreRol"].Value = nombreRol;
-
             int idRolInsertado = 0;
+
+            //Creo el comando necesario para ingresarle una funcionalidad a mi rol recien creado
+            SqlCommand cmd2 = new SqlCommand("INSERT INTO Funcionalidad_x_Rol (Rol_Codigo,Funcionalidad_Codigo) VALUES (@codigoRol,@codigoFuncionalidad)");
+            cmd2.Connection = DBconnection.getInstance();
+            cmd2.Parameters.Add("@codigoRol", SqlDbType.Int);
+            cmd2.Parameters.Add("@codigoFuncionalidad", SqlDbType.Int);
+
             try
             {
-                cmd.Connection.Open();
-                idRolInsertado = (int)cmd.ExecuteScalar();
-                cmd.Connection.Close();
+                using (TransactionScope scope = new TransactionScope())
+                {
+                    cmd.Connection.Open();
+
+                    //Trato de insertar el rol. Si puedo, obtengo su ID para luego crearle las funcionalidades
+                    idRolInsertado = (int)cmd.ExecuteScalar();
+                    if (idRolInsertado <= 0) throw new Exception("Error al crear el nuevo rol");
+                    cmd2.Parameters["@codigoRol"].Value = idRolInsertado;
+
+                    //Creo las funcionalidades para el rol
+                    foreach (Int32 codigoFuncionalidad in codigos)
+                    {
+                        cmd2.Parameters["@codigoFuncionalidad"].Value = codigoFuncionalidad;
+                        if (cmd2.ExecuteNonQuery() == 0) throw new Exception("No se pudieron insertar las funcionalidades del rol");
+                    }
+
+                    scope.Complete();
+                    cmd.Connection.Close();
+                }
             }
             catch (Exception ex)
             {
                 cmd.Connection.Close();
-                return new String[2] { "Error", "No se pudo insertar el rol en la base de datos: " + ex.Message };
+                return new String[2] { "Error", ex.Message };
             }
-
-            //Verifico si se inserto el rol en la base de datos. En ese caso, inserto las funcionalidades en el rol
-            if (idRolInsertado > 0)
-            {
-                //Creo el comando necesario para ingresarle una funcionalidad a mi rol recien creado
-                SqlCommand cmd2 = new SqlCommand("INSERT INTO Funcionalidad_x_Rol (Rol_Codigo,Funcionalidad_Codigo) VALUES (@codigoRol,@codigoFuncionalidad)");
-                cmd2.Connection = DBconnection.getInstance();
-                cmd2.Parameters.Add("@codigoRol", SqlDbType.Int);
-                cmd2.Parameters.Add("@codigoFuncionalidad", SqlDbType.Int);
-                cmd2.Parameters["@codigoRol"].Value = idRolInsertado;
-
-                try
-                {
-                    cmd2.Connection.Open();
-                    foreach (Int32 codigoFuncionalidad in codigos)
-                    {
-                        cmd2.Parameters["@codigoFuncionalidad"].Value = codigoFuncionalidad;
-                        if (cmd2.ExecuteNonQuery() == 0) return new String[2] { "Error", "No se pudieron insertar las funcionalidades del rol" };
-                    }             
-                    cmd2.Connection.Close();
-                }
-                catch (Exception ex)
-                {
-                    cmd2.Connection.Close();
-                    return new String[2] { "Error", "No se pudo insertar alguna de las funcionalidades del rol en la base de datos: " + ex.Message };
-                }
-
-
-            }
-
+        
             return new String[2] { "Ok", "Rol creado satisfactoriamente" };
         }
 
@@ -167,24 +161,28 @@ namespace UberFrba.Abm_Rol
 
             try
             {
-                cmdInsertar.Connection.Open();
-
-                //Ejecuto la query para borrar las viejas funcionalidades
-                if (cmdBorrar.ExecuteNonQuery() == 0) return new String[2] { "Error", "No se pudieron actualizar las funcionalidades del rol" };
-               
-                //Ejecuto la query para agregar las nuevas funcionalidades al rol
-                foreach (Int32 codigoFuncionalidad in codigos)
+                using (TransactionScope scope = new TransactionScope())
                 {
-                    cmdInsertar.Parameters["@codigoFuncionalidad"].Value = codigoFuncionalidad;
-                    if (cmdInsertar.ExecuteNonQuery() == 0) return new String[2] { "Error", "No se pudieron actualizar las funcionalidades del rol" };
-                }
+                    cmdInsertar.Connection.Open();
 
-                cmdInsertar.Connection.Close();
+                    //Ejecuto la query para borrar las viejas funcionalidades
+                    cmdBorrar.ExecuteNonQuery();
+
+                    //Ejecuto la query para agregar las nuevas funcionalidades al rol
+                    foreach (Int32 codigoFuncionalidad in codigos)
+                    {
+                        cmdInsertar.Parameters["@codigoFuncionalidad"].Value = codigoFuncionalidad;
+                        if (cmdInsertar.ExecuteNonQuery() == 0) throw new Exception("No se pudieron actualizar las funcionalidades del rol");
+                    }
+
+                    scope.Complete();
+                    cmdInsertar.Connection.Close();
+                }
             }
             catch (Exception ex)
             {
                 cmdInsertar.Connection.Close();
-                return new String[2] { "Error", "No se pudo actualizar alguna de las funcionalidades del rol en la base de datos: " + ex.Message };
+                return new String[2] { "Error", ex.Message };
             }
 
 

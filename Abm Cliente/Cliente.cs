@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
+using System.Transactions;
 
 namespace UberFrba.Abm_Cliente
 {
@@ -217,21 +218,26 @@ namespace UberFrba.Abm_Cliente
             cmdRolCliente.Connection = DBconnection.getInstance();
             cmdRolCliente.Parameters.Add("@usuario", SqlDbType.VarChar);
             cmdRolCliente.Parameters["@usuario"].Value = clienteAGrabar.Telefono.ToString();
-            
+
+            //Se realiza toda la creacion del cliente en el ambito de una transaccion
             try
             {
-                cmdCliente.Connection.Open();
-                if (cmdCliente.ExecuteNonQuery() == 0) return new String[2] { "Error", "No se pudo grabar el cliente" };
-                if (cmdUsuarioCliente.ExecuteNonQuery() == 0) return new String[2] { "Error", "No se pudo crear el usuario asociado para el cliente" };
-                if (cmdRolCliente.ExecuteNonQuery() == 0) return new String[2] { "Error", "No se pudo asignar el rol de 'Cliente' al usuario del cliente" };
-                cmdCliente.Connection.Close();
+                using (TransactionScope scope = new TransactionScope())
+                {
+                    cmdCliente.Connection.Open();
+                    if (cmdCliente.ExecuteNonQuery() == 0) throw new Exception("No se pudo grabar el cliente");
+                    if (cmdUsuarioCliente.ExecuteNonQuery() == 0) throw new Exception("No se pudo crear el usuario asociado para el cliente");
+                    if (cmdRolCliente.ExecuteNonQuery() == 0) throw new Exception("No se pudo asignar el rol de 'Cliente' al usuario del cliente");
+                    scope.Complete();
+                    cmdCliente.Connection.Close();
+                }
             }
             catch (Exception ex)
             {
                 cmdCliente.Connection.Close();
-                return new String[2] { "Error", "No se pudo realizar la operacion de alta: " + ex.Message };
+                return new String[2] { "Error", ex.Message };
             }
-
+        
             return new String[2] { "Ok", "Cliente creado satisfactoriamente. Puede hacer un Login como usuario utilizando su Telefono como Username y Password" };
         }
 

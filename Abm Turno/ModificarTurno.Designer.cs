@@ -1,6 +1,6 @@
 ﻿namespace UberFrba.Abm_Turno
 {
-    partial class AltaTurno
+    partial class ModificarTurno
     {
         /// <summary>
         /// Required designer variable.
@@ -28,9 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.grpErrorBaseDatos = new System.Windows.Forms.GroupBox();
+            this.lblErrorBaseDatos = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtHoraFin = new System.Windows.Forms.TextBox();
+            this.txtHoraInicio = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.errorPrecioBase = new System.Windows.Forms.Label();
             this.errorValorKm = new System.Windows.Forms.Label();
             this.errorDescripcion = new System.Windows.Forms.Label();
@@ -41,23 +47,39 @@
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtPrecioBase = new System.Windows.Forms.TextBox();
+            this.chkHabilitado = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtValorkm = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.grpErrorBaseDatos = new System.Windows.Forms.GroupBox();
-            this.lblErrorBaseDatos = new System.Windows.Forms.Label();
-            this.txtHoraInicio = new System.Windows.Forms.TextBox();
-            this.txtHoraFin = new System.Windows.Forms.TextBox();
-            this.groupBox1.SuspendLayout();
             this.grpErrorBaseDatos.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // grpErrorBaseDatos
+            // 
+            this.grpErrorBaseDatos.Controls.Add(this.lblErrorBaseDatos);
+            this.grpErrorBaseDatos.Location = new System.Drawing.Point(12, 234);
+            this.grpErrorBaseDatos.Name = "grpErrorBaseDatos";
+            this.grpErrorBaseDatos.Size = new System.Drawing.Size(549, 67);
+            this.grpErrorBaseDatos.TabIndex = 19;
+            this.grpErrorBaseDatos.TabStop = false;
+            this.grpErrorBaseDatos.Text = "Error de base de datos";
+            this.grpErrorBaseDatos.Visible = false;
+            // 
+            // lblErrorBaseDatos
+            // 
+            this.lblErrorBaseDatos.AutoSize = true;
+            this.lblErrorBaseDatos.Location = new System.Drawing.Point(10, 30);
+            this.lblErrorBaseDatos.Name = "lblErrorBaseDatos";
+            this.lblErrorBaseDatos.Size = new System.Drawing.Size(0, 13);
+            this.lblErrorBaseDatos.TabIndex = 0;
             // 
             // btnGuardar
             // 
             this.btnGuardar.Location = new System.Drawing.Point(486, 194);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardar.TabIndex = 14;
+            this.btnGuardar.TabIndex = 18;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
@@ -67,7 +89,7 @@
             this.btnLimpiar.Location = new System.Drawing.Point(12, 194);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
-            this.btnLimpiar.TabIndex = 13;
+            this.btnLimpiar.TabIndex = 17;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
             // 
@@ -75,6 +97,8 @@
             // 
             this.groupBox1.Controls.Add(this.txtHoraFin);
             this.groupBox1.Controls.Add(this.txtHoraInicio);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.errorPrecioBase);
             this.groupBox1.Controls.Add(this.errorValorKm);
             this.groupBox1.Controls.Add(this.errorDescripcion);
@@ -85,15 +109,46 @@
             this.groupBox1.Controls.Add(this.txtDescripcion);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.txtPrecioBase);
+            this.groupBox1.Controls.Add(this.chkHabilitado);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.txtValorkm);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(549, 176);
-            this.groupBox1.TabIndex = 12;
+            this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Carga de Campos";
+            // 
+            // txtHoraFin
+            // 
+            this.txtHoraFin.Location = new System.Drawing.Point(74, 47);
+            this.txtHoraFin.Name = "txtHoraFin";
+            this.txtHoraFin.Size = new System.Drawing.Size(25, 20);
+            this.txtHoraFin.TabIndex = 47;
+            // 
+            // txtHoraInicio
+            // 
+            this.txtHoraInicio.Location = new System.Drawing.Point(74, 21);
+            this.txtHoraInicio.Name = "txtHoraInicio";
+            this.txtHoraInicio.Size = new System.Drawing.Size(25, 20);
+            this.txtHoraInicio.TabIndex = 46;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(105, 50);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(0, 13);
+            this.label4.TabIndex = 45;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(105, 24);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(0, 13);
+            this.label7.TabIndex = 44;
             // 
             // errorPrecioBase
             // 
@@ -177,6 +232,17 @@
             this.txtPrecioBase.Size = new System.Drawing.Size(121, 20);
             this.txtPrecioBase.TabIndex = 13;
             // 
+            // chkHabilitado
+            // 
+            this.chkHabilitado.AutoSize = true;
+            this.chkHabilitado.Location = new System.Drawing.Point(6, 151);
+            this.chkHabilitado.Name = "chkHabilitado";
+            this.chkHabilitado.Size = new System.Drawing.Size(73, 17);
+            this.chkHabilitado.TabIndex = 12;
+            this.chkHabilitado.Text = "Habilitado";
+            this.chkHabilitado.UseVisualStyleBackColor = true;
+            this.chkHabilitado.Visible = false;
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -203,79 +269,50 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Hora Inicio*";
             // 
-            // grpErrorBaseDatos
-            // 
-            this.grpErrorBaseDatos.Controls.Add(this.lblErrorBaseDatos);
-            this.grpErrorBaseDatos.Location = new System.Drawing.Point(12, 234);
-            this.grpErrorBaseDatos.Name = "grpErrorBaseDatos";
-            this.grpErrorBaseDatos.Size = new System.Drawing.Size(549, 67);
-            this.grpErrorBaseDatos.TabIndex = 15;
-            this.grpErrorBaseDatos.TabStop = false;
-            this.grpErrorBaseDatos.Text = "Error de base de datos";
-            this.grpErrorBaseDatos.Visible = false;
-            // 
-            // lblErrorBaseDatos
-            // 
-            this.lblErrorBaseDatos.AutoSize = true;
-            this.lblErrorBaseDatos.Location = new System.Drawing.Point(10, 30);
-            this.lblErrorBaseDatos.Name = "lblErrorBaseDatos";
-            this.lblErrorBaseDatos.Size = new System.Drawing.Size(0, 13);
-            this.lblErrorBaseDatos.TabIndex = 0;
-            // 
-            // txtHoraInicio
-            // 
-            this.txtHoraInicio.Location = new System.Drawing.Point(74, 21);
-            this.txtHoraInicio.Name = "txtHoraInicio";
-            this.txtHoraInicio.Size = new System.Drawing.Size(25, 20);
-            this.txtHoraInicio.TabIndex = 42;
-            // 
-            // txtHoraFin
-            // 
-            this.txtHoraFin.Location = new System.Drawing.Point(74, 47);
-            this.txtHoraFin.Name = "txtHoraFin";
-            this.txtHoraFin.Size = new System.Drawing.Size(25, 20);
-            this.txtHoraFin.TabIndex = 43;
-            // 
-            // AltaTurno
+            // ModificarTurno
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(576, 313);
+            this.ClientSize = new System.Drawing.Size(574, 327);
             this.Controls.Add(this.grpErrorBaseDatos);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.groupBox1);
-            this.Name = "AltaTurno";
-            this.Text = "Alta Turno";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.Name = "ModificarTurno";
+            this.Text = "ModificarTurno";
+            this.Load += new System.EventHandler(this.ModificarTurno_Load);
             this.grpErrorBaseDatos.ResumeLayout(false);
             this.grpErrorBaseDatos.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
+        private System.Windows.Forms.GroupBox grpErrorBaseDatos;
+        private System.Windows.Forms.Label lblErrorBaseDatos;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtDescripcion;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtPrecioBase;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtValorkm;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label errorPrecioBase;
         private System.Windows.Forms.Label errorValorKm;
         private System.Windows.Forms.Label errorDescripcion;
         private System.Windows.Forms.Label errorHoraFin;
         private System.Windows.Forms.Label errorHoraInicio;
-        private System.Windows.Forms.GroupBox grpErrorBaseDatos;
-        private System.Windows.Forms.Label lblErrorBaseDatos;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtDescripcion;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtPrecioBase;
+        private System.Windows.Forms.CheckBox chkHabilitado;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtValorkm;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtHoraFin;
         private System.Windows.Forms.TextBox txtHoraInicio;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label7;
     }
 }

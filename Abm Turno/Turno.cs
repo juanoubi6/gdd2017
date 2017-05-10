@@ -59,7 +59,7 @@ namespace UberFrba.Abm_Turno
         public static String[] grabarTurno(Turno turnoAGrabar)
         {
 
-            //Creo el comando necesario para grabar el cliente en la tabla de clientes
+            //Creo el comando necesario para grabar el turno en la tabla de turnos
             SqlCommand cmdTurno = new SqlCommand("sp_alta_turno");
             cmdTurno.CommandType = CommandType.StoredProcedure;
             cmdTurno.Connection = DBconnection.getInstance();
@@ -69,6 +69,19 @@ namespace UberFrba.Abm_Turno
             cmdTurno.Parameters.Add("@valorKm", SqlDbType.Decimal).Value = turnoAGrabar.ValorKm;
             cmdTurno.Parameters.Add("@precioBase", SqlDbType.Decimal).Value = turnoAGrabar.PrecioBase;
             cmdTurno.Parameters.Add("@activo", SqlDbType.TinyInt).Value = turnoAGrabar.Activo;
+
+            //Creo el parametro respuesta
+            //Creo los parametro respuesta
+            SqlParameter responseMsg = new SqlParameter();
+            SqlParameter responseErr = new SqlParameter();
+            responseMsg.ParameterName = "@mensaje";
+            responseErr.ParameterName = "@codOp";
+            responseMsg.SqlDbType = System.Data.SqlDbType.VarChar;
+            responseMsg.Direction = System.Data.ParameterDirection.Output;
+            responseErr.SqlDbType = System.Data.SqlDbType.Int;
+            responseErr.Direction = System.Data.ParameterDirection.Output;
+            cmdTurno.Parameters.Add(responseMsg);
+            cmdTurno.Parameters.Add(responseErr);
             
             //Se realiza toda la creacion del cliente en el ambito de una transaccion
             try
@@ -153,6 +166,18 @@ namespace UberFrba.Abm_Turno
             cmdTurno.Parameters.Add("@valorKm", SqlDbType.Decimal).Value = turnoAModificar.ValorKm;
             cmdTurno.Parameters.Add("@precioBase", SqlDbType.Decimal).Value = turnoAModificar.PrecioBase;
             cmdTurno.Parameters.Add("@activo", SqlDbType.TinyInt).Value = turnoAModificar.Activo;
+
+            //Creo los parametro respuesta
+            SqlParameter responseMsg = new SqlParameter();
+            SqlParameter responseErr = new SqlParameter();
+            responseMsg.ParameterName = "@mensaje";
+            responseErr.ParameterName = "@codOp";
+            responseMsg.SqlDbType = System.Data.SqlDbType.VarChar;
+            responseMsg.Direction = System.Data.ParameterDirection.Output;
+            responseErr.SqlDbType = System.Data.SqlDbType.Int;
+            responseErr.Direction = System.Data.ParameterDirection.Output;
+            cmdTurno.Parameters.Add(responseMsg);
+            cmdTurno.Parameters.Add(responseErr);
 
             try
             {

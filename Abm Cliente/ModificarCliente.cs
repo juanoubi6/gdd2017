@@ -84,7 +84,7 @@ namespace UberFrba.Abm_Cliente
                 errorCodPostal.Text = Cliente.validarCodPostal(txtCodpostal.Text);
                 if (errorCodPostal.Text != "") contadorErrores++;
 
-                //Si no hay errores, se intenta guardar el nuevo cliente
+                //Si no hay errores, se intenta modificar el nuevo cliente
                 if (contadorErrores == 0)
                 {
                     Cliente clienteAModificarEnBD = new Cliente();

@@ -1,6 +1,6 @@
 ﻿namespace UberFrba.Abm_Chofer
 {
-    partial class AltaChofer
+    partial class ModificarChofer
     {
         /// <summary>
         /// Required designer variable.
@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.grpErrorBaseDatos = new System.Windows.Forms.GroupBox();
+            this.lblErrorBaseDatos = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnLimpiar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.errorFechaNac = new System.Windows.Forms.Label();
             this.errorDireccion = new System.Windows.Forms.Label();
@@ -50,35 +51,43 @@
             this.txtFechaNac = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
+            this.chkHabilitado = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtApellido = new System.Windows.Forms.TextBox();
-            this.grpErrorBaseDatos = new System.Windows.Forms.GroupBox();
-            this.lblErrorBaseDatos = new System.Windows.Forms.Label();
-            this.groupBox1.SuspendLayout();
             this.grpErrorBaseDatos.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // grpErrorBaseDatos
+            // 
+            this.grpErrorBaseDatos.Controls.Add(this.lblErrorBaseDatos);
+            this.grpErrorBaseDatos.Location = new System.Drawing.Point(12, 287);
+            this.grpErrorBaseDatos.Name = "grpErrorBaseDatos";
+            this.grpErrorBaseDatos.Size = new System.Drawing.Size(654, 74);
+            this.grpErrorBaseDatos.TabIndex = 21;
+            this.grpErrorBaseDatos.TabStop = false;
+            this.grpErrorBaseDatos.Text = "Error de base de datos";
+            this.grpErrorBaseDatos.Visible = false;
+            // 
+            // lblErrorBaseDatos
+            // 
+            this.lblErrorBaseDatos.AutoSize = true;
+            this.lblErrorBaseDatos.Location = new System.Drawing.Point(10, 30);
+            this.lblErrorBaseDatos.Name = "lblErrorBaseDatos";
+            this.lblErrorBaseDatos.Size = new System.Drawing.Size(0, 13);
+            this.lblErrorBaseDatos.TabIndex = 0;
             // 
             // btnGuardar
             // 
             this.btnGuardar.Location = new System.Drawing.Point(591, 254);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardar.TabIndex = 6;
+            this.btnGuardar.TabIndex = 20;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
-            // btnLimpiar
-            // 
-            this.btnLimpiar.Location = new System.Drawing.Point(12, 254);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
-            this.btnLimpiar.TabIndex = 5;
-            this.btnLimpiar.Text = "Limpiar";
-            this.btnLimpiar.UseVisualStyleBackColor = true;
-            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // groupBox1
             // 
@@ -101,6 +110,7 @@
             this.groupBox1.Controls.Add(this.txtFechaNac);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.txtEmail);
+            this.groupBox1.Controls.Add(this.chkHabilitado);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.txtTelefono);
             this.groupBox1.Controls.Add(this.label2);
@@ -108,7 +118,7 @@
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(654, 236);
-            this.groupBox1.TabIndex = 4;
+            this.groupBox1.TabIndex = 18;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Carga de Campos";
             // 
@@ -213,6 +223,7 @@
             // 
             this.txtDireccion.Location = new System.Drawing.Point(62, 184);
             this.txtDireccion.Name = "txtDireccion";
+            this.txtDireccion.ReadOnly = true;
             this.txtDireccion.Size = new System.Drawing.Size(121, 20);
             this.txtDireccion.TabIndex = 29;
             // 
@@ -222,7 +233,6 @@
             this.calendarioFechaNac.Name = "calendarioFechaNac";
             this.calendarioFechaNac.TabIndex = 26;
             this.calendarioFechaNac.Visible = false;
-            this.calendarioFechaNac.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.calendarioFechaNac_DateSelected);
             // 
             // btnCalendario
             // 
@@ -232,7 +242,6 @@
             this.btnCalendario.TabIndex = 25;
             this.btnCalendario.Text = "...";
             this.btnCalendario.UseVisualStyleBackColor = true;
-            this.btnCalendario.Click += new System.EventHandler(this.btnCalendario_Click);
             // 
             // label7
             // 
@@ -264,8 +273,20 @@
             // 
             this.txtEmail.Location = new System.Drawing.Point(62, 158);
             this.txtEmail.Name = "txtEmail";
+            this.txtEmail.ReadOnly = true;
             this.txtEmail.Size = new System.Drawing.Size(121, 20);
             this.txtEmail.TabIndex = 13;
+            // 
+            // chkHabilitado
+            // 
+            this.chkHabilitado.AutoSize = true;
+            this.chkHabilitado.Location = new System.Drawing.Point(6, 210);
+            this.chkHabilitado.Name = "chkHabilitado";
+            this.chkHabilitado.Size = new System.Drawing.Size(73, 17);
+            this.chkHabilitado.TabIndex = 12;
+            this.chkHabilitado.Text = "Habilitado";
+            this.chkHabilitado.UseVisualStyleBackColor = true;
+            this.chkHabilitado.Visible = false;
             // 
             // label5
             // 
@@ -280,6 +301,7 @@
             // 
             this.txtTelefono.Location = new System.Drawing.Point(62, 132);
             this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.ReadOnly = true;
             this.txtTelefono.Size = new System.Drawing.Size(121, 20);
             this.txtTelefono.TabIndex = 9;
             // 
@@ -299,67 +321,31 @@
             this.txtApellido.Size = new System.Drawing.Size(121, 20);
             this.txtApellido.TabIndex = 2;
             // 
-            // grpErrorBaseDatos
-            // 
-            this.grpErrorBaseDatos.Controls.Add(this.lblErrorBaseDatos);
-            this.grpErrorBaseDatos.Location = new System.Drawing.Point(12, 287);
-            this.grpErrorBaseDatos.Name = "grpErrorBaseDatos";
-            this.grpErrorBaseDatos.Size = new System.Drawing.Size(654, 74);
-            this.grpErrorBaseDatos.TabIndex = 17;
-            this.grpErrorBaseDatos.TabStop = false;
-            this.grpErrorBaseDatos.Text = "Error de base de datos";
-            this.grpErrorBaseDatos.Visible = false;
-            // 
-            // lblErrorBaseDatos
-            // 
-            this.lblErrorBaseDatos.AutoSize = true;
-            this.lblErrorBaseDatos.Location = new System.Drawing.Point(10, 30);
-            this.lblErrorBaseDatos.Name = "lblErrorBaseDatos";
-            this.lblErrorBaseDatos.Size = new System.Drawing.Size(0, 13);
-            this.lblErrorBaseDatos.TabIndex = 0;
-            // 
-            // AltaChofer
+            // ModificarChofer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(678, 373);
+            this.ClientSize = new System.Drawing.Size(682, 377);
             this.Controls.Add(this.grpErrorBaseDatos);
             this.Controls.Add(this.btnGuardar);
-            this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.groupBox1);
-            this.Name = "AltaChofer";
-            this.Text = "Alta Chofer";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.Name = "ModificarChofer";
+            this.Text = "ModificarChofer";
+            this.Load += new System.EventHandler(this.ModificarChofer_Load);
             this.grpErrorBaseDatos.ResumeLayout(false);
             this.grpErrorBaseDatos.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.Button btnLimpiar;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txtTelefono;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtApellido;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.MonthCalendar calendarioFechaNac;
-        private System.Windows.Forms.Button btnCalendario;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txtFechaNac;
-        private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtDni;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtDireccion;
         private System.Windows.Forms.GroupBox grpErrorBaseDatos;
         private System.Windows.Forms.Label lblErrorBaseDatos;
+        private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label errorFechaNac;
         private System.Windows.Forms.Label errorDireccion;
         private System.Windows.Forms.Label errorEmail;
@@ -367,6 +353,22 @@
         private System.Windows.Forms.Label errorDni;
         private System.Windows.Forms.Label errorNombre;
         private System.Windows.Forms.Label errorApellido;
-
+        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtDni;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtDireccion;
+        private System.Windows.Forms.MonthCalendar calendarioFechaNac;
+        private System.Windows.Forms.Button btnCalendario;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtFechaNac;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.CheckBox chkHabilitado;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtTelefono;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtApellido;
     }
 }

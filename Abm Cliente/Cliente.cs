@@ -166,15 +166,19 @@ namespace UberFrba.Abm_Cliente
 
             try
             {
-                cmdCliente.Connection.Open();
-                if (cmdCliente.ExecuteNonQuery() == 0) return new String[2] { "Error", "No se pudo dar de baja el cliente" };
-                if (cmdUsuario.ExecuteNonQuery() == 0) return new String[2] { "Error", "No se pudo dar de baja el usuario asociado al cliente" };
-                cmdCliente.Connection.Close();
+                using (TransactionScope scope = new TransactionScope())
+                {
+                    cmdCliente.Connection.Open();
+                    if (cmdCliente.ExecuteNonQuery() == 0) throw new Exception("No se pudo dar de baja el cliente");
+                    if (cmdUsuario.ExecuteNonQuery() == 0) throw new Exception("No se pudo dar de baja el usuario asociado al cliente");
+                    scope.Complete();
+                    cmdCliente.Connection.Close();
+                }
             }
             catch (Exception ex)
             {
                 cmdCliente.Connection.Close();
-                return new String[2] { "Error", "No se pudo dar de baja el cliente: " + ex.Message };
+                return new String[2] { "Error", ex.Message };
             }
 
             return new String[2] { "Ok", "Cliente dado de baja satisfactoriamente" };
@@ -186,24 +190,15 @@ namespace UberFrba.Abm_Cliente
             //Creo el comando necesario para grabar el cliente en la tabla de clientes
             SqlCommand cmdCliente = new SqlCommand("INSERT INTO Cliente (Cliente_Nombre,Cliente_Apellido,Cliente_Dni,Cliente_Mail,Cliente_Telefono,Cliente_Direccion,Cliente_Fecha_Nac,Cliente_Codigo_Postal,Cliente_Activo) values (@nombre,@apellido,@dni,@mail,@telefono,@direccion,@fechaNacimiento,@codigoPostal,@activo)");
             cmdCliente.Connection = DBconnection.getInstance();
-            cmdCliente.Parameters.Add("@nombre", SqlDbType.VarChar);
-            cmdCliente.Parameters.Add("@apellido", SqlDbType.VarChar);
-            cmdCliente.Parameters.Add("@dni", SqlDbType.Decimal);
-            cmdCliente.Parameters.Add("@mail", SqlDbType.VarChar);
-            cmdCliente.Parameters.Add("@telefono", SqlDbType.Decimal);
-            cmdCliente.Parameters.Add("@direccion", SqlDbType.VarChar);
-            cmdCliente.Parameters.Add("@fechaNacimiento", SqlDbType.DateTime);
-            cmdCliente.Parameters.Add("@codigoPostal", SqlDbType.Decimal);
-            cmdCliente.Parameters.Add("@activo", SqlDbType.TinyInt);
-            cmdCliente.Parameters["@nombre"].Value = clienteAGrabar.Nombre;
-            cmdCliente.Parameters["@apellido"].Value = clienteAGrabar.Apellido;
-            cmdCliente.Parameters["@dni"].Value = clienteAGrabar.Dni;
-            cmdCliente.Parameters["@mail"].Value = clienteAGrabar.Mail ?? Convert.DBNull;
-            cmdCliente.Parameters["@telefono"].Value = clienteAGrabar.Telefono; 
-            cmdCliente.Parameters["@direccion"].Value = clienteAGrabar.Direccion;
-            cmdCliente.Parameters["@fechaNacimiento"].Value = clienteAGrabar.FechaNacimiento;
-            cmdCliente.Parameters["@codigoPostal"].Value = clienteAGrabar.CodigoPostal;
-            cmdCliente.Parameters["@activo"].Value = clienteAGrabar.Activo;
+            cmdCliente.Parameters.Add("@nombre", SqlDbType.VarChar).Value = clienteAGrabar.Nombre;
+            cmdCliente.Parameters.Add("@apellido", SqlDbType.VarChar).Value = clienteAGrabar.Apellido;
+            cmdCliente.Parameters.Add("@dni", SqlDbType.Decimal).Value = clienteAGrabar.Dni;
+            cmdCliente.Parameters.Add("@mail", SqlDbType.VarChar).Value = clienteAGrabar.Mail ?? Convert.DBNull;
+            cmdCliente.Parameters.Add("@telefono", SqlDbType.Decimal).Value = clienteAGrabar.Telefono;
+            cmdCliente.Parameters.Add("@direccion", SqlDbType.VarChar).Value = clienteAGrabar.Direccion;
+            cmdCliente.Parameters.Add("@fechaNacimiento", SqlDbType.DateTime).Value = clienteAGrabar.FechaNacimiento;
+            cmdCliente.Parameters.Add("@codigoPostal", SqlDbType.Decimal).Value = clienteAGrabar.CodigoPostal;
+            cmdCliente.Parameters.Add("@activo", SqlDbType.TinyInt).Value = clienteAGrabar.Activo;
 
             //Creo el comando necesario para crear el usuario asociado al cliente
             SqlCommand cmdUsuarioCliente = new SqlCommand("INSERT INTO Usuario(Usuario_Username,Usuario_Password,Usuario_Reintentos,Usuario_Activo) VALUES (@telefono,@telefonoHash,0,1)");
@@ -247,37 +242,27 @@ namespace UberFrba.Abm_Cliente
             //Creo el comando necesario para modificar el cliente
             SqlCommand cmdCliente = new SqlCommand("UPDATE Cliente SET Cliente_Nombre = @nombre, Cliente_Apellido = @apellido, Cliente_Dni = @dni, Cliente_Telefono = @telefono , Cliente_Mail = @mail , Cliente_Fecha_Nac = @fechaNacimiento, Cliente_Codigo_Postal = @codigoPostal, Cliente_Direccion = @direccion, Cliente_Activo = @activo WHERE Cliente_Telefono = @telefonoPreModificacion");
             cmdCliente.Connection = DBconnection.getInstance();
-            cmdCliente.Parameters.Add("@nombre", SqlDbType.VarChar);
-            cmdCliente.Parameters.Add("@apellido", SqlDbType.VarChar);
-            cmdCliente.Parameters.Add("@dni", SqlDbType.Decimal);
-            cmdCliente.Parameters.Add("@mail", SqlDbType.VarChar);
-            cmdCliente.Parameters.Add("@telefono", SqlDbType.Decimal);
-            cmdCliente.Parameters.Add("@direccion", SqlDbType.VarChar);
-            cmdCliente.Parameters.Add("@fechaNacimiento", SqlDbType.DateTime);
-            cmdCliente.Parameters.Add("@codigoPostal", SqlDbType.Decimal);
-            cmdCliente.Parameters.Add("@activo", SqlDbType.TinyInt);
-            cmdCliente.Parameters.Add("@telefonoPreModificacion", SqlDbType.Decimal);
-            cmdCliente.Parameters["@nombre"].Value = clienteAModificar.Nombre;
-            cmdCliente.Parameters["@apellido"].Value = clienteAModificar.Apellido;
-            cmdCliente.Parameters["@dni"].Value = clienteAModificar.Dni;
-            cmdCliente.Parameters["@mail"].Value = clienteAModificar.Mail ?? Convert.DBNull;
-            cmdCliente.Parameters["@telefono"].Value = clienteAModificar.Telefono;
-            cmdCliente.Parameters["@direccion"].Value = clienteAModificar.Direccion;
-            cmdCliente.Parameters["@fechaNacimiento"].Value = clienteAModificar.FechaNacimiento;
-            cmdCliente.Parameters["@codigoPostal"].Value = clienteAModificar.CodigoPostal;
-            cmdCliente.Parameters["@activo"].Value = clienteAModificar.Activo;
-            cmdCliente.Parameters["@telefonoPreModificacion"].Value = telefonoAntiguo;
+            cmdCliente.Parameters.Add("@nombre", SqlDbType.VarChar).Value = clienteAModificar.Nombre;
+            cmdCliente.Parameters.Add("@apellido", SqlDbType.VarChar).Value = clienteAModificar.Apellido;
+            cmdCliente.Parameters.Add("@dni", SqlDbType.Decimal).Value = clienteAModificar.Dni;
+            cmdCliente.Parameters.Add("@mail", SqlDbType.VarChar).Value = clienteAModificar.Mail ?? Convert.DBNull;
+            cmdCliente.Parameters.Add("@telefono", SqlDbType.Decimal).Value = clienteAModificar.Telefono;
+            cmdCliente.Parameters.Add("@direccion", SqlDbType.VarChar).Value = clienteAModificar.Direccion;
+            cmdCliente.Parameters.Add("@fechaNacimiento", SqlDbType.DateTime).Value = clienteAModificar.FechaNacimiento;
+            cmdCliente.Parameters.Add("@codigoPostal", SqlDbType.Decimal).Value = clienteAModificar.CodigoPostal;
+            cmdCliente.Parameters.Add("@activo", SqlDbType.TinyInt).Value = clienteAModificar.Activo;
+            cmdCliente.Parameters.Add("@telefonoPreModificacion", SqlDbType.Decimal).Value = telefonoAntiguo;
 
             try
             {
                 cmdCliente.Connection.Open();
-                if (cmdCliente.ExecuteNonQuery() == 0) return new String[2] { "Error", "No se pudieron actualizar los datos del cliente" };
+                if (cmdCliente.ExecuteNonQuery() == 0) throw new Exception ("No se pudieron actualizar los datos del cliente" );
                 cmdCliente.Connection.Close();
             }
             catch (Exception ex)
             {
                 cmdCliente.Connection.Close();
-                return new String[2] { "Error", "No se pudo actualizar el cliente: " + ex.Message };
+                return new String[2] { "Error", ex.Message };
             }           
 
             return new String[2] { "Ok", "Cliente actualizado satisfactoriamente" };

@@ -46,7 +46,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(21, 21);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(606, 64);
+            this.groupBox1.Size = new System.Drawing.Size(954, 64);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros de búsqueda";
@@ -69,7 +69,7 @@
             // 
             // btnAltaTurno
             // 
-            this.btnAltaTurno.Location = new System.Drawing.Point(505, 305);
+            this.btnAltaTurno.Location = new System.Drawing.Point(853, 305);
             this.btnAltaTurno.Name = "btnAltaTurno";
             this.btnAltaTurno.Size = new System.Drawing.Size(122, 23);
             this.btnAltaTurno.TabIndex = 16;
@@ -89,7 +89,7 @@
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(552, 91);
+            this.btnLimpiar.Location = new System.Drawing.Point(900, 91);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
             this.btnLimpiar.TabIndex = 14;
@@ -109,10 +109,12 @@
             // 
             // grillaTurno
             // 
+            this.grillaTurno.AllowUserToAddRows = false;
             this.grillaTurno.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grillaTurno.Location = new System.Drawing.Point(21, 120);
             this.grillaTurno.Name = "grillaTurno";
-            this.grillaTurno.Size = new System.Drawing.Size(606, 179);
+            this.grillaTurno.ReadOnly = true;
+            this.grillaTurno.Size = new System.Drawing.Size(954, 179);
             this.grillaTurno.TabIndex = 12;
             this.grillaTurno.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grillaTurno_CellContentClick);
             // 
@@ -120,7 +122,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(646, 343);
+            this.ClientSize = new System.Drawing.Size(987, 343);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnAltaTurno);
             this.Controls.Add(this.btnRegresar);

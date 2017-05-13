@@ -67,7 +67,7 @@ namespace UberFrba.Abm_Turno
                 turnoAModificarEnBD.Descripcion = txtDescripcion.Text;
                 turnoAModificarEnBD.ValorKm = Decimal.Parse(txtValorkm.Text);
                 turnoAModificarEnBD.PrecioBase = Decimal.Parse(txtPrecioBase.Text);
-                turnoAModificarEnBD.Activo = 1;
+                turnoAModificarEnBD.Activo = (chkHabilitado.Checked) ? (Byte)1 : (Byte)0;
 
 
                 String[] respuesta = Turno.modificarTurno(turnoAModificarEnBD);

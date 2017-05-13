@@ -62,5 +62,21 @@ namespace UberFrba.Abm_Turno
 
             
         }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            txtDescripcion.Text = "";
+            txtHoraFin.Text = "";
+            txtHoraInicio.Text = "";
+            txtPrecioBase.Text = "";
+            txtValorkm.Text = "";
+            errorDescripcion.Text = "";
+            errorHoraInicio.Text = "";
+            errorHoraFin.Text = "";
+            errorPrecioBase.Text = "";
+            errorValorKm.Text = "";
+            lblErrorBaseDatos.Text = String.Empty;
+            grpErrorBaseDatos.Visible = false;
+        }
     }
 }

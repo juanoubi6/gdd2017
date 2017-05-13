@@ -31,6 +31,8 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtHoraFin = new System.Windows.Forms.TextBox();
+            this.txtHoraInicio = new System.Windows.Forms.TextBox();
             this.errorPrecioBase = new System.Windows.Forms.Label();
             this.errorValorKm = new System.Windows.Forms.Label();
             this.errorDescripcion = new System.Windows.Forms.Label();
@@ -46,8 +48,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.grpErrorBaseDatos = new System.Windows.Forms.GroupBox();
             this.lblErrorBaseDatos = new System.Windows.Forms.Label();
-            this.txtHoraInicio = new System.Windows.Forms.TextBox();
-            this.txtHoraFin = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.grpErrorBaseDatos.SuspendLayout();
             this.SuspendLayout();
@@ -70,6 +70,7 @@
             this.btnLimpiar.TabIndex = 13;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // groupBox1
             // 
@@ -94,6 +95,20 @@
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Carga de Campos";
+            // 
+            // txtHoraFin
+            // 
+            this.txtHoraFin.Location = new System.Drawing.Point(74, 47);
+            this.txtHoraFin.Name = "txtHoraFin";
+            this.txtHoraFin.Size = new System.Drawing.Size(25, 20);
+            this.txtHoraFin.TabIndex = 43;
+            // 
+            // txtHoraInicio
+            // 
+            this.txtHoraInicio.Location = new System.Drawing.Point(74, 21);
+            this.txtHoraInicio.Name = "txtHoraInicio";
+            this.txtHoraInicio.Size = new System.Drawing.Size(25, 20);
+            this.txtHoraInicio.TabIndex = 42;
             // 
             // errorPrecioBase
             // 
@@ -173,7 +188,6 @@
             // 
             this.txtPrecioBase.Location = new System.Drawing.Point(74, 125);
             this.txtPrecioBase.Name = "txtPrecioBase";
-            this.txtPrecioBase.ReadOnly = true;
             this.txtPrecioBase.Size = new System.Drawing.Size(121, 20);
             this.txtPrecioBase.TabIndex = 13;
             // 
@@ -190,7 +204,6 @@
             // 
             this.txtValorkm.Location = new System.Drawing.Point(74, 99);
             this.txtValorkm.Name = "txtValorkm";
-            this.txtValorkm.ReadOnly = true;
             this.txtValorkm.Size = new System.Drawing.Size(121, 20);
             this.txtValorkm.TabIndex = 9;
             // 
@@ -221,20 +234,6 @@
             this.lblErrorBaseDatos.Name = "lblErrorBaseDatos";
             this.lblErrorBaseDatos.Size = new System.Drawing.Size(0, 13);
             this.lblErrorBaseDatos.TabIndex = 0;
-            // 
-            // txtHoraInicio
-            // 
-            this.txtHoraInicio.Location = new System.Drawing.Point(74, 21);
-            this.txtHoraInicio.Name = "txtHoraInicio";
-            this.txtHoraInicio.Size = new System.Drawing.Size(25, 20);
-            this.txtHoraInicio.TabIndex = 42;
-            // 
-            // txtHoraFin
-            // 
-            this.txtHoraFin.Location = new System.Drawing.Point(74, 47);
-            this.txtHoraFin.Name = "txtHoraFin";
-            this.txtHoraFin.Size = new System.Drawing.Size(25, 20);
-            this.txtHoraFin.TabIndex = 43;
             // 
             // AltaTurno
             // 

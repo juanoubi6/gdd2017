@@ -60,7 +60,7 @@ namespace UberFrba.Abm_Turno
         {
 
             //Creo el comando necesario para grabar el turno en la tabla de turnos
-            SqlCommand cmdTurno = new SqlCommand("sp_alta_turno");
+            SqlCommand cmdTurno = new SqlCommand("sp_turno_alta");
             cmdTurno.CommandType = CommandType.StoredProcedure;
             cmdTurno.Connection = DBconnection.getInstance();
             cmdTurno.Parameters.Add("@horaInicio", SqlDbType.Decimal).Value = turnoAGrabar.HoraInicio;
@@ -70,14 +70,14 @@ namespace UberFrba.Abm_Turno
             cmdTurno.Parameters.Add("@precioBase", SqlDbType.Decimal).Value = turnoAGrabar.PrecioBase;
             cmdTurno.Parameters.Add("@activo", SqlDbType.TinyInt).Value = turnoAGrabar.Activo;
 
-            //Creo el parametro respuesta
             //Creo los parametro respuesta
             SqlParameter responseMsg = new SqlParameter();
             SqlParameter responseErr = new SqlParameter();
-            responseMsg.ParameterName = "@mensaje";
+            responseMsg.ParameterName = "@resultado";
             responseErr.ParameterName = "@codOp";
             responseMsg.SqlDbType = System.Data.SqlDbType.VarChar;
             responseMsg.Direction = System.Data.ParameterDirection.Output;
+            responseMsg.Size = 255;
             responseErr.SqlDbType = System.Data.SqlDbType.Int;
             responseErr.Direction = System.Data.ParameterDirection.Output;
             cmdTurno.Parameters.Add(responseMsg);
@@ -87,7 +87,12 @@ namespace UberFrba.Abm_Turno
             try
             {
                 cmdTurno.Connection.Open();
-                //ver como ejecutar el SP
+
+                //Ejecuto el SP y veo el codigo de error
+                cmdTurno.ExecuteNonQuery();
+                int codigoError = Convert.ToInt32(cmdTurno.Parameters["@codOp"].Value);
+                if (codigoError != 0) throw new Exception(cmdTurno.Parameters["@resultado"].Value.ToString());
+
                 cmdTurno.Connection.Close();
 
             }
@@ -156,7 +161,7 @@ namespace UberFrba.Abm_Turno
 
         public static String[] modificarTurno(Turno turnoAModificar)
         {
-            SqlCommand cmdTurno = new SqlCommand("sp_modificar_turno");
+            SqlCommand cmdTurno = new SqlCommand("sp_turno_modif");
             cmdTurno.CommandType = CommandType.StoredProcedure;
             cmdTurno.Connection = DBconnection.getInstance();
             cmdTurno.Parameters.Add("@codigo", SqlDbType.Int).Value = turnoAModificar.Codigo;
@@ -170,10 +175,11 @@ namespace UberFrba.Abm_Turno
             //Creo los parametro respuesta
             SqlParameter responseMsg = new SqlParameter();
             SqlParameter responseErr = new SqlParameter();
-            responseMsg.ParameterName = "@mensaje";
+            responseMsg.ParameterName = "@resultado";
             responseErr.ParameterName = "@codOp";
             responseMsg.SqlDbType = System.Data.SqlDbType.VarChar;
             responseMsg.Direction = System.Data.ParameterDirection.Output;
+            responseMsg.Size = 255;
             responseErr.SqlDbType = System.Data.SqlDbType.Int;
             responseErr.Direction = System.Data.ParameterDirection.Output;
             cmdTurno.Parameters.Add(responseMsg);
@@ -182,7 +188,12 @@ namespace UberFrba.Abm_Turno
             try
             {
                 cmdTurno.Connection.Open();
-                //ejecuto el sp.
+
+                //Ejecuto el SP y veo el codigo de error
+                cmdTurno.ExecuteNonQuery();
+                int codigoError = Convert.ToInt32(cmdTurno.Parameters["@codOp"].Value);
+                if (codigoError != 0) throw new Exception(cmdTurno.Parameters["@resultado"].Value.ToString());
+
                 cmdTurno.Connection.Close();
             }
             catch (Exception ex)

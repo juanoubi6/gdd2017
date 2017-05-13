@@ -228,7 +228,6 @@
             // 
             this.txtPrecioBase.Location = new System.Drawing.Point(74, 125);
             this.txtPrecioBase.Name = "txtPrecioBase";
-            this.txtPrecioBase.ReadOnly = true;
             this.txtPrecioBase.Size = new System.Drawing.Size(121, 20);
             this.txtPrecioBase.TabIndex = 13;
             // 
@@ -241,7 +240,6 @@
             this.chkHabilitado.TabIndex = 12;
             this.chkHabilitado.Text = "Habilitado";
             this.chkHabilitado.UseVisualStyleBackColor = true;
-            this.chkHabilitado.Visible = false;
             // 
             // label5
             // 
@@ -256,7 +254,6 @@
             // 
             this.txtValorkm.Location = new System.Drawing.Point(74, 99);
             this.txtValorkm.Name = "txtValorkm";
-            this.txtValorkm.ReadOnly = true;
             this.txtValorkm.Size = new System.Drawing.Size(121, 20);
             this.txtValorkm.TabIndex = 9;
             // 

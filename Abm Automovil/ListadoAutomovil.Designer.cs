@@ -54,7 +54,7 @@
             this.grillaAutomovil.Location = new System.Drawing.Point(12, 145);
             this.grillaAutomovil.Name = "grillaAutomovil";
             this.grillaAutomovil.ReadOnly = true;
-            this.grillaAutomovil.Size = new System.Drawing.Size(1300, 179);
+            this.grillaAutomovil.Size = new System.Drawing.Size(1195, 179);
             this.grillaAutomovil.TabIndex = 0;
             this.grillaAutomovil.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grillaAutomovil_CellContentClick);
             // 
@@ -70,7 +70,7 @@
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(1237, 116);
+            this.btnLimpiar.Location = new System.Drawing.Point(1132, 116);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
             this.btnLimpiar.TabIndex = 2;
@@ -90,7 +90,7 @@
             // 
             // btnAltaAutomovil
             // 
-            this.btnAltaAutomovil.Location = new System.Drawing.Point(1190, 344);
+            this.btnAltaAutomovil.Location = new System.Drawing.Point(1085, 344);
             this.btnAltaAutomovil.Name = "btnAltaAutomovil";
             this.btnAltaAutomovil.Size = new System.Drawing.Size(122, 23);
             this.btnAltaAutomovil.TabIndex = 4;
@@ -111,7 +111,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1300, 98);
+            this.groupBox1.Size = new System.Drawing.Size(1195, 98);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros de búsqueda";

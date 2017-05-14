@@ -195,8 +195,8 @@ namespace UberFrba.Abm_Automovil
             cmdAuto.Connection = DBconnection.getInstance();
             cmdAuto.Parameters.Add("@marca", SqlDbType.Int).Value = autoAModificar.Marca;
             cmdAuto.Parameters.Add("@modelo", SqlDbType.VarChar).Value = autoAModificar.Modelo;
-            cmdAuto.Parameters.Add("@patente", SqlDbType.VarChar).Value = autoAModificar.Patente;
-            cmdAuto.Parameters.Add("@patenteAnterior", SqlDbType.VarChar).Value = patenteAntigua;
+            cmdAuto.Parameters.Add("@patente", SqlDbType.VarChar).Value = patenteAntigua;
+            cmdAuto.Parameters.Add("@patente_nueva", SqlDbType.VarChar).Value = autoAModificar.Patente;
             cmdAuto.Parameters.Add("@licencia", SqlDbType.VarChar).Value = autoAModificar.Licencia ?? Convert.DBNull;
             cmdAuto.Parameters.Add("@rodado", SqlDbType.VarChar).Value = autoAModificar.Rodado ?? Convert.DBNull;
             cmdAuto.Parameters.Add("@chofer", SqlDbType.Decimal).Value = autoAModificar.Chofer;

@@ -41,7 +41,7 @@ namespace UberFrba.Abm_Automovil
                 grillaTurno.Columns.Clear();
 
                 //Busco los turnos activos en la base de datos
-                DataTable dtTurnos = Turno.buscarTurnosActivos(txtDescripcion.Text);
+                DataTable dtTurnos = Turno.buscarTurnos(txtDescripcion.Text);
 
                 //Le asigno a la grilla los turnos
                 grillaTurno.DataSource = dtTurnos;
@@ -82,26 +82,35 @@ namespace UberFrba.Abm_Automovil
             {
                 try
                 {
-                    Turno turnoSeleccionado = new Turno();
-                    turnoSeleccionado.Codigo = (Int32)senderGrid.CurrentRow.Cells["Turno_Codigo"].Value;
-                    turnoSeleccionado.HoraFin = (Decimal)senderGrid.CurrentRow.Cells["Turno_Hora_Fin"].Value;
-                    turnoSeleccionado.HoraInicio = (Decimal)senderGrid.CurrentRow.Cells["Turno_Hora_Inicio"].Value;
-                    turnoSeleccionado.Descripcion = senderGrid.CurrentRow.Cells["Turno_Descripcion"].Value.ToString();
-                    turnoSeleccionado.PrecioBase = (Decimal)senderGrid.CurrentRow.Cells["Turno_Precio_Base"].Value;
-                    turnoSeleccionado.ValorKm = (Decimal)senderGrid.CurrentRow.Cells["Turno_Valor_Kilometro"].Value;
-                    turnoSeleccionado.Activo = (Byte)senderGrid.CurrentRow.Cells["Turno_Activo"].Value;
-
-                    if (this.modo == "alta")
+                    //Chequeo que el turno elegido este activo
+                    if ((Byte)senderGrid.CurrentRow.Cells["Turno_Activo"].Value == 0)
                     {
-                        this.formularioAlta.turnoElegido = turnoSeleccionado;
-                        this.formularioAlta.cambiarTurno();
-                        this.Hide();
+                        MessageBox.Show("No puede seleccionar este turno ya que no esta activo", "Error", MessageBoxButtons.OK);
                     }
                     else
                     {
-                        this.formularioModificacion.turnoElegido = turnoSeleccionado;
-                        this.formularioModificacion.cambiarTurno();
-                        this.Hide();
+
+                        Turno turnoSeleccionado = new Turno();
+                        turnoSeleccionado.Codigo = (Int32)senderGrid.CurrentRow.Cells["Turno_Codigo"].Value;
+                        turnoSeleccionado.HoraFin = (Decimal)senderGrid.CurrentRow.Cells["Turno_Hora_Fin"].Value;
+                        turnoSeleccionado.HoraInicio = (Decimal)senderGrid.CurrentRow.Cells["Turno_Hora_Inicio"].Value;
+                        turnoSeleccionado.Descripcion = senderGrid.CurrentRow.Cells["Turno_Descripcion"].Value.ToString();
+                        turnoSeleccionado.PrecioBase = (Decimal)senderGrid.CurrentRow.Cells["Turno_Precio_Base"].Value;
+                        turnoSeleccionado.ValorKm = (Decimal)senderGrid.CurrentRow.Cells["Turno_Valor_Kilometro"].Value;
+                        turnoSeleccionado.Activo = (Byte)senderGrid.CurrentRow.Cells["Turno_Activo"].Value;
+
+                        if (this.modo == "alta")
+                        {
+                            this.formularioAlta.turnoElegido = turnoSeleccionado;
+                            this.formularioAlta.cambiarTurno();
+                            this.Hide();
+                        }
+                        else
+                        {
+                            this.formularioModificacion.turnoElegido = turnoSeleccionado;
+                            this.formularioModificacion.cambiarTurno();
+                            this.Hide();
+                        }
                     }
                 }
                 catch (Exception ex)

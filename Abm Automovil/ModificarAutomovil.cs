@@ -42,7 +42,7 @@ namespace UberFrba.Abm_Automovil
 
             //Asigno el turno elegido
             Turno nuevoTurno = new Turno();
-            nuevoTurno.Codigo = (Int32)dtChoferElegido.Rows[0]["Turno_Codigo"];
+            nuevoTurno.Codigo = (Int32)dtTurnoElegido.Rows[0]["Turno_Codigo"];
             turnoElegido = nuevoTurno;
 
 
@@ -123,7 +123,7 @@ namespace UberFrba.Abm_Automovil
 
         private void bntSelectChofer_Click(object sender, EventArgs e)
         {
-            GrillaChofer_Auto grillaChofer = new GrillaChofer_Auto(this, "seleccion");
+            GrillaChofer_Auto grillaChofer = new GrillaChofer_Auto(this, "modificar");
             grillaChofer.Show();
         }
 

@@ -67,7 +67,7 @@ namespace UberFrba.Abm_Automovil
                     grillaChofer.Columns.Clear();
 
                     //Busco los choferes en la base de datos (solo activos)
-                    DataTable dtChofer = Chofer.buscarChoferesActivos(txtNombre.Text, txtApellido.Text, (txtDni.Text == "") ? 0 : Decimal.Parse(txtDni.Text));
+                    DataTable dtChofer = Chofer.buscarChoferes(txtNombre.Text, txtApellido.Text, (txtDni.Text == "") ? 0 : Decimal.Parse(txtDni.Text));
 
                     //Le asigno a la grilla los choferes
                     grillaChofer.DataSource = dtChofer;                  
@@ -116,38 +116,52 @@ namespace UberFrba.Abm_Automovil
                 {
                     if (this.modo == "seleccion")
                     {
-                        Chofer choferElegido = new Chofer();
-                        choferElegido.Nombre = senderGrid.CurrentRow.Cells["Chofer_Nombre"].Value.ToString();
-                        choferElegido.Apellido = senderGrid.CurrentRow.Cells["Chofer_Apellido"].Value.ToString();
-                        choferElegido.Dni = (Decimal)senderGrid.CurrentRow.Cells["Chofer_Dni"].Value;
-                        choferElegido.Telefono = (Decimal)senderGrid.CurrentRow.Cells["Chofer_Telefono"].Value;
-                        choferElegido.Direccion = senderGrid.CurrentRow.Cells["Chofer_Direccion"].Value.ToString();
-                        choferElegido.FechaNacimiento = (DateTime)(senderGrid.CurrentRow.Cells["Chofer_Fecha_Nac"].Value);
-                        choferElegido.Mail = senderGrid.CurrentRow.Cells["Chofer_Mail"].Value.ToString();
-                        choferElegido.Activo = (Byte)senderGrid.CurrentRow.Cells["Chofer_Activo"].Value;
-                        this.formularioAlta.choferElegido = choferElegido;
-                        this.formularioAlta.cambiarChofer();
-                        this.Hide();
+                        if ((Byte)senderGrid.CurrentRow.Cells["Chofer_Activo"].Value == 1)
+                        {
+                            Chofer choferElegido = new Chofer();
+                            choferElegido.Nombre = senderGrid.CurrentRow.Cells["Chofer_Nombre"].Value.ToString();
+                            choferElegido.Apellido = senderGrid.CurrentRow.Cells["Chofer_Apellido"].Value.ToString();
+                            choferElegido.Dni = (Decimal)senderGrid.CurrentRow.Cells["Chofer_Dni"].Value;
+                            choferElegido.Telefono = (Decimal)senderGrid.CurrentRow.Cells["Chofer_Telefono"].Value;
+                            choferElegido.Direccion = senderGrid.CurrentRow.Cells["Chofer_Direccion"].Value.ToString();
+                            choferElegido.FechaNacimiento = (DateTime)(senderGrid.CurrentRow.Cells["Chofer_Fecha_Nac"].Value);
+                            choferElegido.Mail = senderGrid.CurrentRow.Cells["Chofer_Mail"].Value.ToString();
+                            choferElegido.Activo = (Byte)senderGrid.CurrentRow.Cells["Chofer_Activo"].Value;
+                            this.formularioAlta.choferElegido = choferElegido;
+                            this.formularioAlta.cambiarChofer();
+                            this.Hide();
+                        }
+                        else
+                        {
+                            MessageBox.Show("No puede seleccionar este chofer ya que no se encuentra activo", "Error", MessageBoxButtons.OK);
+                        }
                     }
                     else if (this.modo == "filtro")
                     {
-                        this.formularioListado.cambiarChofer(senderGrid.CurrentRow.Cells["Chofer_Nombre"].Value.ToString() + " " + senderGrid.CurrentRow.Cells["Chofer_Apellido"].Value.ToString() + " " + senderGrid.CurrentRow.Cells["Chofer_Dni"].Value.ToString());
+                        this.formularioListado.cambiarChofer(senderGrid.CurrentRow.Cells["Chofer_Nombre"].Value.ToString() + " " + senderGrid.CurrentRow.Cells["Chofer_Apellido"].Value.ToString() + " " + senderGrid.CurrentRow.Cells["Chofer_Dni"].Value.ToString(), (Decimal)senderGrid.CurrentRow.Cells["Chofer_Dni"].Value);
                         this.Hide();
                     }
                     else
                     {
-                        Chofer choferElegido = new Chofer();
-                        choferElegido.Nombre = senderGrid.CurrentRow.Cells["Chofer_Nombre"].Value.ToString();
-                        choferElegido.Apellido = senderGrid.CurrentRow.Cells["Chofer_Apellido"].Value.ToString();
-                        choferElegido.Dni = (Decimal)senderGrid.CurrentRow.Cells["Chofer_Dni"].Value;
-                        choferElegido.Telefono = (Decimal)senderGrid.CurrentRow.Cells["Chofer_Telefono"].Value;
-                        choferElegido.Direccion = senderGrid.CurrentRow.Cells["Chofer_Direccion"].Value.ToString();
-                        choferElegido.FechaNacimiento = (DateTime)(senderGrid.CurrentRow.Cells["Chofer_Fecha_Nac"].Value);
-                        choferElegido.Mail = senderGrid.CurrentRow.Cells["Chofer_Mail"].Value.ToString();
-                        choferElegido.Activo = (Byte)senderGrid.CurrentRow.Cells["Chofer_Activo"].Value;
-                        this.formularioModificacion.choferElegido = choferElegido;
-                        this.formularioModificacion.cambiarChofer();
-                        this.Hide();
+                        if ((Byte)senderGrid.CurrentRow.Cells["Chofer_Activo"].Value == 1)
+                        {
+                            Chofer choferElegido = new Chofer();
+                            choferElegido.Nombre = senderGrid.CurrentRow.Cells["Chofer_Nombre"].Value.ToString();
+                            choferElegido.Apellido = senderGrid.CurrentRow.Cells["Chofer_Apellido"].Value.ToString();
+                            choferElegido.Dni = (Decimal)senderGrid.CurrentRow.Cells["Chofer_Dni"].Value;
+                            choferElegido.Telefono = (Decimal)senderGrid.CurrentRow.Cells["Chofer_Telefono"].Value;
+                            choferElegido.Direccion = senderGrid.CurrentRow.Cells["Chofer_Direccion"].Value.ToString();
+                            choferElegido.FechaNacimiento = (DateTime)(senderGrid.CurrentRow.Cells["Chofer_Fecha_Nac"].Value);
+                            choferElegido.Mail = senderGrid.CurrentRow.Cells["Chofer_Mail"].Value.ToString();
+                            choferElegido.Activo = (Byte)senderGrid.CurrentRow.Cells["Chofer_Activo"].Value;
+                            this.formularioModificacion.choferElegido = choferElegido;
+                            this.formularioModificacion.cambiarChofer();
+                            this.Hide();
+                        }
+                        else
+                        {
+                            MessageBox.Show("No puede seleccionar este chofer ya que no se encuentra activo", "Error", MessageBoxButtons.OK);
+                        }
                     }
                 }
                 catch (Exception ex)

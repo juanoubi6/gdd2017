@@ -12,13 +12,19 @@ namespace UberFrba.Abm_Automovil
 {
     public partial class ListadoAutomovil : Form
     {
+
+        private Decimal dniChoferFiltro = 0;
+
         public ListadoAutomovil()
         {
             InitializeComponent();
+            this.dniChoferFiltro = 0;
         }
 
         private void ListadoAutomovil_Load(object sender, EventArgs e)
         {
+            this.dniChoferFiltro = 0;
+
             DataTable marcasDt = Automovil.traerMarcas();
             cmbMarca.DataSource = marcasDt;
             cmbMarca.DisplayMember = "Marca_Nombre";
@@ -32,9 +38,10 @@ namespace UberFrba.Abm_Automovil
             grillaSeleccionChofer.Show();
         }
 
-        public void cambiarChofer(String chofer)
+        public void cambiarChofer(String chofer,Decimal dniChofer)
         {
             txtChofer.Text = chofer;
+            this.dniChoferFiltro = dniChofer;
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -66,7 +73,7 @@ namespace UberFrba.Abm_Automovil
                 grillaAutomovil.Columns.Clear();
 
                 //Busco los clientes en la base de datos
-                DataTable dtAutos = Automovil.buscarAutos(txtPatente.Text, txtModelo.Text, ((txtChofer.Text == "")? 0 : Decimal.Parse(txtChofer.Text)),((cmbMarca.Text == "")? 0 :(Int32)cmbMarca.SelectedValue));
+                DataTable dtAutos = Automovil.buscarAutos(txtPatente.Text, txtModelo.Text, dniChoferFiltro,((cmbMarca.Text == "")? 0 :(Int32)cmbMarca.SelectedValue));
 
                 //Le asigno a la grilla los roles
                 grillaAutomovil.DataSource = dtAutos;
@@ -74,6 +81,7 @@ namespace UberFrba.Abm_Automovil
                 //Escondo datos que puedan confundir al usuario (Codigo de marca, Dni del chofer)
                 grillaAutomovil.Columns["Auto_Marca"].Visible = false;
                 grillaAutomovil.Columns["Auto_Chofer"].Visible = false;
+                grillaAutomovil.Columns["Auto_Turno"].Visible = false;
 
                 //Agrego botones para Modificar y Eliminar Rol
                 DataGridViewButtonColumn btnModificar = new DataGridViewButtonColumn();

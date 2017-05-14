@@ -188,6 +188,47 @@ namespace UberFrba.Abm_Chofer
             return dtChoferes;
         }
 
+        public static DataTable buscarChoferesActivos(String nombreChofer, String apellidoChofer, Decimal dniChofer)
+        {
+            DataTable dtChoferes = new DataTable();
+
+            //Creo el comando a ejecutar
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = DBconnection.getInstance();
+            String queryChoferes = "SELECT * FROM Chofer WHERE Chofer_Activo = 1";
+
+            //Armo la query dinamica en base a los parametros de busqueda que me hayan llegado
+            if (!String.IsNullOrEmpty(nombreChofer))
+            {
+                queryChoferes = queryChoferes + " AND Chofer_Nombre LIKE '%' + @nombreChofer + '%'";
+                cmd.Parameters.Add("@nombreChofer", SqlDbType.VarChar).Value = nombreChofer;
+            }
+            if (!String.IsNullOrEmpty(apellidoChofer))
+            {
+                queryChoferes = queryChoferes + " AND Chofer_Apellido LIKE '%' + @apellidoChofer + '%'";
+                cmd.Parameters.Add("@apellidoChofer", SqlDbType.VarChar).Value = apellidoChofer;
+            }
+            if (dniChofer != 0)
+            {
+                queryChoferes = queryChoferes + " AND Chofer_Dni = @dniChofer";
+                cmd.Parameters.Add("@dniChofer", SqlDbType.Decimal).Value = dniChofer;
+            }
+
+            cmd.CommandText = queryChoferes;
+            SqlDataAdapter adapterChoferes = new SqlDataAdapter(cmd);
+
+            try
+            {
+                adapterChoferes.Fill(dtChoferes);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return dtChoferes;
+        }
+
         public static String[] modificarChofer(Chofer choferAModificar, Decimal dniPreModificacion)
         {
 

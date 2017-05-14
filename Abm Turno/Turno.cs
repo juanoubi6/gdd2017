@@ -137,6 +137,38 @@ namespace UberFrba.Abm_Turno
             return dtTurnos;
         }
 
+        public static DataTable buscarTurnosActivos(String descripcionTurno)
+        {
+            DataTable dtTurnos = new DataTable();
+
+            //Creo el comando a ejecutar
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = DBconnection.getInstance();
+            String queryTurnos = "SELECT * FROM Turno WHERE Turno_Activo = 1";
+
+            //Armo la query dinamica en base a los parametros de busqueda que me hayan llegado
+            if (!String.IsNullOrEmpty(descripcionTurno))
+            {
+                queryTurnos = queryTurnos + " AND Turno_Descripcion LIKE '%' + @descripcionTurno + '%'";
+                cmd.Parameters.Add("@descripcionTurno", SqlDbType.VarChar).Value = descripcionTurno;
+            }
+
+
+            cmd.CommandText = queryTurnos;
+            SqlDataAdapter adapterTurnos = new SqlDataAdapter(cmd);
+
+            try
+            {
+                adapterTurnos.Fill(dtTurnos);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return dtTurnos;
+        }
+
         public static String[] eliminarTurno(Int32 codigoTurno)
         {
             //Creo el comando para dar de baja el turno
@@ -147,7 +179,7 @@ namespace UberFrba.Abm_Turno
             try
             {
                 cmdTurno.Connection.Open();
-                if (cmdTurno.ExecuteNonQuery() == 0) return new String[2] { "Error", "No se pudo dar de baja el cliente" };
+                if (cmdTurno.ExecuteNonQuery() == 0) return new String[2] { "Error", "No se pudo dar de baja el turno" };
                 cmdTurno.Connection.Close();
             }
             catch (Exception ex)

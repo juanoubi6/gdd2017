@@ -1,6 +1,6 @@
 ﻿namespace UberFrba.Abm_Automovil
 {
-    partial class AltaAutomovil
+    partial class ModificarAutomovil
     {
         /// <summary>
         /// Required designer variable.
@@ -28,12 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.grpErrorBaseDatos = new System.Windows.Forms.GroupBox();
+            this.lblErrorBaseDatos = new System.Windows.Forms.Label();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnLimpiar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.errorChofer = new System.Windows.Forms.Label();
             this.errorTurno = new System.Windows.Forms.Label();
             this.errorPatente = new System.Windows.Forms.Label();
             this.errorModelo = new System.Windows.Forms.Label();
             this.errorMarca = new System.Windows.Forms.Label();
+            this.chkHabilitado = new System.Windows.Forms.CheckBox();
             this.bntSelectChofer = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.txtChofer = new System.Windows.Forms.TextBox();
@@ -46,13 +51,46 @@
             this.txtModelo = new System.Windows.Forms.TextBox();
             this.cmbMarca = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnLimpiar = new System.Windows.Forms.Button();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.grpErrorBaseDatos = new System.Windows.Forms.GroupBox();
-            this.lblErrorBaseDatos = new System.Windows.Forms.Label();
-            this.groupBox1.SuspendLayout();
             this.grpErrorBaseDatos.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // grpErrorBaseDatos
+            // 
+            this.grpErrorBaseDatos.Controls.Add(this.lblErrorBaseDatos);
+            this.grpErrorBaseDatos.Location = new System.Drawing.Point(12, 245);
+            this.grpErrorBaseDatos.Name = "grpErrorBaseDatos";
+            this.grpErrorBaseDatos.Size = new System.Drawing.Size(654, 74);
+            this.grpErrorBaseDatos.TabIndex = 21;
+            this.grpErrorBaseDatos.TabStop = false;
+            this.grpErrorBaseDatos.Text = "Error de base de datos";
+            this.grpErrorBaseDatos.Visible = false;
+            // 
+            // lblErrorBaseDatos
+            // 
+            this.lblErrorBaseDatos.AutoSize = true;
+            this.lblErrorBaseDatos.Location = new System.Drawing.Point(10, 30);
+            this.lblErrorBaseDatos.Name = "lblErrorBaseDatos";
+            this.lblErrorBaseDatos.Size = new System.Drawing.Size(0, 13);
+            this.lblErrorBaseDatos.TabIndex = 0;
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.Location = new System.Drawing.Point(591, 204);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(75, 23);
+            this.btnGuardar.TabIndex = 20;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.Location = new System.Drawing.Point(12, 204);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
+            this.btnLimpiar.TabIndex = 19;
+            this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
@@ -61,6 +99,7 @@
             this.groupBox1.Controls.Add(this.errorPatente);
             this.groupBox1.Controls.Add(this.errorModelo);
             this.groupBox1.Controls.Add(this.errorMarca);
+            this.groupBox1.Controls.Add(this.chkHabilitado);
             this.groupBox1.Controls.Add(this.bntSelectChofer);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.txtChofer);
@@ -75,8 +114,8 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(654, 175);
-            this.groupBox1.TabIndex = 0;
+            this.groupBox1.Size = new System.Drawing.Size(654, 186);
+            this.groupBox1.TabIndex = 18;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Carga de Campos";
             // 
@@ -120,6 +159,17 @@
             this.errorMarca.Size = new System.Drawing.Size(0, 13);
             this.errorMarca.TabIndex = 13;
             // 
+            // chkHabilitado
+            // 
+            this.chkHabilitado.AutoSize = true;
+            this.chkHabilitado.Location = new System.Drawing.Point(6, 163);
+            this.chkHabilitado.Name = "chkHabilitado";
+            this.chkHabilitado.Size = new System.Drawing.Size(73, 17);
+            this.chkHabilitado.TabIndex = 12;
+            this.chkHabilitado.Text = "Habilitado";
+            this.chkHabilitado.UseVisualStyleBackColor = true;
+            this.chkHabilitado.Visible = false;
+            // 
             // bntSelectChofer
             // 
             this.bntSelectChofer.Location = new System.Drawing.Point(180, 130);
@@ -128,7 +178,6 @@
             this.bntSelectChofer.TabIndex = 11;
             this.bntSelectChofer.Text = "Seleccionar";
             this.bntSelectChofer.UseVisualStyleBackColor = true;
-            this.bntSelectChofer.Click += new System.EventHandler(this.bntSelectChofer_Click);
             // 
             // label5
             // 
@@ -197,7 +246,6 @@
             this.btnSelecTurno.TabIndex = 3;
             this.btnSelecTurno.Text = "Seleccionar";
             this.btnSelecTurno.UseVisualStyleBackColor = true;
-            this.btnSelecTurno.Click += new System.EventHandler(this.btnSelecTurno_Click);
             // 
             // txtModelo
             // 
@@ -223,68 +271,39 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Marca*";
             // 
-            // btnLimpiar
-            // 
-            this.btnLimpiar.Location = new System.Drawing.Point(12, 193);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
-            this.btnLimpiar.TabIndex = 1;
-            this.btnLimpiar.Text = "Limpiar";
-            this.btnLimpiar.UseVisualStyleBackColor = true;
-            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.Location = new System.Drawing.Point(591, 193);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btnGuardar.TabIndex = 2;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
-            // grpErrorBaseDatos
-            // 
-            this.grpErrorBaseDatos.Controls.Add(this.lblErrorBaseDatos);
-            this.grpErrorBaseDatos.Location = new System.Drawing.Point(12, 234);
-            this.grpErrorBaseDatos.Name = "grpErrorBaseDatos";
-            this.grpErrorBaseDatos.Size = new System.Drawing.Size(654, 74);
-            this.grpErrorBaseDatos.TabIndex = 17;
-            this.grpErrorBaseDatos.TabStop = false;
-            this.grpErrorBaseDatos.Text = "Error de base de datos";
-            this.grpErrorBaseDatos.Visible = false;
-            // 
-            // lblErrorBaseDatos
-            // 
-            this.lblErrorBaseDatos.AutoSize = true;
-            this.lblErrorBaseDatos.Location = new System.Drawing.Point(10, 30);
-            this.lblErrorBaseDatos.Name = "lblErrorBaseDatos";
-            this.lblErrorBaseDatos.Size = new System.Drawing.Size(0, 13);
-            this.lblErrorBaseDatos.TabIndex = 0;
-            // 
-            // AltaAutomovil
+            // ModificarAutomovil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(680, 323);
+            this.ClientSize = new System.Drawing.Size(677, 332);
             this.Controls.Add(this.grpErrorBaseDatos);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.groupBox1);
-            this.Name = "AltaAutomovil";
-            this.Text = "Alta Automovil";
-            this.Load += new System.EventHandler(this.AltaAutomovil_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.Name = "ModificarAutomovil";
+            this.Text = "ModificarAutomovil";
             this.grpErrorBaseDatos.ResumeLayout(false);
             this.grpErrorBaseDatos.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
+        private System.Windows.Forms.GroupBox grpErrorBaseDatos;
+        private System.Windows.Forms.Label lblErrorBaseDatos;
+        private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label errorChofer;
+        private System.Windows.Forms.Label errorTurno;
+        private System.Windows.Forms.Label errorPatente;
+        private System.Windows.Forms.Label errorModelo;
+        private System.Windows.Forms.Label errorMarca;
+        private System.Windows.Forms.CheckBox chkHabilitado;
+        private System.Windows.Forms.Button bntSelectChofer;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtChofer;
         private System.Windows.Forms.Label label4;
@@ -296,15 +315,5 @@
         private System.Windows.Forms.TextBox txtModelo;
         private System.Windows.Forms.ComboBox cmbMarca;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button bntSelectChofer;
-        private System.Windows.Forms.Button btnLimpiar;
-        private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.GroupBox grpErrorBaseDatos;
-        private System.Windows.Forms.Label lblErrorBaseDatos;
-        private System.Windows.Forms.Label errorChofer;
-        private System.Windows.Forms.Label errorTurno;
-        private System.Windows.Forms.Label errorPatente;
-        private System.Windows.Forms.Label errorModelo;
-        private System.Windows.Forms.Label errorMarca;
     }
 }

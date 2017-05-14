@@ -122,7 +122,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(987, 343);
+            this.ClientSize = new System.Drawing.Size(994, 343);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnAltaTurno);
             this.Controls.Add(this.btnRegresar);

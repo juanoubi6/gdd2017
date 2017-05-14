@@ -188,6 +188,29 @@ namespace UberFrba.Abm_Chofer
             return dtChoferes;
         }
 
+        public static DataTable buscarChoferPorPk(Decimal dniChofer)
+        {
+            DataTable dtChoferes = new DataTable();
+
+            //Creo el comando a ejecutar
+            SqlCommand cmd = new SqlCommand("SELECT Chofer_Nombre,Chofer_Apellido,Chofer_Dni FROM Chofer WHERE Chofer_Dni = @dniChofer");
+            cmd.Connection = DBconnection.getInstance();
+            cmd.Parameters.Add("@dniChofer", SqlDbType.Decimal).Value = dniChofer;
+           
+            SqlDataAdapter adapterChoferes = new SqlDataAdapter(cmd);
+
+            try
+            {
+                adapterChoferes.Fill(dtChoferes);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return dtChoferes;
+        }
+
         public static DataTable buscarChoferesActivos(String nombreChofer, String apellidoChofer, Decimal dniChofer)
         {
             DataTable dtChoferes = new DataTable();

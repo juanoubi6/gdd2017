@@ -25,7 +25,7 @@ namespace UberFrba.Abm_Automovil
 
         private void btnSelecTurno_Click(object sender, EventArgs e)
         {
-            GrillaTurno_Auto grillaTurno = new GrillaTurno_Auto(this);
+            GrillaTurno_Auto grillaTurno = new GrillaTurno_Auto(this,"alta");
             grillaTurno.Show();
         }
 

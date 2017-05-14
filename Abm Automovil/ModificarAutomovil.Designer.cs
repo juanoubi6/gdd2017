@@ -82,6 +82,7 @@
             this.btnGuardar.TabIndex = 20;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnLimpiar
             // 
@@ -178,6 +179,7 @@
             this.bntSelectChofer.TabIndex = 11;
             this.bntSelectChofer.Text = "Seleccionar";
             this.bntSelectChofer.UseVisualStyleBackColor = true;
+            this.bntSelectChofer.Click += new System.EventHandler(this.bntSelectChofer_Click);
             // 
             // label5
             // 
@@ -246,6 +248,7 @@
             this.btnSelecTurno.TabIndex = 3;
             this.btnSelecTurno.Text = "Seleccionar";
             this.btnSelecTurno.UseVisualStyleBackColor = true;
+            this.btnSelecTurno.Click += new System.EventHandler(this.btnSelecTurno_Click);
             // 
             // txtModelo
             // 
@@ -282,6 +285,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "ModificarAutomovil";
             this.Text = "ModificarAutomovil";
+            this.Load += new System.EventHandler(this.ModificarAutomovil_Load);
             this.grpErrorBaseDatos.ResumeLayout(false);
             this.grpErrorBaseDatos.PerformLayout();
             this.groupBox1.ResumeLayout(false);

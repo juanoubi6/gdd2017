@@ -137,6 +137,29 @@ namespace UberFrba.Abm_Turno
             return dtTurnos;
         }
 
+        public static DataTable buscarTurnoPorPk(Int32 codigoTurno)
+        {
+            DataTable dtTurnos = new DataTable();
+
+            //Creo el comando a ejecutar
+            SqlCommand cmd = new SqlCommand("SELECT Turno_Descripcion,Turno_Hora_Inicio,Turno_Hora_Fin,Turno_Codigo FROM Turno WHERE Turno_Codigo = @codigoTurno");
+            cmd.Connection = DBconnection.getInstance();
+            cmd.Parameters.Add("@codigoTurno", SqlDbType.Int).Value = codigoTurno;
+            
+            SqlDataAdapter adapterTurnos = new SqlDataAdapter(cmd);
+
+            try
+            {
+                adapterTurnos.Fill(dtTurnos);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return dtTurnos;
+        }
+
         public static DataTable buscarTurnosActivos(String descripcionTurno)
         {
             DataTable dtTurnos = new DataTable();

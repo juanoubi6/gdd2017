@@ -188,5 +188,53 @@ namespace UberFrba.Abm_Automovil
             return new String[2] { "Ok", "Automovil dado de baja satisfactoriamente" };
         }
 
+        public static String[] modificarAuto(Automovil autoAModificar, String patenteAntigua)
+        {
+            SqlCommand cmdAuto = new SqlCommand("sp_auto_modif");
+            cmdAuto.CommandType = CommandType.StoredProcedure;
+            cmdAuto.Connection = DBconnection.getInstance();
+            cmdAuto.Parameters.Add("@marca", SqlDbType.Int).Value = autoAModificar.Marca;
+            cmdAuto.Parameters.Add("@modelo", SqlDbType.VarChar).Value = autoAModificar.Modelo;
+            cmdAuto.Parameters.Add("@patente", SqlDbType.VarChar).Value = autoAModificar.Patente;
+            cmdAuto.Parameters.Add("@patenteAnterior", SqlDbType.VarChar).Value = patenteAntigua;
+            cmdAuto.Parameters.Add("@licencia", SqlDbType.VarChar).Value = autoAModificar.Licencia ?? Convert.DBNull;
+            cmdAuto.Parameters.Add("@rodado", SqlDbType.VarChar).Value = autoAModificar.Rodado ?? Convert.DBNull;
+            cmdAuto.Parameters.Add("@chofer", SqlDbType.Decimal).Value = autoAModificar.Chofer;
+            cmdAuto.Parameters.Add("@turno", SqlDbType.Int).Value = autoAModificar.Turno;
+            cmdAuto.Parameters.Add("@activo", SqlDbType.TinyInt).Value = autoAModificar.Activo;
+
+            //Creo los parametro respuesta
+            SqlParameter responseMsg = new SqlParameter();
+            SqlParameter responseErr = new SqlParameter();
+            responseMsg.ParameterName = "@resultado";
+            responseErr.ParameterName = "@codOp";
+            responseMsg.SqlDbType = System.Data.SqlDbType.VarChar;
+            responseMsg.Direction = System.Data.ParameterDirection.Output;
+            responseMsg.Size = 255;
+            responseErr.SqlDbType = System.Data.SqlDbType.Int;
+            responseErr.Direction = System.Data.ParameterDirection.Output;
+            cmdAuto.Parameters.Add(responseMsg);
+            cmdAuto.Parameters.Add(responseErr);
+
+            try
+            {
+                cmdAuto.Connection.Open();
+
+                //Ejecuto el SP y veo el codigo de error
+                cmdAuto.ExecuteNonQuery();
+                int codigoError = Convert.ToInt32(cmdAuto.Parameters["@codOp"].Value);
+                if (codigoError != 0) throw new Exception(cmdAuto.Parameters["@resultado"].Value.ToString());
+
+                cmdAuto.Connection.Close();
+            }
+            catch (Exception ex)
+            {
+                cmdAuto.Connection.Close();
+                return new String[2] { "Error", ex.Message };
+            }
+
+            return new String[2] { "Ok", "Auto actualizado satisfactoriamente" };
+        }
+
     }
 }

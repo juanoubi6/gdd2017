@@ -15,11 +15,21 @@ namespace UberFrba.Abm_Automovil
     {
 
         public AltaAutomovil formularioAlta;
+        public ModificarAutomovil formularioModificacion;
+        public String modo;
 
-        public GrillaTurno_Auto(AltaAutomovil formulario)
+        public GrillaTurno_Auto(Form formulario, String modo)
         {
             InitializeComponent();
-            this.formularioAlta = formulario;
+            if (modo == "alta")
+            {
+                this.formularioAlta = (AltaAutomovil)formulario;
+            }
+            else
+            {
+                this.formularioModificacion = (ModificarAutomovil)formulario;
+            }
+            this.modo = modo;
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -80,10 +90,19 @@ namespace UberFrba.Abm_Automovil
                     turnoSeleccionado.PrecioBase = (Decimal)senderGrid.CurrentRow.Cells["Turno_Precio_Base"].Value;
                     turnoSeleccionado.ValorKm = (Decimal)senderGrid.CurrentRow.Cells["Turno_Valor_Kilometro"].Value;
                     turnoSeleccionado.Activo = (Byte)senderGrid.CurrentRow.Cells["Turno_Activo"].Value;
-                    ModificarTurno modificarTurno = new ModificarTurno(turnoSeleccionado);
-                    this.formularioAlta.turnoElegido = turnoSeleccionado;
-                    this.formularioAlta.cambiarTurno();
-                    this.Hide();
+
+                    if (this.modo == "alta")
+                    {
+                        this.formularioAlta.turnoElegido = turnoSeleccionado;
+                        this.formularioAlta.cambiarTurno();
+                        this.Hide();
+                    }
+                    else
+                    {
+                        this.formularioModificacion.turnoElegido = turnoSeleccionado;
+                        this.formularioModificacion.cambiarTurno();
+                        this.Hide();
+                    }
                 }
                 catch (Exception ex)
                 {

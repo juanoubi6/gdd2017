@@ -16,6 +16,7 @@ namespace UberFrba.Abm_Automovil
 
         public AltaAutomovil formularioAlta;
         public ListadoAutomovil formularioListado;
+        public ModificarAutomovil formularioModificacion;
         public String modo;
 
         public GrillaChofer_Auto(Form formulario,String modo)
@@ -25,9 +26,13 @@ namespace UberFrba.Abm_Automovil
             {
                 this.formularioListado = (ListadoAutomovil)formulario;
             }
-            else
+            else if (modo == "seleccion")
             {
                 this.formularioAlta = (AltaAutomovil)formulario;
+            }
+            else
+            {
+                this.formularioModificacion = (ModificarAutomovil)formulario;
             }
             this.modo = modo;
         }
@@ -124,9 +129,24 @@ namespace UberFrba.Abm_Automovil
                         this.formularioAlta.cambiarChofer();
                         this.Hide();
                     }
-                    else
+                    else if (this.modo == "filtro")
                     {
                         this.formularioListado.cambiarChofer(senderGrid.CurrentRow.Cells["Chofer_Nombre"].Value.ToString() + " " + senderGrid.CurrentRow.Cells["Chofer_Apellido"].Value.ToString() + " " + senderGrid.CurrentRow.Cells["Chofer_Dni"].Value.ToString());
+                        this.Hide();
+                    }
+                    else
+                    {
+                        Chofer choferElegido = new Chofer();
+                        choferElegido.Nombre = senderGrid.CurrentRow.Cells["Chofer_Nombre"].Value.ToString();
+                        choferElegido.Apellido = senderGrid.CurrentRow.Cells["Chofer_Apellido"].Value.ToString();
+                        choferElegido.Dni = (Decimal)senderGrid.CurrentRow.Cells["Chofer_Dni"].Value;
+                        choferElegido.Telefono = (Decimal)senderGrid.CurrentRow.Cells["Chofer_Telefono"].Value;
+                        choferElegido.Direccion = senderGrid.CurrentRow.Cells["Chofer_Direccion"].Value.ToString();
+                        choferElegido.FechaNacimiento = (DateTime)(senderGrid.CurrentRow.Cells["Chofer_Fecha_Nac"].Value);
+                        choferElegido.Mail = senderGrid.CurrentRow.Cells["Chofer_Mail"].Value.ToString();
+                        choferElegido.Activo = (Byte)senderGrid.CurrentRow.Cells["Chofer_Activo"].Value;
+                        this.formularioModificacion.choferElegido = choferElegido;
+                        this.formularioModificacion.cambiarChofer();
                         this.Hide();
                     }
                 }

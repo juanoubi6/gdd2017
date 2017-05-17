@@ -19,6 +19,7 @@ namespace UberFrba.Registro_Viajes
         public GrillaChofer_Viaje(AltaViaje formulario)
         {
             InitializeComponent();
+            this.formularioAlta = formulario;
         }
 
         private Boolean validarFiltros(String nombre, String apellido, String dni)

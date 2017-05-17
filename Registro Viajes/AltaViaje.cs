@@ -30,12 +30,6 @@ namespace UberFrba.Registro_Viajes
             dtpFin.CustomFormat = "MM/dd/yyyy hh:mm:ss";  
         }
 
-        private void btnSelectAuto_Click(object sender, EventArgs e)
-        {
-            GrillaAuto_Viaje grillaAuto = new GrillaAuto_Viaje(this);
-            grillaAuto.Show();
-        }
-
         private void bntSelectChofer_Click(object sender, EventArgs e)
         {
             GrillaChofer_Viaje grillaChofer = new GrillaChofer_Viaje(this);
@@ -96,13 +90,50 @@ namespace UberFrba.Registro_Viajes
                 contadorErrores++;
             }
 
+            //Si no hay errores, se intenta guardar el nuevo Turno
+            if (contadorErrores == 0)
+            {
+                Viaje viajeAGrabar = new Viaje();
+                viajeAGrabar.FechaHoraInicio = dtpInicio.Value;
+                viajeAGrabar.FechaHoraFin = dtpFin.Value;
+                viajeAGrabar.CantidadKm = Decimal.Parse(txtCantidad.Text);
+                viajeAGrabar.Chofer = choferElegido.Dni;
+                viajeAGrabar.Auto = autoElegido.Patente;
+                viajeAGrabar.Turno = turnoElegido.Codigo;
+                viajeAGrabar.Cliente = clienteElegido.Telefono;
 
+                String[] respuesta = Viaje.registrarViaje(viajeAGrabar);
+                if (respuesta[0] == "Error")
+                {
+                    lblErrorBaseDatos.Text = respuesta[1];
+                    grpErrorBaseDatos.Visible = true;
+                }
+                else
+                {
+                    MessageBox.Show(respuesta[1], "Operación exitosa", MessageBoxButtons.OK);
+                }
+            }
 
         }
 
         public void cambiarChofer()
         {
             txtChofer.Text = choferElegido.Nombre + " " + choferElegido.Apellido;
+
+            //Luego de cambiar el chofer, busco el auto de este chofer y lo asigno
+            try
+            {
+                DataTable dtAutoActivoChofer = Chofer.buscarAutoActivo(choferElegido);
+                Automovil autoActivo = new Automovil();
+                autoActivo.Patente = dtAutoActivoChofer.Rows[0]["Auto_Patente"].ToString();
+                this.autoElegido = autoActivo;
+                cambiarAuto();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK);
+            }
+
         }
 
         public void cambiarTurno()

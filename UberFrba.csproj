@@ -188,12 +188,6 @@
     <Compile Include="Registro Viajes\AltaViaje.Designer.cs">
       <DependentUpon>AltaViaje.cs</DependentUpon>
     </Compile>
-    <Compile Include="Registro Viajes\GrillaAuto_Viaje.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Registro Viajes\GrillaAuto_Viaje.Designer.cs">
-      <DependentUpon>GrillaAuto_Viaje.cs</DependentUpon>
-    </Compile>
     <Compile Include="Registro Viajes\GrillaChofer_Viaje.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -288,9 +282,6 @@
     </Compile>
     <EmbeddedResource Include="Registro Viajes\AltaViaje.resx">
       <DependentUpon>AltaViaje.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Registro Viajes\GrillaAuto_Viaje.resx">
-      <DependentUpon>GrillaAuto_Viaje.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Registro Viajes\GrillaChofer_Viaje.resx">
       <DependentUpon>GrillaChofer_Viaje.cs</DependentUpon>

@@ -59,7 +59,6 @@ namespace UberFrba.Abm_Turno
                     MessageBox.Show(respuesta[1], "Operación exitosa", MessageBoxButtons.OK);
                 }
             }
-
             
         }
 

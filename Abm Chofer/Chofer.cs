@@ -315,5 +315,31 @@ namespace UberFrba.Abm_Chofer
 
             return new String[2] { "Ok", "Chofer dado de baja satisfactoriamente" };
         }
+
+        public static DataTable buscarAutoActivo(Chofer choferElegido)
+        {
+            DataTable dtAutoBuscado = new DataTable();
+
+            //Creo el comando a ejecutar
+            SqlCommand cmd = new SqlCommand("SELECT Auto_Patente FROM Auto WHERE Auto_Chofer = @choferDni AND Auto_Activo = 1");
+            cmd.Connection = DBconnection.getInstance();
+            cmd.Parameters.Add("@choferDni", SqlDbType.Decimal).Value = choferElegido.Dni;
+            
+            SqlDataAdapter adapterAutos = new SqlDataAdapter(cmd);
+
+            try
+            {
+                adapterAutos.Fill(dtAutoBuscado);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            if (dtAutoBuscado.Rows.Count == 0) throw new Exception("No se encontró un auto activo para el chofer seleccionado");
+
+            return dtAutoBuscado;
+        
+        }
     }
 }

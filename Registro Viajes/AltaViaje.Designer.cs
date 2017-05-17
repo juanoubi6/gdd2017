@@ -54,7 +54,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtCantidad = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnSelectAuto = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.grpErrorBaseDatos = new System.Windows.Forms.GroupBox();
             this.lblErrorBaseDatos = new System.Windows.Forms.Label();
@@ -106,7 +105,6 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txtCantidad);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.btnSelectAuto);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
@@ -119,7 +117,7 @@
             // 
             this.errorCliente.AutoSize = true;
             this.errorCliente.ForeColor = System.Drawing.Color.Red;
-            this.errorCliente.Location = new System.Drawing.Point(313, 187);
+            this.errorCliente.Location = new System.Drawing.Point(269, 187);
             this.errorCliente.Name = "errorCliente";
             this.errorCliente.Size = new System.Drawing.Size(0, 13);
             this.errorCliente.TabIndex = 26;
@@ -128,7 +126,7 @@
             // 
             this.errorTurno.AutoSize = true;
             this.errorTurno.ForeColor = System.Drawing.Color.Red;
-            this.errorTurno.Location = new System.Drawing.Point(313, 161);
+            this.errorTurno.Location = new System.Drawing.Point(269, 161);
             this.errorTurno.Name = "errorTurno";
             this.errorTurno.Size = new System.Drawing.Size(0, 13);
             this.errorTurno.TabIndex = 25;
@@ -137,7 +135,7 @@
             // 
             this.errorChofer.AutoSize = true;
             this.errorChofer.ForeColor = System.Drawing.Color.Red;
-            this.errorChofer.Location = new System.Drawing.Point(313, 135);
+            this.errorChofer.Location = new System.Drawing.Point(269, 109);
             this.errorChofer.Name = "errorChofer";
             this.errorChofer.Size = new System.Drawing.Size(0, 13);
             this.errorChofer.TabIndex = 24;
@@ -146,7 +144,7 @@
             // 
             this.errorAuto.AutoSize = true;
             this.errorAuto.ForeColor = System.Drawing.Color.Red;
-            this.errorAuto.Location = new System.Drawing.Point(313, 108);
+            this.errorAuto.Location = new System.Drawing.Point(185, 134);
             this.errorAuto.Name = "errorAuto";
             this.errorAuto.Size = new System.Drawing.Size(0, 13);
             this.errorAuto.TabIndex = 23;
@@ -155,7 +153,7 @@
             // 
             this.errorCantKm.AutoSize = true;
             this.errorCantKm.ForeColor = System.Drawing.Color.Red;
-            this.errorCantKm.Location = new System.Drawing.Point(313, 83);
+            this.errorCantKm.Location = new System.Drawing.Point(186, 83);
             this.errorCantKm.Name = "errorCantKm";
             this.errorCantKm.Size = new System.Drawing.Size(0, 13);
             this.errorCantKm.TabIndex = 22;
@@ -164,7 +162,7 @@
             // 
             this.errorFechaHoraFin.AutoSize = true;
             this.errorFechaHoraFin.ForeColor = System.Drawing.Color.Red;
-            this.errorFechaHoraFin.Location = new System.Drawing.Point(313, 57);
+            this.errorFechaHoraFin.Location = new System.Drawing.Point(267, 57);
             this.errorFechaHoraFin.Name = "errorFechaHoraFin";
             this.errorFechaHoraFin.Size = new System.Drawing.Size(0, 13);
             this.errorFechaHoraFin.TabIndex = 21;
@@ -173,7 +171,7 @@
             // 
             this.errorFechaHoraIni.AutoSize = true;
             this.errorFechaHoraIni.ForeColor = System.Drawing.Color.Red;
-            this.errorFechaHoraIni.Location = new System.Drawing.Point(313, 31);
+            this.errorFechaHoraIni.Location = new System.Drawing.Point(267, 31);
             this.errorFechaHoraIni.Name = "errorFechaHoraIni";
             this.errorFechaHoraIni.Size = new System.Drawing.Size(0, 13);
             this.errorFechaHoraIni.TabIndex = 20;
@@ -250,7 +248,7 @@
             // 
             // bntSelectChofer
             // 
-            this.bntSelectChofer.Location = new System.Drawing.Point(183, 130);
+            this.bntSelectChofer.Location = new System.Drawing.Point(183, 104);
             this.bntSelectChofer.Name = "bntSelectChofer";
             this.bntSelectChofer.Size = new System.Drawing.Size(75, 23);
             this.bntSelectChofer.TabIndex = 11;
@@ -261,7 +259,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 135);
+            this.label5.Location = new System.Drawing.Point(6, 109);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(42, 13);
             this.label5.TabIndex = 10;
@@ -269,7 +267,7 @@
             // 
             // txtChofer
             // 
-            this.txtChofer.Location = new System.Drawing.Point(57, 132);
+            this.txtChofer.Location = new System.Drawing.Point(57, 106);
             this.txtChofer.Name = "txtChofer";
             this.txtChofer.ReadOnly = true;
             this.txtChofer.Size = new System.Drawing.Size(121, 20);
@@ -278,7 +276,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 109);
+            this.label4.Location = new System.Drawing.Point(6, 135);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(33, 13);
             this.label4.TabIndex = 8;
@@ -286,7 +284,7 @@
             // 
             // txtAuto
             // 
-            this.txtAuto.Location = new System.Drawing.Point(57, 106);
+            this.txtAuto.Location = new System.Drawing.Point(57, 132);
             this.txtAuto.Name = "txtAuto";
             this.txtAuto.ReadOnly = true;
             this.txtAuto.Size = new System.Drawing.Size(121, 20);
@@ -316,16 +314,6 @@
             this.label2.Size = new System.Drawing.Size(92, 13);
             this.label2.TabIndex = 4;
             this.label2.Text = "Fecha y Hora Fin*";
-            // 
-            // btnSelectAuto
-            // 
-            this.btnSelectAuto.Location = new System.Drawing.Point(183, 103);
-            this.btnSelectAuto.Name = "btnSelectAuto";
-            this.btnSelectAuto.Size = new System.Drawing.Size(75, 23);
-            this.btnSelectAuto.TabIndex = 3;
-            this.btnSelectAuto.Text = "Seleccionar";
-            this.btnSelectAuto.UseVisualStyleBackColor = true;
-            this.btnSelectAuto.Click += new System.EventHandler(this.btnSelectAuto_Click);
             // 
             // label1
             // 
@@ -387,7 +375,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtCantidad;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnSelectAuto;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnSelectCliente;
         private System.Windows.Forms.Label label7;

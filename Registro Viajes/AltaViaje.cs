@@ -7,11 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UberFrba.Abm_Automovil;
+using UberFrba.Abm_Chofer;
+using UberFrba.Abm_Cliente;
+using UberFrba.Abm_Turno;
 
 namespace UberFrba.Registro_Viajes
 {
     public partial class AltaViaje : Form
     {
+        public Turno turnoElegido;
+        public Chofer choferElegido;
+        public Automovil autoElegido;
+        public Cliente clienteElegido;
+
         public AltaViaje()
         {
             InitializeComponent();
@@ -90,5 +99,26 @@ namespace UberFrba.Registro_Viajes
 
 
         }
+
+        public void cambiarChofer()
+        {
+            txtChofer.Text = choferElegido.Nombre + " " + choferElegido.Apellido;
+        }
+
+        public void cambiarTurno()
+        {
+            txtTurno.Text = turnoElegido.Descripcion + " (" + turnoElegido.HoraInicio.ToString() + " a " + turnoElegido.HoraFin.ToString() + ")";
+        }
+
+        public void cambiarAuto()
+        {
+            txtAuto.Text = autoElegido.Patente;
+        }
+
+        public void cambiarCliente()
+        {
+            txtCliente.Text = clienteElegido.Nombre + " " + clienteElegido.Apellido;
+        }
+
     }
 }

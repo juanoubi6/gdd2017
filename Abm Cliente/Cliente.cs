@@ -188,7 +188,8 @@ namespace UberFrba.Abm_Cliente
         {
 
             //Creo el comando necesario para grabar el cliente en la tabla de clientes
-            SqlCommand cmdCliente = new SqlCommand("INSERT INTO Cliente (Cliente_Nombre,Cliente_Apellido,Cliente_Dni,Cliente_Mail,Cliente_Telefono,Cliente_Direccion,Cliente_Fecha_Nac,Cliente_Codigo_Postal,Cliente_Activo) values (@nombre,@apellido,@dni,@mail,@telefono,@direccion,@fechaNacimiento,@codigoPostal,@activo)");
+            SqlCommand cmdCliente = new SqlCommand("sp_cliente_alta");
+            cmdCliente.CommandType = CommandType.StoredProcedure;
             cmdCliente.Connection = DBconnection.getInstance();
             cmdCliente.Parameters.Add("@nombre", SqlDbType.VarChar).Value = clienteAGrabar.Nombre;
             cmdCliente.Parameters.Add("@apellido", SqlDbType.VarChar).Value = clienteAGrabar.Apellido;
@@ -197,41 +198,41 @@ namespace UberFrba.Abm_Cliente
             cmdCliente.Parameters.Add("@telefono", SqlDbType.Decimal).Value = clienteAGrabar.Telefono;
             cmdCliente.Parameters.Add("@direccion", SqlDbType.VarChar).Value = clienteAGrabar.Direccion;
             cmdCliente.Parameters.Add("@fechaNacimiento", SqlDbType.DateTime).Value = clienteAGrabar.FechaNacimiento;
-            cmdCliente.Parameters.Add("@codigoPostal", SqlDbType.Decimal).Value = clienteAGrabar.CodigoPostal;
+            cmdCliente.Parameters.Add("@codPostal", SqlDbType.Decimal).Value = clienteAGrabar.CodigoPostal;
             cmdCliente.Parameters.Add("@activo", SqlDbType.TinyInt).Value = clienteAGrabar.Activo;
 
-            //Creo el comando necesario para crear el usuario asociado al cliente
-            SqlCommand cmdUsuarioCliente = new SqlCommand("INSERT INTO Usuario(Usuario_Username,Usuario_Password,Usuario_Reintentos,Usuario_Activo) VALUES (@telefono,@telefonoHash,0,1)");
-            cmdUsuarioCliente.Connection = DBconnection.getInstance();
-            cmdUsuarioCliente.Parameters.Add("@telefono", SqlDbType.VarChar);
-            cmdUsuarioCliente.Parameters.Add("@telefonoHash", SqlDbType.VarChar);
-            cmdUsuarioCliente.Parameters["@telefono"].Value = clienteAGrabar.Telefono.ToString();
-            cmdUsuarioCliente.Parameters["@telefonoHash"].Value = LoginClass.GenerateSHA256String(clienteAGrabar.Telefono.ToString());
-
-            //Creo el comando necesario para asignar el rol de "Cliente" al usuario del cliente
-            SqlCommand cmdRolCliente = new SqlCommand("INSERT INTO Rol_x_Usuario(Usuario_Username,Rol_Codigo) values (@usuario,(SELECT Rol_Codigo FROM Rol WHERE Rol_Nombre = 'Cliente'))");
-            cmdRolCliente.Connection = DBconnection.getInstance();
-            cmdRolCliente.Parameters.Add("@usuario", SqlDbType.VarChar);
-            cmdRolCliente.Parameters["@usuario"].Value = clienteAGrabar.Telefono.ToString();
+            //Creo los parametro respuesta
+            SqlParameter responseMsg = new SqlParameter();
+            SqlParameter responseErr = new SqlParameter();
+            responseMsg.ParameterName = "@resultado";
+            responseErr.ParameterName = "@codOp";
+            responseMsg.SqlDbType = System.Data.SqlDbType.VarChar;
+            responseMsg.Direction = System.Data.ParameterDirection.Output;
+            responseMsg.Size = 255;
+            responseErr.SqlDbType = System.Data.SqlDbType.Int;
+            responseErr.Direction = System.Data.ParameterDirection.Output;
+            cmdCliente.Parameters.Add(responseMsg);
+            cmdCliente.Parameters.Add(responseErr);
 
             //Se realiza toda la creacion del cliente en el ambito de una transaccion
             try
             {
-                using (TransactionScope scope = new TransactionScope())
-                {
-                    cmdCliente.Connection.Open();
-                    if (cmdCliente.ExecuteNonQuery() == 0) throw new Exception("No se pudo grabar el cliente");
-                    if (cmdUsuarioCliente.ExecuteNonQuery() == 0) throw new Exception("No se pudo crear el usuario asociado para el cliente");
-                    if (cmdRolCliente.ExecuteNonQuery() == 0) throw new Exception("No se pudo asignar el rol de 'Cliente' al usuario del cliente");
-                    scope.Complete();
-                    cmdCliente.Connection.Close();
-                }
+                cmdCliente.Connection.Open();
+
+                //Ejecuto el SP y veo el codigo de error
+                cmdCliente.ExecuteNonQuery();
+                int codigoError = Convert.ToInt32(cmdCliente.Parameters["@codOp"].Value);
+                if (codigoError != 0) throw new Exception(cmdCliente.Parameters["@resultado"].Value.ToString());
+
+                cmdCliente.Connection.Close();
+
             }
             catch (Exception ex)
             {
                 cmdCliente.Connection.Close();
                 return new String[2] { "Error", ex.Message };
             }
+
         
             return new String[2] { "Ok", "Cliente creado satisfactoriamente. Puede hacer un Login como usuario utilizando su Telefono como Username y Password" };
         }

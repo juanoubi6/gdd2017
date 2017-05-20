@@ -66,15 +66,15 @@ namespace UberFrba.Abm_Chofer
                 errorApellido.Text = Chofer.validarApellido(txtApellido.Text);
                 if (errorApellido.Text != "") contadorErrores++;
 
-                errorTelefono.Text = Chofer.validarTelefono(txtTelefono.Text);
-                if (errorTelefono.Text != "") contadorErrores++;
-
-                //Valido que el campo Dni sea correcto y no esté repetido si es que se modificó
-                if (txtDni.Text != choferAModificar.Dni.ToString())
+                //Valido que el campo telefono sea correcto y no esté repetido si es que se modificó
+                if (txtTelefono.Text != choferAModificar.Telefono.ToString())
                 {
-                    errorDni.Text = Chofer.validarDni(txtDni.Text);
-                    if (errorDni.Text != "") contadorErrores++;
+                    errorTelefono.Text = Chofer.validarTelefono(txtTelefono.Text);
+                    if (errorTelefono.Text != "") contadorErrores++;
                 }
+
+                errorDni.Text = Chofer.validarDni(txtDni.Text);
+                if (errorDni.Text != "") contadorErrores++;
 
                 errorEmail.Text = Chofer.validarEmail(txtEmail.Text);
                 if (errorEmail.Text != "") contadorErrores++;
@@ -95,7 +95,7 @@ namespace UberFrba.Abm_Chofer
                     choferAModificarEnBD.Activo = (chkHabilitado.Checked) ? (Byte)1 : (Byte)0;
                     choferAModificarEnBD.Mail = (txtEmail.Text == "") ? null : txtEmail.Text;
 
-                    String[] respuesta = Chofer.modificarChofer(choferAModificarEnBD, choferAModificar.Dni);
+                    String[] respuesta = Chofer.modificarChofer(choferAModificarEnBD, choferAModificar.Telefono);
                     if (respuesta[0] == "Error")
                     {
                         lblErrorBaseDatos.Text = respuesta[1];

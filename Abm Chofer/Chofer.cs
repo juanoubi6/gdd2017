@@ -100,8 +100,9 @@ namespace UberFrba.Abm_Chofer
         public static String[] grabarChofer(Chofer choferAGrabar)
         {
 
-            //Creo el comando necesario para grabar el cliente en la tabla de clientes
-            SqlCommand cmdChofer = new SqlCommand("INSERT INTO Chofer (Chofer_Nombre,Chofer_Apellido,Chofer_Dni,Chofer_Mail,Chofer_Telefono,Chofer_Direccion,Chofer_Fecha_Nac,Chofer_Activo) values (@nombre,@apellido,@dni,@mail,@telefono,@direccion,@fechaNacimiento,@activo)");
+            //Creo el comando necesario para grabar el chofer en la tabla de clientes
+            SqlCommand cmdChofer = new SqlCommand("sp_chofer_alta");
+            cmdChofer.CommandType = CommandType.StoredProcedure;
             cmdChofer.Connection = DBconnection.getInstance();
             cmdChofer.Parameters.Add("@nombre", SqlDbType.VarChar).Value = choferAGrabar.Nombre;
             cmdChofer.Parameters.Add("@apellido", SqlDbType.VarChar).Value = choferAGrabar.Apellido;
@@ -112,31 +113,31 @@ namespace UberFrba.Abm_Chofer
             cmdChofer.Parameters.Add("@fechaNacimiento", SqlDbType.DateTime).Value = choferAGrabar.FechaNacimiento;
             cmdChofer.Parameters.Add("@activo", SqlDbType.TinyInt).Value = choferAGrabar.Activo;
 
+            //Creo los parametro respuesta
+            SqlParameter responseMsg = new SqlParameter();
+            SqlParameter responseErr = new SqlParameter();
+            responseMsg.ParameterName = "@resultado";
+            responseErr.ParameterName = "@codOp";
+            responseMsg.SqlDbType = System.Data.SqlDbType.VarChar;
+            responseMsg.Direction = System.Data.ParameterDirection.Output;
+            responseMsg.Size = 255;
+            responseErr.SqlDbType = System.Data.SqlDbType.Int;
+            responseErr.Direction = System.Data.ParameterDirection.Output;
+            cmdChofer.Parameters.Add(responseMsg);
+            cmdChofer.Parameters.Add(responseErr);
 
-            //Creo el comando necesario para crear el usuario asociado al cliente
-            SqlCommand cmdUsuarioChofer = new SqlCommand("INSERT INTO Usuario(Usuario_Username,Usuario_Password,Usuario_Reintentos,Usuario_Activo) VALUES (@dni,@dniHash,0,1)");
-            cmdUsuarioChofer.Connection = DBconnection.getInstance();
-            cmdUsuarioChofer.Parameters.Add("@dni", SqlDbType.VarChar).Value = choferAGrabar.Dni.ToString();
-            cmdUsuarioChofer.Parameters.Add("@dniHash", SqlDbType.VarChar).Value = LoginClass.GenerateSHA256String(choferAGrabar.Dni.ToString());
-
-
-            //Creo el comando necesario para asignar el rol de "Chofer" al usuario del chofer
-            SqlCommand cmdRolChofer = new SqlCommand("INSERT INTO Rol_x_Usuario(Usuario_Username,Rol_Codigo) values (@usuario,(SELECT Rol_Codigo FROM Rol WHERE Rol_Nombre = 'Chofer'))");
-            cmdRolChofer.Connection = DBconnection.getInstance();
-            cmdRolChofer.Parameters.Add("@usuario", SqlDbType.VarChar).Value = choferAGrabar.Dni.ToString();
-
-            //Se realiza toda la creacion del chofer en el ambito de una transaccion
+            //Se realiza toda la creacion del cliente en el ambito de una transaccion
             try
             {
-                using (TransactionScope scope = new TransactionScope())
-                {
-                    cmdChofer.Connection.Open();
-                    if (cmdChofer.ExecuteNonQuery() == 0) throw new Exception("No se pudo grabar el cliente");
-                    if (cmdUsuarioChofer.ExecuteNonQuery() == 0) throw new Exception("No se pudo crear el usuario asociado para el cliente");
-                    if (cmdRolChofer.ExecuteNonQuery() == 0) throw new Exception("No se pudo asignar el rol de 'Cliente' al usuario del cliente");
-                    scope.Complete();
-                    cmdChofer.Connection.Close();
-                }
+                cmdChofer.Connection.Open();
+
+                //Ejecuto el SP y veo el codigo de error
+                cmdChofer.ExecuteNonQuery();
+                int codigoError = Convert.ToInt32(cmdChofer.Parameters["@codOp"].Value);
+                if (codigoError != 0) throw new Exception(cmdChofer.Parameters["@resultado"].Value.ToString());
+
+                cmdChofer.Connection.Close();
+
             }
             catch (Exception ex)
             {
@@ -144,7 +145,8 @@ namespace UberFrba.Abm_Chofer
                 return new String[2] { "Error", ex.Message };
             }
 
-            return new String[2] { "Ok", "Chofer creado satisfactoriamente. Puede hacer un Login como usuario utilizando su DNI como Username y Password" };
+
+            return new String[2] { "Ok", "Chofer creado satisfactoriamente. Puede hacer un Login como usuario utilizando su Telefono como Username y Password" };
         }
 
         public static DataTable buscarChoferes(String nombreChofer, String apellidoChofer, Decimal dniChofer)
@@ -252,11 +254,11 @@ namespace UberFrba.Abm_Chofer
             return dtChoferes;
         }
 
-        public static String[] modificarChofer(Chofer choferAModificar, Decimal dniPreModificacion)
+        public static String[] modificarChofer(Chofer choferAModificar, Decimal telefonoPreModificacion)
         {
 
             //Creo el comando necesario para modificar el cliente
-            SqlCommand cmdChofer = new SqlCommand("UPDATE Chofer SET Chofer_Nombre = @nombre, Chofer_Apellido = @apellido, Chofer_Dni = @dni, Chofer_Telefono = @telefono , Chofer_Mail = @mail , Chofer_Fecha_Nac = @fechaNacimiento, Chofer_Direccion = @direccion, Chofer_Activo = @activo WHERE Chofer_Dni = @dniPreModificacion");
+            SqlCommand cmdChofer = new SqlCommand("UPDATE Chofer SET Chofer_Nombre = @nombre, Chofer_Apellido = @apellido, Chofer_Dni = @dni, Chofer_Telefono = @telefono , Chofer_Mail = @mail , Chofer_Fecha_Nac = @fechaNacimiento, Chofer_Direccion = @direccion, Chofer_Activo = @activo WHERE Chofer_Telefono = @telefonoPreModificacion");
             cmdChofer.Connection = DBconnection.getInstance();
             cmdChofer.Parameters.Add("@nombre", SqlDbType.VarChar).Value = choferAModificar.Nombre;
             cmdChofer.Parameters.Add("@apellido", SqlDbType.VarChar).Value = choferAModificar.Apellido;
@@ -266,7 +268,7 @@ namespace UberFrba.Abm_Chofer
             cmdChofer.Parameters.Add("@direccion", SqlDbType.VarChar).Value = choferAModificar.Direccion;
             cmdChofer.Parameters.Add("@fechaNacimiento", SqlDbType.DateTime).Value = choferAModificar.FechaNacimiento;
             cmdChofer.Parameters.Add("@activo", SqlDbType.TinyInt).Value = choferAModificar.Activo;
-            cmdChofer.Parameters.Add("@dniPreModificacion", SqlDbType.Decimal).Value = dniPreModificacion;
+            cmdChofer.Parameters.Add("@telefonoPreModificacion", SqlDbType.Decimal).Value = telefonoPreModificacion;
 
             try
             {

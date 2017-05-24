@@ -330,6 +330,7 @@
             // 
             this.txtTelefono.Location = new System.Drawing.Point(68, 132);
             this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.ReadOnly = true;
             this.txtTelefono.Size = new System.Drawing.Size(121, 20);
             this.txtTelefono.TabIndex = 9;
             // 

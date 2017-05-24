@@ -223,7 +223,6 @@
             // 
             this.txtDireccion.Location = new System.Drawing.Point(62, 184);
             this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.ReadOnly = true;
             this.txtDireccion.Size = new System.Drawing.Size(121, 20);
             this.txtDireccion.TabIndex = 29;
             // 
@@ -273,7 +272,6 @@
             // 
             this.txtEmail.Location = new System.Drawing.Point(62, 158);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.ReadOnly = true;
             this.txtEmail.Size = new System.Drawing.Size(121, 20);
             this.txtEmail.TabIndex = 13;
             // 

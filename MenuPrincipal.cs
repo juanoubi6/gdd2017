@@ -61,7 +61,8 @@ namespace UberFrba
 
         private void facturacionToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
+            UberFrba.Facturacion.Facturacion formularioFacturacion = new UberFrba.Facturacion.Facturacion();
+            formularioFacturacion.Show();
         }
 
         private void registroDeViajeToolStripMenuItem_Click(object sender, EventArgs e)

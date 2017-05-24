@@ -151,5 +151,27 @@ namespace UberFrba.Registro_Viajes
             txtCliente.Text = clienteElegido.Nombre + " " + clienteElegido.Apellido;
         }
 
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            lblErrorBaseDatos.Text = "";
+            grpErrorBaseDatos.Visible = false;
+            txtAuto.Text = "";
+            txtChofer.Text = "";
+            txtCliente.Text = "";
+            txtTurno.Text = "";
+            txtCantidad.Text = "";
+            autoElegido = null;
+            turnoElegido = null;
+            clienteElegido = null;
+            choferElegido = null;
+            errorAuto.Text = "";
+            errorCantKm.Text = "";
+            errorChofer.Text = "";
+            errorCliente.Text = "";
+            errorFechaHoraFin.Text = "";
+            errorFechaHoraIni.Text = "";
+            errorTurno.Text = "";
+        }
+
     }
 }

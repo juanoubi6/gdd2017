@@ -67,7 +67,67 @@ namespace UberFrba.Facturacion
 
         private void btnFacturar_Click(object sender, EventArgs e)
         {
+            int contadorErrores = 0;
 
+            //Si no hay viajes no se puede facturar
+            if (txtCantViajes.Text == "")
+            {
+                contadorErrores++;
+                errorViajes.Text = "No se puede facturar un cliente si no tiene viajes que facturar";
+            }
+
+            if (dtpInicio.Value == dtpFin.Value)
+            {
+                contadorErrores++;
+                errorFechaFin.Text = "Las fechas de inicio y fin no pueden ser iguales";
+                errorFechaIni.Text = "Las fechas de inicio y fin no pueden ser iguales";
+            }
+
+            if (dtpInicio.Value >= dtpFin.Value)
+            {
+                contadorErrores++;
+                errorFechaIni.Text = "La fecha de inicio no puede ser mas grande que la de fin";
+            }
+
+            if (dtpFin.Value <= dtpInicio.Value)
+            {
+                contadorErrores++;
+                errorFechaFin.Text = "La fecha de fin no puede ser menor a la fecha de inicio";
+            }
+
+            if (contadorErrores == 0)
+            {
+                Factura nuevaFactura = new Factura();
+                nuevaFactura.FechaInicio = dtpInicio.Value;
+                nuevaFactura.FechaFin = dtpFin.Value;
+                nuevaFactura.Cliente = clienteElegido.Telefono;
+                nuevaFactura.Fecha = DateTime.Now;
+
+                String[] respuesta = Factura.grabarFactura(nuevaFactura);
+                if (respuesta[0] == "Error")
+                {
+                    lblErrorBaseDatos.Text = respuesta[1];
+                    grpErrorBaseDatos.Visible = true;
+                }
+                else
+                {
+                    MessageBox.Show(respuesta[1], "Operación exitosa", MessageBoxButtons.OK);
+                }
+            }
+
+
+
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            txtCantViajes.Text = "";
+            txtCliente.Text = "";
+            clienteElegido = null;
+            lblErrorBaseDatos.Text = "";
+            grpErrorBaseDatos.Visible = false;
+            errorFechaFin.Text = "";
+            errorFechaIni.Text = "";
         }
     }
 }

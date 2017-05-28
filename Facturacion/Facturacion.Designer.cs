@@ -33,14 +33,12 @@
             this.btnFacturar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.errorCliente = new System.Windows.Forms.Label();
             this.btnSelectCliente = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.txtCliente = new System.Windows.Forms.TextBox();
-            this.errorTurno = new System.Windows.Forms.Label();
-            this.errorChofer = new System.Windows.Forms.Label();
-            this.errorFechaHoraFin = new System.Windows.Forms.Label();
-            this.errorFechaHoraIni = new System.Windows.Forms.Label();
+            this.errorViajes = new System.Windows.Forms.Label();
+            this.errorFechaFin = new System.Windows.Forms.Label();
+            this.errorFechaIni = new System.Windows.Forms.Label();
             this.dtpFin = new System.Windows.Forms.DateTimePicker();
             this.dtpInicio = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
@@ -90,17 +88,16 @@
             this.btnLimpiar.TabIndex = 18;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.errorCliente);
             this.groupBox1.Controls.Add(this.btnSelectCliente);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.txtCliente);
-            this.groupBox1.Controls.Add(this.errorTurno);
-            this.groupBox1.Controls.Add(this.errorChofer);
-            this.groupBox1.Controls.Add(this.errorFechaHoraFin);
-            this.groupBox1.Controls.Add(this.errorFechaHoraIni);
+            this.groupBox1.Controls.Add(this.errorViajes);
+            this.groupBox1.Controls.Add(this.errorFechaFin);
+            this.groupBox1.Controls.Add(this.errorFechaIni);
             this.groupBox1.Controls.Add(this.dtpFin);
             this.groupBox1.Controls.Add(this.dtpInicio);
             this.groupBox1.Controls.Add(this.label4);
@@ -113,15 +110,6 @@
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Carga de Campos";
-            // 
-            // errorCliente
-            // 
-            this.errorCliente.AutoSize = true;
-            this.errorCliente.ForeColor = System.Drawing.Color.Red;
-            this.errorCliente.Location = new System.Drawing.Point(269, 83);
-            this.errorCliente.Name = "errorCliente";
-            this.errorCliente.Size = new System.Drawing.Size(0, 13);
-            this.errorCliente.TabIndex = 30;
             // 
             // btnSelectCliente
             // 
@@ -150,41 +138,32 @@
             this.txtCliente.Size = new System.Drawing.Size(121, 20);
             this.txtCliente.TabIndex = 27;
             // 
-            // errorTurno
+            // errorViajes
             // 
-            this.errorTurno.AutoSize = true;
-            this.errorTurno.ForeColor = System.Drawing.Color.Red;
-            this.errorTurno.Location = new System.Drawing.Point(269, 161);
-            this.errorTurno.Name = "errorTurno";
-            this.errorTurno.Size = new System.Drawing.Size(0, 13);
-            this.errorTurno.TabIndex = 25;
+            this.errorViajes.AutoSize = true;
+            this.errorViajes.ForeColor = System.Drawing.Color.Red;
+            this.errorViajes.Location = new System.Drawing.Point(187, 109);
+            this.errorViajes.Name = "errorViajes";
+            this.errorViajes.Size = new System.Drawing.Size(0, 13);
+            this.errorViajes.TabIndex = 24;
             // 
-            // errorChofer
+            // errorFechaFin
             // 
-            this.errorChofer.AutoSize = true;
-            this.errorChofer.ForeColor = System.Drawing.Color.Red;
-            this.errorChofer.Location = new System.Drawing.Point(269, 109);
-            this.errorChofer.Name = "errorChofer";
-            this.errorChofer.Size = new System.Drawing.Size(0, 13);
-            this.errorChofer.TabIndex = 24;
+            this.errorFechaFin.AutoSize = true;
+            this.errorFechaFin.ForeColor = System.Drawing.Color.Red;
+            this.errorFechaFin.Location = new System.Drawing.Point(185, 57);
+            this.errorFechaFin.Name = "errorFechaFin";
+            this.errorFechaFin.Size = new System.Drawing.Size(0, 13);
+            this.errorFechaFin.TabIndex = 21;
             // 
-            // errorFechaHoraFin
+            // errorFechaIni
             // 
-            this.errorFechaHoraFin.AutoSize = true;
-            this.errorFechaHoraFin.ForeColor = System.Drawing.Color.Red;
-            this.errorFechaHoraFin.Location = new System.Drawing.Point(185, 57);
-            this.errorFechaHoraFin.Name = "errorFechaHoraFin";
-            this.errorFechaHoraFin.Size = new System.Drawing.Size(0, 13);
-            this.errorFechaHoraFin.TabIndex = 21;
-            // 
-            // errorFechaHoraIni
-            // 
-            this.errorFechaHoraIni.AutoSize = true;
-            this.errorFechaHoraIni.ForeColor = System.Drawing.Color.Red;
-            this.errorFechaHoraIni.Location = new System.Drawing.Point(185, 31);
-            this.errorFechaHoraIni.Name = "errorFechaHoraIni";
-            this.errorFechaHoraIni.Size = new System.Drawing.Size(0, 13);
-            this.errorFechaHoraIni.TabIndex = 20;
+            this.errorFechaIni.AutoSize = true;
+            this.errorFechaIni.ForeColor = System.Drawing.Color.Red;
+            this.errorFechaIni.Location = new System.Drawing.Point(185, 31);
+            this.errorFechaIni.Name = "errorFechaIni";
+            this.errorFechaIni.Size = new System.Drawing.Size(0, 13);
+            this.errorFechaIni.TabIndex = 20;
             // 
             // dtpFin
             // 
@@ -277,14 +256,12 @@
         private System.Windows.Forms.Button btnFacturar;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label errorCliente;
         private System.Windows.Forms.Button btnSelectCliente;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtCliente;
-        private System.Windows.Forms.Label errorTurno;
-        private System.Windows.Forms.Label errorChofer;
-        private System.Windows.Forms.Label errorFechaHoraFin;
-        private System.Windows.Forms.Label errorFechaHoraIni;
+        private System.Windows.Forms.Label errorViajes;
+        private System.Windows.Forms.Label errorFechaFin;
+        private System.Windows.Forms.Label errorFechaIni;
         private System.Windows.Forms.DateTimePicker dtpFin;
         private System.Windows.Forms.DateTimePicker dtpInicio;
         private System.Windows.Forms.Label label4;

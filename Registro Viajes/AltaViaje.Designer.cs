@@ -32,7 +32,6 @@
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.errorCliente = new System.Windows.Forms.Label();
-            this.errorTurno = new System.Windows.Forms.Label();
             this.errorChofer = new System.Windows.Forms.Label();
             this.errorAuto = new System.Windows.Forms.Label();
             this.errorCantKm = new System.Windows.Forms.Label();
@@ -43,7 +42,6 @@
             this.btnSelectCliente = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.txtCliente = new System.Windows.Forms.TextBox();
-            this.btnSelectTurno = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.txtTurno = new System.Windows.Forms.TextBox();
             this.bntSelectChofer = new System.Windows.Forms.Button();
@@ -84,7 +82,6 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.errorCliente);
-            this.groupBox1.Controls.Add(this.errorTurno);
             this.groupBox1.Controls.Add(this.errorChofer);
             this.groupBox1.Controls.Add(this.errorAuto);
             this.groupBox1.Controls.Add(this.errorCantKm);
@@ -95,7 +92,6 @@
             this.groupBox1.Controls.Add(this.btnSelectCliente);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.txtCliente);
-            this.groupBox1.Controls.Add(this.btnSelectTurno);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.txtTurno);
             this.groupBox1.Controls.Add(this.bntSelectChofer);
@@ -122,15 +118,6 @@
             this.errorCliente.Name = "errorCliente";
             this.errorCliente.Size = new System.Drawing.Size(0, 13);
             this.errorCliente.TabIndex = 26;
-            // 
-            // errorTurno
-            // 
-            this.errorTurno.AutoSize = true;
-            this.errorTurno.ForeColor = System.Drawing.Color.Red;
-            this.errorTurno.Location = new System.Drawing.Point(269, 161);
-            this.errorTurno.Name = "errorTurno";
-            this.errorTurno.Size = new System.Drawing.Size(0, 13);
-            this.errorTurno.TabIndex = 25;
             // 
             // errorChofer
             // 
@@ -219,16 +206,6 @@
             this.txtCliente.ReadOnly = true;
             this.txtCliente.Size = new System.Drawing.Size(121, 20);
             this.txtCliente.TabIndex = 15;
-            // 
-            // btnSelectTurno
-            // 
-            this.btnSelectTurno.Location = new System.Drawing.Point(183, 156);
-            this.btnSelectTurno.Name = "btnSelectTurno";
-            this.btnSelectTurno.Size = new System.Drawing.Size(75, 23);
-            this.btnSelectTurno.TabIndex = 14;
-            this.btnSelectTurno.Text = "Seleccionar";
-            this.btnSelectTurno.UseVisualStyleBackColor = true;
-            this.btnSelectTurno.Click += new System.EventHandler(this.btnSelectTurno_Click);
             // 
             // label6
             // 
@@ -380,13 +357,11 @@
         private System.Windows.Forms.Button btnSelectCliente;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtCliente;
-        private System.Windows.Forms.Button btnSelectTurno;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtTurno;
         private System.Windows.Forms.DateTimePicker dtpFin;
         private System.Windows.Forms.DateTimePicker dtpInicio;
         private System.Windows.Forms.Label errorCliente;
-        private System.Windows.Forms.Label errorTurno;
         private System.Windows.Forms.Label errorChofer;
         private System.Windows.Forms.Label errorAuto;
         private System.Windows.Forms.Label errorCantKm;

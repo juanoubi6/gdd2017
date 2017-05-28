@@ -73,7 +73,8 @@ namespace UberFrba
 
         private void rendiconDeViajeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            RendicionViaje formularioRendicion = new RendicionViaje();
+            formularioRendicion.Show();
         }
 
         private void listadoEstadisticoToolStripMenuItem1_Click(object sender, EventArgs e)

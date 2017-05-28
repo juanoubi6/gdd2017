@@ -36,11 +36,6 @@ namespace UberFrba.Registro_Viajes
             grillaChofer.Show();
         }
 
-        private void btnSelectTurno_Click(object sender, EventArgs e)
-        {
-            GrillaTurno_Viaje grillaTurno = new GrillaTurno_Viaje(this);
-            grillaTurno.Show();
-        }
 
         private void btnSelectCliente_Click(object sender, EventArgs e)
         {
@@ -66,9 +61,6 @@ namespace UberFrba.Registro_Viajes
 
             errorChofer.Text = Viaje.validarChofer(txtChofer.Text);
             if (errorChofer.Text != "") contadorErrores++;
-
-            errorTurno.Text = Viaje.validarTurno(txtTurno.Text);
-            if (errorTurno.Text != "") contadorErrores++;
 
             errorCliente.Text = Viaje.validarCliente(txtCliente.Text);
             if (errorCliente.Text != "") contadorErrores++;
@@ -120,7 +112,7 @@ namespace UberFrba.Registro_Viajes
         {
             txtChofer.Text = choferElegido.Nombre + " " + choferElegido.Apellido;
 
-            //Luego de cambiar el chofer, busco el auto de este chofer y lo asigno
+            //Luego de cambiar el chofer, busco el auto de este chofer y lo asigno. A su vez, busco el turno de ese chofer
             try
             {
                 DataTable dtAutoActivoChofer = Chofer.buscarAutoActivo(choferElegido);
@@ -128,6 +120,7 @@ namespace UberFrba.Registro_Viajes
                 autoActivo.Patente = dtAutoActivoChofer.Rows[0]["Auto_Patente"].ToString();
                 this.autoElegido = autoActivo;
                 cambiarAuto();
+                cambiarTurno();
             }
             catch (Exception ex)
             {
@@ -138,7 +131,12 @@ namespace UberFrba.Registro_Viajes
 
         public void cambiarTurno()
         {
-            txtTurno.Text = turnoElegido.Descripcion + " (" + turnoElegido.HoraInicio.ToString() + " a " + turnoElegido.HoraFin.ToString() + ")";
+            //Conseguir datos del turno del chofer
+            DataTable dtTurnoActual = Chofer.buscarTurnoActual(choferElegido);
+            Turno nuevoTurno = new Turno();
+            nuevoTurno.Codigo = (Int32)dtTurnoActual.Rows[0]["Chofer_Turno"];
+            turnoElegido = nuevoTurno;
+            txtTurno.Text = dtTurnoActual.Rows[0]["Turno_Descripcion"].ToString() + " (" + dtTurnoActual.Rows[0]["Turno_Hora_Inicio"].ToString() + " a " + dtTurnoActual.Rows[0]["Turno_Hora_Fin"].ToString() + ")";
         }
 
         public void cambiarAuto()
@@ -170,7 +168,6 @@ namespace UberFrba.Registro_Viajes
             errorCliente.Text = "";
             errorFechaHoraFin.Text = "";
             errorFechaHoraIni.Text = "";
-            errorTurno.Text = "";
         }
 
     }

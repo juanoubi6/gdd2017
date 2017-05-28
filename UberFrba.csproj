@@ -213,11 +213,17 @@
       <DependentUpon>GrillaTurno_Viaje.cs</DependentUpon>
     </Compile>
     <Compile Include="Registro Viajes\Viaje.cs" />
-    <Compile Include="Rendicion Viajes\Form1.cs">
+    <Compile Include="Rendicion Viajes\GrillaChofer_Rendicion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Rendicion Viajes\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Rendicion Viajes\GrillaChofer_Rendicion.Designer.cs">
+      <DependentUpon>GrillaChofer_Rendicion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rendicion Viajes\RendicionViaje.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rendicion Viajes\RendicionViaje.Designer.cs">
+      <DependentUpon>RendicionViaje.cs</DependentUpon>
     </Compile>
     <Compile Include="Rendicion Viajes\Rendicion.cs" />
     <EmbeddedResource Include="Abm Automovil\AltaAutomovil.resx">
@@ -303,6 +309,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Registro Viajes\GrillaTurno_Viaje.resx">
       <DependentUpon>GrillaTurno_Viaje.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rendicion Viajes\GrillaChofer_Rendicion.resx">
+      <DependentUpon>GrillaChofer_Rendicion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rendicion Viajes\RendicionViaje.resx">
+      <DependentUpon>RendicionViaje.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

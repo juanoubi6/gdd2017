@@ -343,5 +343,28 @@ namespace UberFrba.Abm_Chofer
             return dtAutoBuscado;
         
         }
+
+        public static DataTable buscarTurnoActual(Chofer choferElegido)
+        {
+            DataTable dtDatosTurno = new DataTable();
+
+            //Creo el comando a ejecutar
+            SqlCommand cmd = new SqlCommand("SELECT Auto_Turno AS Chofer_Turno, Turno_Descripcion,Turno_Hora_Inicio,Turno_Hora_Fin FROM Chofer join Auto ON Auto_Chofer = Chofer_Telefono join Turno ON Auto_Turno = Turno_Codigo WHERE Chofer_Telefono = @choferTel AND Auto_Activo = 1");
+            cmd.Connection = DBconnection.getInstance();
+            cmd.Parameters.Add("@choferTel", SqlDbType.Decimal).Value = choferElegido.Telefono;
+         
+            SqlDataAdapter adapterChoferes = new SqlDataAdapter(cmd);
+
+            try
+            {
+                adapterChoferes.Fill(dtDatosTurno);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return dtDatosTurno;
+        }
     }
 }

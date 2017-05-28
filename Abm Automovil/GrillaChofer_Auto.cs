@@ -138,7 +138,7 @@ namespace UberFrba.Abm_Automovil
                     }
                     else if (this.modo == "filtro")
                     {
-                        this.formularioListado.cambiarChofer(senderGrid.CurrentRow.Cells["Chofer_Nombre"].Value.ToString() + " " + senderGrid.CurrentRow.Cells["Chofer_Apellido"].Value.ToString() + " " + senderGrid.CurrentRow.Cells["Chofer_Dni"].Value.ToString(), (Decimal)senderGrid.CurrentRow.Cells["Chofer_Dni"].Value);
+                        this.formularioListado.cambiarChofer(senderGrid.CurrentRow.Cells["Chofer_Nombre"].Value.ToString() + " " + senderGrid.CurrentRow.Cells["Chofer_Apellido"].Value.ToString() + " " + senderGrid.CurrentRow.Cells["Chofer_Dni"].Value.ToString(), (Decimal)senderGrid.CurrentRow.Cells["Chofer_Telefono"].Value);
                         this.Hide();
                     }
                     else

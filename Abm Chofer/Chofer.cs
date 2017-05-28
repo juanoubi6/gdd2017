@@ -195,7 +195,7 @@ namespace UberFrba.Abm_Chofer
             DataTable dtChoferes = new DataTable();
 
             //Creo el comando a ejecutar
-            SqlCommand cmd = new SqlCommand("SELECT Chofer_Nombre,Chofer_Apellido,Chofer_Dni FROM Chofer WHERE Chofer_Telefono = @telefonoChofer");
+            SqlCommand cmd = new SqlCommand("SELECT Chofer_Nombre,Chofer_Apellido,Chofer_Telefono FROM Chofer WHERE Chofer_Telefono = @telefonoChofer");
             cmd.Connection = DBconnection.getInstance();
             cmd.Parameters.Add("@telefonoChofer", SqlDbType.Decimal).Value = telefonoChofer;
            
@@ -323,9 +323,9 @@ namespace UberFrba.Abm_Chofer
             DataTable dtAutoBuscado = new DataTable();
 
             //Creo el comando a ejecutar
-            SqlCommand cmd = new SqlCommand("SELECT Auto_Patente FROM Auto WHERE Auto_Chofer = @choferDni AND Auto_Activo = 1");
+            SqlCommand cmd = new SqlCommand("SELECT Auto_Patente FROM Auto WHERE Auto_Chofer = @choferTelefono AND Auto_Activo = 1");
             cmd.Connection = DBconnection.getInstance();
-            cmd.Parameters.Add("@choferDni", SqlDbType.Decimal).Value = choferElegido.Dni;
+            cmd.Parameters.Add("@choferTelefono", SqlDbType.Decimal).Value = choferElegido.Telefono;
             
             SqlDataAdapter adapterAutos = new SqlDataAdapter(cmd);
 

@@ -13,17 +13,17 @@ namespace UberFrba.Abm_Automovil
     public partial class ListadoAutomovil : Form
     {
 
-        private Decimal dniChoferFiltro = 0;
+        private Decimal telefonoChoferFiltro = 0;
 
         public ListadoAutomovil()
         {
             InitializeComponent();
-            this.dniChoferFiltro = 0;
+            this.telefonoChoferFiltro = 0;
         }
 
         private void ListadoAutomovil_Load(object sender, EventArgs e)
         {
-            this.dniChoferFiltro = 0;
+            this.telefonoChoferFiltro = 0;
 
             DataTable marcasDt = Automovil.traerMarcas();
             cmbMarca.DataSource = marcasDt;
@@ -38,10 +38,10 @@ namespace UberFrba.Abm_Automovil
             grillaSeleccionChofer.Show();
         }
 
-        public void cambiarChofer(String chofer,Decimal dniChofer)
+        public void cambiarChofer(String chofer,Decimal telefonoChofer)
         {
             txtChofer.Text = chofer;
-            this.dniChoferFiltro = dniChofer;
+            this.telefonoChoferFiltro = telefonoChofer;
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -73,7 +73,7 @@ namespace UberFrba.Abm_Automovil
                 grillaAutomovil.Columns.Clear();
 
                 //Busco los clientes en la base de datos
-                DataTable dtAutos = Automovil.buscarAutos(txtPatente.Text, txtModelo.Text, dniChoferFiltro,((cmbMarca.Text == "")? 0 :(Int32)cmbMarca.SelectedValue));
+                DataTable dtAutos = Automovil.buscarAutos(txtPatente.Text, txtModelo.Text, telefonoChoferFiltro,((cmbMarca.Text == "")? 0 :(Int32)cmbMarca.SelectedValue));
 
                 //Le asigno a la grilla los roles
                 grillaAutomovil.DataSource = dtAutos;

@@ -80,16 +80,16 @@ namespace UberFrba.Abm_Automovil
             errorChofer.Text = Automovil.validarChofer(txtChofer.Text);
             if (errorChofer.Text != "") contadorErrores++;
 
-            //Si no hay errores, se intenta guardar el nuevo cliente
+            //Si no hay errores, se intenta modificar el automovil
             if (contadorErrores == 0)
             {
                 Automovil autoAModificarEnBD = new Automovil();
                 autoAModificarEnBD.Marca = (Int32)(cmbMarca.SelectedValue);
                 autoAModificarEnBD.Modelo = txtModelo.Text;
                 autoAModificarEnBD.Patente = txtPatente.Text;
-                autoAModificarEnBD.Chofer = choferElegido.Dni;
+                autoAModificarEnBD.Chofer = choferElegido.Telefono;
                 autoAModificarEnBD.Turno = turnoElegido.Codigo;
-                autoAModificarEnBD.Activo = 1;
+                autoAModificarEnBD.Activo = (chkHabilitado.Checked) ? (Byte)1 : (Byte)0; ;
 
                 String[] respuesta = Automovil.modificarAuto(autoAModificarEnBD,autoAModificar.Patente);
                 if (respuesta[0] == "Error")

@@ -64,7 +64,7 @@ namespace UberFrba.Abm_Automovil
                 autoAGrabar.Marca = (Int32)(cmbMarca.SelectedValue);
                 autoAGrabar.Modelo = txtModelo.Text;
                 autoAGrabar.Patente = txtPatente.Text;
-                autoAGrabar.Chofer = choferElegido.Dni;
+                autoAGrabar.Chofer = choferElegido.Telefono;
                 autoAGrabar.Turno = turnoElegido.Codigo;
                 autoAGrabar.Activo = 1;
 

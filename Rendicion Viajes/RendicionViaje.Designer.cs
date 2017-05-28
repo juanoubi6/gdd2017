@@ -43,6 +43,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtTurno = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.errorChofer = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.grillaViajesRendicion)).BeginInit();
             this.grpErrorBaseDatos.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -99,6 +100,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.errorChofer);
             this.groupBox1.Controls.Add(this.btnSelectChofer);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.txtChofer);
@@ -194,6 +196,14 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Fecha*";
             // 
+            // errorChofer
+            // 
+            this.errorChofer.AutoSize = true;
+            this.errorChofer.Location = new System.Drawing.Point(265, 58);
+            this.errorChofer.Name = "errorChofer";
+            this.errorChofer.Size = new System.Drawing.Size(0, 13);
+            this.errorChofer.TabIndex = 30;
+            // 
             // RendicionViaje
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -232,5 +242,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtTurno;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label errorChofer;
     }
 }

@@ -120,14 +120,14 @@ namespace UberFrba.Abm_Automovil
             return new String[2] { "Ok", "Auto creado satisfactoriamente" };
         }
 
-        public static DataTable buscarAutos(String patente, String modelo, Decimal dniChofer, Int32 codigoMarca)
+        public static DataTable buscarAutos(String patente, String modelo, Decimal telefonoChofer, Int32 codigoMarca)
         {
             DataTable dtAutos = new DataTable();
 
             //Creo el comando a ejecutar
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = DBconnection.getInstance();
-            String queryAutos = "SELECT A.Auto_Marca, M.Marca_Nombre, A.Auto_Modelo, A.Auto_Patente, A.Auto_Rodado, A.Auto_Licencia,A.Auto_Chofer,C.Chofer_Nombre,C.Chofer_Apellido,A.Auto_Turno,T.Turno_Descripcion,A.Auto_Activo FROM Auto A JOIN Marca M on A.Auto_Marca = M.Marca_Codigo JOIN Chofer C on C.Chofer_Dni = A.Auto_Chofer JOIN Turno T on T.Turno_Codigo = A.Auto_Turno WHERE 1=1";
+            String queryAutos = "SELECT A.Auto_Marca, M.Marca_Nombre, A.Auto_Modelo, A.Auto_Patente, A.Auto_Rodado, A.Auto_Licencia,A.Auto_Chofer,C.Chofer_Nombre,C.Chofer_Apellido,A.Auto_Turno,T.Turno_Descripcion,A.Auto_Activo FROM Auto A JOIN Marca M on A.Auto_Marca = M.Marca_Codigo JOIN Chofer C on C.Chofer_Telefono = A.Auto_Chofer JOIN Turno T on T.Turno_Codigo = A.Auto_Turno WHERE 1=1";
 
             //Armo la query dinamica en base a los parametros de busqueda que me hayan llegado
             if (!String.IsNullOrEmpty(patente))
@@ -140,10 +140,10 @@ namespace UberFrba.Abm_Automovil
                 queryAutos = queryAutos + " AND Auto_Modelo LIKE '%' + @modelo + '%'";
                 cmd.Parameters.Add("@modelo", SqlDbType.VarChar).Value = modelo;
             }
-            if (dniChofer != 0)
+            if (telefonoChofer != 0)
             {
-                queryAutos = queryAutos + " AND Auto_Chofer = @dniChofer";
-                cmd.Parameters.Add("@dniChofer", SqlDbType.Decimal).Value = dniChofer;
+                queryAutos = queryAutos + " AND Auto_Chofer = @telefonoChofer";
+                cmd.Parameters.Add("@telefonoChofer", SqlDbType.Decimal).Value = telefonoChofer;
             }
             if (codigoMarca != 0)
             {

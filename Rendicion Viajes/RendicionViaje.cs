@@ -46,6 +46,40 @@ namespace UberFrba.Rendicion_Viajes
 
         private void btnRendir_Click(object sender, EventArgs e)
         {
+            int contadorErrores = 0;
+
+            if (txtChofer.Text == "")
+            {
+                errorChofer.Text = "Debe seleccionar un chofer";
+                contadorErrores++;
+            }
+
+            if (txtTurno.Text == "")
+            {
+                errorTurno.Text = "El turno no puede ser vacio. Consulte si su chofer tiene un turno asociado";
+                contadorErrores++;
+            }
+
+            if (contadorErrores == 0)
+            {
+                Rendicion nuevaRendicion = new Rendicion();
+                nuevaRendicion.Porcentaje = new Decimal(30);
+                nuevaRendicion.Turno = turnoChofer.Codigo;
+                nuevaRendicion.Chofer = choferElegido.Telefono;
+                nuevaRendicion.Fecha = dtpInicio.Value;
+
+                String[] respuesta = Rendicion.grabarRendicion(nuevaRendicion);
+                if (respuesta[0] == "Error")
+                {
+                    lblErrorBaseDatos.Text = respuesta[1];
+                    grpErrorBaseDatos.Visible = true;
+                }
+                else
+                {
+                    MessageBox.Show(respuesta[1], "Operación exitosa", MessageBoxButtons.OK);
+                }
+            }
+
 
         }
 

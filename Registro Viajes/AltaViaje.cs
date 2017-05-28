@@ -89,7 +89,7 @@ namespace UberFrba.Registro_Viajes
                 viajeAGrabar.FechaHoraInicio = dtpInicio.Value;
                 viajeAGrabar.FechaHoraFin = dtpFin.Value;
                 viajeAGrabar.CantidadKm = Decimal.Parse(txtCantidad.Text);
-                viajeAGrabar.Chofer = choferElegido.Dni;
+                viajeAGrabar.Chofer = choferElegido.Telefono;
                 viajeAGrabar.Auto = autoElegido.Patente;
                 viajeAGrabar.Turno = turnoElegido.Codigo;
                 viajeAGrabar.Cliente = clienteElegido.Telefono;

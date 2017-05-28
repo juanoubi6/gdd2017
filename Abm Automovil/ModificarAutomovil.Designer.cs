@@ -169,7 +169,6 @@
             this.chkHabilitado.TabIndex = 12;
             this.chkHabilitado.Text = "Habilitado";
             this.chkHabilitado.UseVisualStyleBackColor = true;
-            this.chkHabilitado.Visible = false;
             // 
             // bntSelectChofer
             // 

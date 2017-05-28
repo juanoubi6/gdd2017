@@ -190,14 +190,14 @@ namespace UberFrba.Abm_Chofer
             return dtChoferes;
         }
 
-        public static DataTable buscarChoferPorPk(Decimal dniChofer)
+        public static DataTable buscarChoferPorPk(Decimal telefonoChofer)
         {
             DataTable dtChoferes = new DataTable();
 
             //Creo el comando a ejecutar
-            SqlCommand cmd = new SqlCommand("SELECT Chofer_Nombre,Chofer_Apellido,Chofer_Dni FROM Chofer WHERE Chofer_Dni = @dniChofer");
+            SqlCommand cmd = new SqlCommand("SELECT Chofer_Nombre,Chofer_Apellido,Chofer_Dni FROM Chofer WHERE Chofer_Telefono = @telefonoChofer");
             cmd.Connection = DBconnection.getInstance();
-            cmd.Parameters.Add("@dniChofer", SqlDbType.Decimal).Value = dniChofer;
+            cmd.Parameters.Add("@telefonoChofer", SqlDbType.Decimal).Value = telefonoChofer;
            
             SqlDataAdapter adapterChoferes = new SqlDataAdapter(cmd);
 
@@ -285,18 +285,18 @@ namespace UberFrba.Abm_Chofer
             return new String[2] { "Ok", "Chofer actualizado satisfactoriamente" };
         }
 
-        public static String[] eliminarChofer(Decimal dniChofer)
+        public static String[] eliminarChofer(Decimal telefonoChofer)
         {
 
             //Creo el comando para dar de baja el chofer
-            SqlCommand cmdChofer = new SqlCommand("UPDATE Chofer SET Chofer_Activo = 0 WHERE Chofer_Dni = @dniChofer");
+            SqlCommand cmdChofer = new SqlCommand("UPDATE Chofer SET Chofer_Activo = 0 WHERE Chofer_Dni = @telefonoChofer");
             cmdChofer.Connection = DBconnection.getInstance();
-            cmdChofer.Parameters.Add("@dniChofer", SqlDbType.Decimal).Value = dniChofer;
+            cmdChofer.Parameters.Add("@telefonoChofer", SqlDbType.Decimal).Value = telefonoChofer;
 
             //Creo el comando para dar de baja el usuario del chofer
-            SqlCommand cmdUsuario = new SqlCommand("UPDATE Usuario SET Usuario_Activo = 0 WHERE Usuario_Username = @dniChofer");
+            SqlCommand cmdUsuario = new SqlCommand("UPDATE Usuario SET Usuario_Activo = 0 WHERE Usuario_Username = @telefonoChofer");
             cmdUsuario.Connection = DBconnection.getInstance();
-            cmdUsuario.Parameters.Add("@dniChofer", SqlDbType.VarChar).Value = dniChofer.ToString();
+            cmdUsuario.Parameters.Add("@telefonoChofer", SqlDbType.VarChar).Value = telefonoChofer.ToString();
 
             try
             {

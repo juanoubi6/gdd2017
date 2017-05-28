@@ -37,7 +37,7 @@ namespace UberFrba.Abm_Automovil
 
             //Asigno el chofer elegido
             Chofer nuevoChofer = new Chofer();
-            nuevoChofer.Dni = (Decimal)dtChoferElegido.Rows[0]["Chofer_Dni"];
+            nuevoChofer.Telefono = (Decimal)dtChoferElegido.Rows[0]["Chofer_Telefono"];
             choferElegido = nuevoChofer;
 
             //Asigno el turno elegido

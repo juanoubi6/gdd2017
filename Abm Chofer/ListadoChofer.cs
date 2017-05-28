@@ -138,7 +138,7 @@ namespace UberFrba.Abm_Chofer
                     DialogResult dialogResult = MessageBox.Show("Esta seguro que desea dar de baja este chofer?", "Confirmación", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {
-                        String[] respuesta = Chofer.eliminarChofer((Decimal)senderGrid.CurrentRow.Cells["Chofer_Dni"].Value);
+                        String[] respuesta = Chofer.eliminarChofer((Decimal)senderGrid.CurrentRow.Cells["Chofer_Telefono"].Value);
                         if (respuesta[0] == "Error")
                         {
                             MessageBox.Show("Error al dar de baja chofer: " + respuesta[1], "Error", MessageBoxButtons.OK);

@@ -34,6 +34,7 @@
             this.btnRendir = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.errorChofer = new System.Windows.Forms.Label();
             this.btnSelectChofer = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.txtChofer = new System.Windows.Forms.TextBox();
@@ -43,7 +44,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtTurno = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.errorChofer = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.grillaViajesRendicion)).BeginInit();
             this.grpErrorBaseDatos.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -117,6 +117,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Carga de Campos";
             // 
+            // errorChofer
+            // 
+            this.errorChofer.AutoSize = true;
+            this.errorChofer.Location = new System.Drawing.Point(265, 58);
+            this.errorChofer.Name = "errorChofer";
+            this.errorChofer.Size = new System.Drawing.Size(0, 13);
+            this.errorChofer.TabIndex = 30;
+            // 
             // btnSelectChofer
             // 
             this.btnSelectChofer.Location = new System.Drawing.Point(183, 52);
@@ -147,7 +155,7 @@
             // errorTurno
             // 
             this.errorTurno.AutoSize = true;
-            this.errorTurno.ForeColor = System.Drawing.Color.Red;
+            this.errorTurno.ForeColor = System.Drawing.Color.Black;
             this.errorTurno.Location = new System.Drawing.Point(187, 83);
             this.errorTurno.Name = "errorTurno";
             this.errorTurno.Size = new System.Drawing.Size(0, 13);
@@ -169,6 +177,7 @@
             this.dtpInicio.Name = "dtpInicio";
             this.dtpInicio.Size = new System.Drawing.Size(121, 20);
             this.dtpInicio.TabIndex = 18;
+            this.dtpInicio.ValueChanged += new System.EventHandler(this.dtpInicio_ValueChanged);
             // 
             // label4
             // 
@@ -195,14 +204,6 @@
             this.label1.Size = new System.Drawing.Size(41, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Fecha*";
-            // 
-            // errorChofer
-            // 
-            this.errorChofer.AutoSize = true;
-            this.errorChofer.Location = new System.Drawing.Point(265, 58);
-            this.errorChofer.Name = "errorChofer";
-            this.errorChofer.Size = new System.Drawing.Size(0, 13);
-            this.errorChofer.TabIndex = 30;
             // 
             // RendicionViaje
             // 

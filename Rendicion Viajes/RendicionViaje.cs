@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -48,12 +49,21 @@ namespace UberFrba.Rendicion_Viajes
         {
             int contadorErrores = 0;
 
+            //El chofer no tiene viajes
+            if (grillaViajesRendicion.RowCount == 0)
+            {
+                MessageBox.Show("El chofer no tiene viajes para rendir", "Error en rendición", MessageBoxButtons.OK);
+                contadorErrores++;
+            }
+
+            //No hay chofer seleccionado
             if (txtChofer.Text == "")
             {
                 errorChofer.Text = "Debe seleccionar un chofer";
                 contadorErrores++;
             }
 
+            //No hay ningun turno (el turno es el turno del chofer)
             if (txtTurno.Text == "")
             {
                 errorTurno.Text = "El turno no puede ser vacio. Consulte si su chofer tiene un turno asociado";
@@ -63,7 +73,7 @@ namespace UberFrba.Rendicion_Viajes
             if (contadorErrores == 0)
             {
                 Rendicion nuevaRendicion = new Rendicion();
-                nuevaRendicion.Porcentaje = new Decimal(30);
+                nuevaRendicion.Porcentaje = Convert.ToDecimal(ConfigurationManager.AppSettings["PorcentajeRendicion"]);
                 nuevaRendicion.Turno = turnoChofer.Codigo;
                 nuevaRendicion.Chofer = choferElegido.Telefono;
                 nuevaRendicion.Fecha = dtpInicio.Value;
@@ -98,6 +108,14 @@ namespace UberFrba.Rendicion_Viajes
         {
             GrillaChofer_Rendicion grillaChofer = new GrillaChofer_Rendicion(this);
             grillaChofer.Show();
+        }
+
+        private void dtpInicio_ValueChanged(object sender, EventArgs e)
+        {
+            if (choferElegido != null)
+            {
+                mostrarViajes();
+            }
         }
     }
 }

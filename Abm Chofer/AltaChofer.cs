@@ -66,7 +66,7 @@ namespace UberFrba.Abm_Chofer
                 errorDireccion.Text = Chofer.validarDireccion(txtDireccion.Text);
                 if (errorDireccion.Text != "") contadorErrores++;
 
-                //Si no hay errores, se intenta guardar el nuevo cliente
+                //Si no hay errores, se intenta guardar el nuevo chofer
                 if (contadorErrores == 0)
                 {
                     Chofer choferAGrabar = new Chofer();

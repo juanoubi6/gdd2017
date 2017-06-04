@@ -52,7 +52,7 @@ namespace UberFrba.Abm_Chofer
                     //Le asigno a la grilla los roles
                     grillaChofer.DataSource = dtChofer;
 
-                    //Agrego botones para Modificar y Eliminar Rol
+                    //Agrego botones para Modificar y Eliminar Chofer
                     DataGridViewButtonColumn btnModificar = new DataGridViewButtonColumn();
                     btnModificar.HeaderText = "Modificar";
                     btnModificar.Text = "Modificar";

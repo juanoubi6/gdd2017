@@ -49,10 +49,10 @@ namespace UberFrba.Abm_Cliente
                     //Busco los clientes en la base de datos
                     DataTable dtClientes = Cliente.buscarClientes(txtNombre.Text, txtApellido.Text, (txtDni.Text == "") ? 0 : Decimal.Parse(txtDni.Text));
 
-                    //Le asigno a la grilla los roles
+                    //Le asigno a la grilla los clientes
                     grillaCliente.DataSource = dtClientes;
 
-                    //Agrego botones para Modificar y Eliminar Rol
+                    //Agrego botones para Modificar y Eliminar Clientes
                     DataGridViewButtonColumn btnModificar = new DataGridViewButtonColumn();
                     btnModificar.HeaderText = "Modificar";
                     btnModificar.Text = "Modificar";

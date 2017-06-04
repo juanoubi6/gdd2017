@@ -21,7 +21,7 @@ namespace UberFrba.Facturacion
         {
             DataTable dtViajes = new DataTable();
 
-            //Creo el comando a ejecutar
+            //Creo el comando a ejecutar para traer todos los viajes de un cliente entre las fechas de facturación indicadas
             SqlCommand cmd = new SqlCommand("SELECT * FROM Viaje WHERE Viaje_Cliente = @cliente AND (Viaje_Fecha_Hora_Inicio BETWEEN @fechaInicioFact AND @fechaFinFact)");
             cmd.Connection = DBconnection.getInstance();
             cmd.Parameters.Add("@cliente", SqlDbType.Decimal).Value = clienteElegido.Telefono;
@@ -46,7 +46,7 @@ namespace UberFrba.Facturacion
         {
 
             //Creo el comando necesario para grabar la factura y sus items
-            SqlCommand cmdFactura = new SqlCommand("");
+            SqlCommand cmdFactura = new SqlCommand("sp_fact_cliente");
             cmdFactura.CommandType = CommandType.StoredProcedure;
             cmdFactura.Connection = DBconnection.getInstance();
             cmdFactura.Parameters.Add("@fechaInicio", SqlDbType.DateTime).Value = nuevaFactura.FechaInicio;
@@ -54,7 +54,7 @@ namespace UberFrba.Facturacion
             cmdFactura.Parameters.Add("@fecha", SqlDbType.DateTime).Value = nuevaFactura.Fecha;
             cmdFactura.Parameters.Add("@cliente", SqlDbType.Decimal).Value = nuevaFactura.Cliente;
 
-            //Creo los parametro respuesta
+            //Creo los parametros respuesta
             SqlParameter responseMsg = new SqlParameter();
             SqlParameter responseErr = new SqlParameter();
             responseMsg.ParameterName = "@resultado";
@@ -67,7 +67,7 @@ namespace UberFrba.Facturacion
             cmdFactura.Parameters.Add(responseMsg);
             cmdFactura.Parameters.Add(responseErr);
 
-            //Se realiza toda la creacion de la factura y sus items en el ambito de una transaccion
+            //Se realiza toda la creacion de la factura y sus items
             try
             {
                 cmdFactura.Connection.Open();

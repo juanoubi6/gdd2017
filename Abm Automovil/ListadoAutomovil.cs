@@ -72,10 +72,10 @@ namespace UberFrba.Abm_Automovil
                 //Limpio la tabla de clientes
                 grillaAutomovil.Columns.Clear();
 
-                //Busco los clientes en la base de datos
+                //Busco los autos en la base de datos
                 DataTable dtAutos = Automovil.buscarAutos(txtPatente.Text, txtModelo.Text, telefonoChoferFiltro,((cmbMarca.Text == "")? 0 :(Int32)cmbMarca.SelectedValue));
 
-                //Le asigno a la grilla los roles
+                //Le asigno a la grilla los autos
                 grillaAutomovil.DataSource = dtAutos;
 
                 //Escondo datos que puedan confundir al usuario (Codigo de marca, Dni del chofer)
@@ -83,7 +83,7 @@ namespace UberFrba.Abm_Automovil
                 grillaAutomovil.Columns["Auto_Chofer"].Visible = false;
                 grillaAutomovil.Columns["Auto_Turno"].Visible = false;
 
-                //Agrego botones para Modificar y Eliminar Rol
+                //Agrego botones para Modificar y Eliminar Automovil
                 DataGridViewButtonColumn btnModificar = new DataGridViewButtonColumn();
                 btnModificar.HeaderText = "Modificar";
                 btnModificar.Text = "Modificar";

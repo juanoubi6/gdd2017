@@ -214,7 +214,7 @@ namespace UberFrba.Abm_Cliente
             cmdCliente.Parameters.Add(responseMsg);
             cmdCliente.Parameters.Add(responseErr);
 
-            //Se realiza toda la creacion del cliente en el ambito de una transaccion
+            //Se realiza toda la creacion del cliente
             try
             {
                 cmdCliente.Connection.Open();

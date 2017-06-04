@@ -22,16 +22,16 @@ namespace UberFrba.Abm_Turno
             try
             {
 
-                //Limpio la tabla de clientes
+                //Limpio la tabla de turnos
                 grillaTurno.Columns.Clear();
 
-                //Busco los clientes en la base de datos
+                //Busco los turnos en la base de datos
                 DataTable dtTurnos = Turno.buscarTurnos(txtDescripcion.Text);
 
-                //Le asigno a la grilla los roles
+                //Le asigno a la grilla los turnos
                 grillaTurno.DataSource = dtTurnos;
 
-                //Agrego botones para Modificar y Eliminar Rol
+                //Agrego botones para Modificar y Eliminar turno
                 DataGridViewButtonColumn btnModificar = new DataGridViewButtonColumn();
                 btnModificar.HeaderText = "Modificar";
                 btnModificar.Text = "Modificar";
@@ -79,8 +79,8 @@ namespace UberFrba.Abm_Turno
         {
             var senderGrid = (DataGridView)sender;
 
-            //En caso de que se presiono el boton "Modificar" de algun cliente, se crea un objeto Cliente con los datos de la grilla y se lo manda a modificar
-            //En caso de que se presiono el boton "Eliminar" de algun cliente, se confirma si se quiere eliminar ese cliente y luego se ejecuta la acción.
+            //En caso de que se presiono el boton "Modificar" de algun turno, se crea un objeto Turno con los datos de la grilla y se lo manda a modificar
+            //En caso de que se presiono el boton "Eliminar" de algun turno, se confirma si se quiere eliminar ese Turno y luego se ejecuta la acción.
             if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && senderGrid.CurrentCell.Value.ToString() == "Modificar" && e.RowIndex >= 0)
             {
                 try
@@ -98,7 +98,7 @@ namespace UberFrba.Abm_Turno
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Ha ocurrido un error al realizar la seleccion del cliente: " + ex.Message, "Error", MessageBoxButtons.OK);
+                    MessageBox.Show("Ha ocurrido un error al realizar la seleccion del turno: " + ex.Message, "Error", MessageBoxButtons.OK);
                 }
             }
             else if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && senderGrid.CurrentCell.Value.ToString() == "Dar de baja" && e.RowIndex >= 0)

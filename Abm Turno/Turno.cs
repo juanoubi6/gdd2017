@@ -83,7 +83,7 @@ namespace UberFrba.Abm_Turno
             cmdTurno.Parameters.Add(responseMsg);
             cmdTurno.Parameters.Add(responseErr);
             
-            //Se realiza toda la creacion del cliente en el ambito de una transaccion
+            //Se realiza toda la creacion del turno
             try
             {
                 cmdTurno.Connection.Open();

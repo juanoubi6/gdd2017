@@ -73,6 +73,7 @@ namespace UberFrba.Rendicion_Viajes
             if (contadorErrores == 0)
             {
                 Rendicion nuevaRendicion = new Rendicion();
+                //La rendicion se obtiene de una variable global "PorcentajeRendicion" del App.config.
                 nuevaRendicion.Porcentaje = Convert.ToDecimal(ConfigurationManager.AppSettings["PorcentajeRendicion"]);
                 nuevaRendicion.Turno = turnoChofer.Codigo;
                 nuevaRendicion.Chofer = choferElegido.Telefono;

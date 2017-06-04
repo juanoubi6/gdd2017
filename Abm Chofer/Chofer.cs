@@ -100,7 +100,7 @@ namespace UberFrba.Abm_Chofer
         public static String[] grabarChofer(Chofer choferAGrabar)
         {
 
-            //Creo el comando necesario para grabar el chofer en la tabla de clientes
+            //Creo el comando necesario para grabar el chofer en la tabla de choferes
             SqlCommand cmdChofer = new SqlCommand("sp_chofer_alta");
             cmdChofer.CommandType = CommandType.StoredProcedure;
             cmdChofer.Connection = DBconnection.getInstance();
@@ -126,7 +126,7 @@ namespace UberFrba.Abm_Chofer
             cmdChofer.Parameters.Add(responseMsg);
             cmdChofer.Parameters.Add(responseErr);
 
-            //Se realiza toda la creacion del cliente en el ambito de una transaccion
+            //Se realiza toda la creacion del chofer
             try
             {
                 cmdChofer.Connection.Open();
@@ -194,7 +194,7 @@ namespace UberFrba.Abm_Chofer
         {
             DataTable dtChoferes = new DataTable();
 
-            //Creo el comando a ejecutar
+            //Creo el comando a ejecutar para buscar un chofer en base a su telefono
             SqlCommand cmd = new SqlCommand("SELECT Chofer_Nombre,Chofer_Apellido,Chofer_Telefono FROM Chofer WHERE Chofer_Telefono = @telefonoChofer");
             cmd.Connection = DBconnection.getInstance();
             cmd.Parameters.Add("@telefonoChofer", SqlDbType.Decimal).Value = telefonoChofer;
@@ -257,7 +257,7 @@ namespace UberFrba.Abm_Chofer
         public static String[] modificarChofer(Chofer choferAModificar, Decimal telefonoPreModificacion)
         {
 
-            //Creo el comando necesario para modificar el cliente
+            //Creo el comando necesario para modificar el chofer
             SqlCommand cmdChofer = new SqlCommand("UPDATE Chofer SET Chofer_Nombre = @nombre, Chofer_Apellido = @apellido, Chofer_Dni = @dni, Chofer_Telefono = @telefono , Chofer_Mail = @mail , Chofer_Fecha_Nac = @fechaNacimiento, Chofer_Direccion = @direccion, Chofer_Activo = @activo WHERE Chofer_Telefono = @telefonoPreModificacion");
             cmdChofer.Connection = DBconnection.getInstance();
             cmdChofer.Parameters.Add("@nombre", SqlDbType.VarChar).Value = choferAModificar.Nombre;

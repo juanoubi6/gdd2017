@@ -79,7 +79,8 @@ namespace UberFrba
 
         private void listadoEstadisticoToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
+            ListadoEstadistico listadoEstadistico = new ListadoEstadistico();
+            listadoEstadistico.Show();
         }
 
         private void altaAutoOpt_Click(object sender, EventArgs e)

@@ -22,7 +22,7 @@ namespace UberFrba.Facturacion
             DataTable dtViajes = new DataTable();
 
             //Creo el comando a ejecutar para traer todos los viajes de un cliente entre las fechas de facturación indicadas
-            SqlCommand cmd = new SqlCommand("SELECT * FROM Viaje WHERE Viaje_Cliente = @cliente AND (Viaje_Fecha_Hora_Inicio BETWEEN @fechaInicioFact AND @fechaFinFact)");
+            SqlCommand cmd = new SqlCommand("SELECT Viaje_Cant_Kilometros,Viaje_Fecha_Hora_Inicio,Viaje_Fecha_Hora_Fin,Viaje_Chofer as Dni_Chofer_Viaje,Viaje_Auto,Turno_Descripcion,Turno_Valor_Kilometro,Turno_Precio_Base FROM Viaje JOIN Turno on Viaje_Turno = Turno_Codigo WHERE Viaje_Cliente = @cliente AND (Viaje_Fecha_Hora_Inicio BETWEEN @fechaInicioFact AND @fechaFinFact)");
             cmd.Connection = DBconnection.getInstance();
             cmd.Parameters.Add("@cliente", SqlDbType.Decimal).Value = clienteElegido.Telefono;
             cmd.Parameters.Add("@fechaInicioFact", SqlDbType.Date).Value = fechaInicio.Date;
@@ -49,9 +49,8 @@ namespace UberFrba.Facturacion
             SqlCommand cmdFactura = new SqlCommand("sp_fact_cliente");
             cmdFactura.CommandType = CommandType.StoredProcedure;
             cmdFactura.Connection = DBconnection.getInstance();
-            cmdFactura.Parameters.Add("@fechaInicio", SqlDbType.DateTime).Value = nuevaFactura.FechaInicio;
-            cmdFactura.Parameters.Add("@fechaFin", SqlDbType.DateTime).Value = nuevaFactura.FechaFin;
-            cmdFactura.Parameters.Add("@fecha", SqlDbType.DateTime).Value = nuevaFactura.Fecha;
+            cmdFactura.Parameters.Add("@fecha_ini", SqlDbType.DateTime).Value = nuevaFactura.FechaInicio;
+            cmdFactura.Parameters.Add("@fecha_fin", SqlDbType.DateTime).Value = nuevaFactura.FechaFin;
             cmdFactura.Parameters.Add("@cliente", SqlDbType.Decimal).Value = nuevaFactura.Cliente;
 
             //Creo los parametros respuesta

@@ -24,13 +24,13 @@ namespace UberFrba.Listado_Estadistico
             switch (valorQueryEstadistica)
             {
                 case 1:
-                    queryText = "SELECT * from top5recaudacion(@año,@mesInicial,@mesFinal)";
+                    queryText = "SELECT * FROM top5recaudacion(@año,@mesInicial,@mesFinal)";
                     break;
                 case 2:
-                    queryText = "SELECT top5recaudacion(@año,@mesInicial,@mesFinal)";
+                    queryText = "SELECT * FROM viajes_mas_largos(@año,@mesInicial,@mesFinal)";
                     break;
                 case 3:
-                    queryText = "SELECT top5recaudacion(@año,@mesInicial,@mesFinal)";
+                    queryText = "SELECT * FROM clientes_mayor_consumo(@año,@mesInicial,@mesFinal)";
                     break;
                 case 4:
                     queryText = "SELECT top5recaudacion(@año,@mesInicial,@mesFinal)";

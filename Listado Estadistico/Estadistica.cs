@@ -24,16 +24,16 @@ namespace UberFrba.Listado_Estadistico
             switch (valorQueryEstadistica)
             {
                 case 1:
-                    queryText = "SELECT * FROM top5recaudacion(@año,@mesInicial,@mesFinal)";
+                    queryText = "SELECT * FROM SAPNU_PUAS.top5recaudacion(@año,@mesInicial,@mesFinal)";
                     break;
                 case 2:
-                    queryText = "SELECT * FROM viajes_mas_largos(@año,@mesInicial,@mesFinal)";
+                    queryText = "SELECT * FROM SAPNU_PUAS.viajes_mas_largos(@año,@mesInicial,@mesFinal)";
                     break;
                 case 3:
-                    queryText = "SELECT * FROM clientes_mayor_consumo(@año,@mesInicial,@mesFinal)";
+                    queryText = "SELECT * FROM SAPNU_PUAS.clientes_mayor_consumo(@año,@mesInicial,@mesFinal)";
                     break;
                 case 4:
-                    queryText = "SELECT top5recaudacion(@año,@mesInicial,@mesFinal)";
+                    queryText = "SELECT SAPNU_PUAS.top5recaudacion(@año,@mesInicial,@mesFinal)";
                     break;
                 default:
                     throw new Exception("Error con el listado de estadisticas pedido");

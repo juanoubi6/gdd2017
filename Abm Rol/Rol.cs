@@ -25,7 +25,7 @@ namespace UberFrba.Abm_Rol
             //Valido si el nombre del rol ya existe en la base de datos
             DataTable dtRol = new DataTable();
 
-            SqlCommand cmd = new SqlCommand("SELECT * FROM Rol WHERE LOWER(Rol_Nombre) = LOWER(@nombre)");
+            SqlCommand cmd = new SqlCommand("SELECT * FROM SAPNU_PUAS.Rol WHERE LOWER(Rol_Nombre) = LOWER(@nombre)");
             cmd.Connection = DBconnection.getInstance();
             cmd.Parameters.Add("@nombre", SqlDbType.VarChar);
             cmd.Parameters["@nombre"].Value = nombre;
@@ -57,7 +57,7 @@ namespace UberFrba.Abm_Rol
 
             DataTable dtFuncionalidad = new DataTable();
 
-            SqlCommand cmd = new SqlCommand("SELECT * FROM Funcionalidad");
+            SqlCommand cmd = new SqlCommand("SELECT * FROM SAPNU_PUAS.Funcionalidad");
             cmd.Connection = DBconnection.getInstance();
 
             SqlDataAdapter adapterFuncionalidad = new SqlDataAdapter(cmd);
@@ -78,14 +78,14 @@ namespace UberFrba.Abm_Rol
         {
 
             //Creo el comando necesario para grabar el rol en la tabla de Roles y retornar su ID generado
-            SqlCommand cmd = new SqlCommand("INSERT INTO Rol (Rol_Nombre,Rol_Activo) OUTPUT INSERTED.Rol_Codigo VALUES(@nombreRol,1)");
+            SqlCommand cmd = new SqlCommand("INSERT INTO SAPNU_PUAS.Rol (Rol_Nombre,Rol_Activo) OUTPUT INSERTED.Rol_Codigo VALUES(@nombreRol,1)");
             cmd.Connection = DBconnection.getInstance();
             cmd.Parameters.Add("@nombreRol", SqlDbType.VarChar);
             cmd.Parameters["@nombreRol"].Value = nombreRol;
             int idRolInsertado = 0;
 
             //Creo el comando necesario para ingresarle una funcionalidad a mi rol recien creado
-            SqlCommand cmd2 = new SqlCommand("INSERT INTO Funcionalidad_x_Rol (Rol_Codigo,Funcionalidad_Codigo) VALUES (@codigoRol,@codigoFuncionalidad)");
+            SqlCommand cmd2 = new SqlCommand("INSERT INTO SAPNU_PUAS.Funcionalidad_x_Rol (Rol_Codigo,Funcionalidad_Codigo) VALUES (@codigoRol,@codigoFuncionalidad)");
             cmd2.Connection = DBconnection.getInstance();
             cmd2.Parameters.Add("@codigoRol", SqlDbType.Int);
             cmd2.Parameters.Add("@codigoFuncionalidad", SqlDbType.Int);
@@ -125,7 +125,7 @@ namespace UberFrba.Abm_Rol
         {
 
             //Creo el comando necesario para modificar el rol
-            SqlCommand cmd = new SqlCommand("UPDATE Rol SET Rol_Nombre = @nombreRol, Rol_Activo = @activo WHERE Rol_Codigo = @codigoRol");
+            SqlCommand cmd = new SqlCommand("UPDATE SAPNU_PUAS.Rol SET Rol_Nombre = @nombreRol, Rol_Activo = @activo WHERE Rol_Codigo = @codigoRol");
             cmd.Connection = DBconnection.getInstance();
             cmd.Parameters.Add("@nombreRol", SqlDbType.VarChar);
             cmd.Parameters.Add("@activo", SqlDbType.TinyInt);
@@ -147,13 +147,13 @@ namespace UberFrba.Abm_Rol
             }
 
             //Primero borro todas las antiguas funcionalidades del rol. Luego, agrego las nuevas
-            SqlCommand cmdBorrar = new SqlCommand("DELETE FROM Funcionalidad_x_Rol WHERE Rol_Codigo = @codigoRol");
+            SqlCommand cmdBorrar = new SqlCommand("DELETE FROM SAPNU_PUAS.Funcionalidad_x_Rol WHERE Rol_Codigo = @codigoRol");
             cmdBorrar.Connection = DBconnection.getInstance();
             cmdBorrar.Parameters.Add("@codigoRol", SqlDbType.Int);
             cmdBorrar.Parameters["@codigoRol"].Value = codigoRol;
          
             //Creo el comando necesario para agregar las nuevas funcionalidades
-            SqlCommand cmdInsertar = new SqlCommand("INSERT INTO Funcionalidad_x_Rol (Rol_Codigo,Funcionalidad_Codigo) VALUES (@codigoRol,@codigoFuncionalidad)");
+            SqlCommand cmdInsertar = new SqlCommand("INSERT INTO SAPNU_PUAS.Funcionalidad_x_Rol (Rol_Codigo,Funcionalidad_Codigo) VALUES (@codigoRol,@codigoFuncionalidad)");
             cmdInsertar.Connection = DBconnection.getInstance();
             cmdInsertar.Parameters.Add("@codigoRol", SqlDbType.Int);
             cmdInsertar.Parameters.Add("@codigoFuncionalidad", SqlDbType.Int);
@@ -194,7 +194,7 @@ namespace UberFrba.Abm_Rol
             DataTable dtRoles = new DataTable();
 
             //Creo el comando a ejecutar y sus parametros
-            SqlCommand cmd2 = new SqlCommand("SELECT * FROM Rol R");
+            SqlCommand cmd2 = new SqlCommand("SELECT * FROM SAPNU_PUAS.Rol R");
             cmd2.Connection = DBconnection.getInstance();
 
             SqlDataAdapter adapterRoles = new SqlDataAdapter(cmd2);
@@ -213,7 +213,7 @@ namespace UberFrba.Abm_Rol
 
         public static String[] eliminarRol(Int32 codigoRol)
         {
-            SqlCommand cmd = new SqlCommand("UPDATE Rol SET Rol_Activo = 0 WHERE Rol_Codigo = @codigoRol");
+            SqlCommand cmd = new SqlCommand("UPDATE SAPNU_PUAS.Rol SET Rol_Activo = 0 WHERE Rol_Codigo = @codigoRol");
             cmd.Connection = DBconnection.getInstance();
             cmd.Parameters.Add("@codigoRol", SqlDbType.Int);
             cmd.Parameters["@codigoRol"].Value = codigoRol;
@@ -238,7 +238,7 @@ namespace UberFrba.Abm_Rol
             List<Int32> funcionalidades = new List<Int32>();
 
             //Creo el comando a ejecutar y sus parametros
-            SqlCommand cmd = new SqlCommand("SELECT Funcionalidad_Codigo FROM Funcionalidad_x_Rol WHERE Rol_Codigo = @codigoRol");
+            SqlCommand cmd = new SqlCommand("SELECT Funcionalidad_Codigo FROM SAPNU_PUAS.Funcionalidad_x_Rol WHERE Rol_Codigo = @codigoRol");
             cmd.Connection = DBconnection.getInstance();
             cmd.Parameters.Add("@codigoRol", SqlDbType.Int);
             cmd.Parameters["@codigoRol"].Value = codigoRol;

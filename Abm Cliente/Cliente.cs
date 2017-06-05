@@ -65,7 +65,7 @@ namespace UberFrba.Abm_Cliente
             //Valido si el telefono del cliente ya existe en la base de datos
             DataTable dtCliente = new DataTable();
 
-            SqlCommand cmd = new SqlCommand("SELECT * FROM Cliente WHERE Cliente_Telefono = @telefono");
+            SqlCommand cmd = new SqlCommand("SELECT * FROM SAPNU_PUAS.Cliente WHERE Cliente_Telefono = @telefono");
             cmd.Connection = DBconnection.getInstance();
             cmd.Parameters.Add("@telefono", SqlDbType.Decimal);
             cmd.Parameters["@telefono"].Value = Decimal.Parse(telefono);
@@ -113,7 +113,7 @@ namespace UberFrba.Abm_Cliente
             //Creo el comando a ejecutar
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = DBconnection.getInstance();
-            String queryClientes = "SELECT * FROM Cliente WHERE 1=1";
+            String queryClientes = "SELECT * FROM SAPNU_PUAS.Cliente WHERE 1=1";
 
             //Armo la query dinamica en base a los parametros de busqueda que me hayan llegado
             if (!String.IsNullOrEmpty(nombreCliente))
@@ -153,7 +153,7 @@ namespace UberFrba.Abm_Cliente
         public static String[] eliminarCliente(Decimal telefonoCliente)
         {
             //Creo el comando para dar de baja el cliente
-            SqlCommand cmdCliente = new SqlCommand("UPDATE Cliente SET Cliente_Activo = 0 WHERE Cliente_Telefono = @telefonoCliente");
+            SqlCommand cmdCliente = new SqlCommand("UPDATE SAPNU_PUAS.Cliente SET Cliente_Activo = 0 WHERE Cliente_Telefono = @telefonoCliente");
             cmdCliente.Connection = DBconnection.getInstance();
             cmdCliente.Parameters.Add("@telefonoCliente", SqlDbType.Decimal);
             cmdCliente.Parameters["@telefonoCliente"].Value = telefonoCliente;
@@ -241,7 +241,7 @@ namespace UberFrba.Abm_Cliente
         {
 
             //Creo el comando necesario para modificar el cliente
-            SqlCommand cmdCliente = new SqlCommand("UPDATE Cliente SET Cliente_Nombre = @nombre, Cliente_Apellido = @apellido, Cliente_Dni = @dni, Cliente_Telefono = @telefono , Cliente_Mail = @mail , Cliente_Fecha_Nac = @fechaNacimiento, Cliente_Codigo_Postal = @codigoPostal, Cliente_Direccion = @direccion, Cliente_Activo = @activo WHERE Cliente_Telefono = @telefonoPreModificacion");
+            SqlCommand cmdCliente = new SqlCommand("UPDATE SAPNU_PUAS.Cliente SET Cliente_Nombre = @nombre, Cliente_Apellido = @apellido, Cliente_Dni = @dni, Cliente_Telefono = @telefono , Cliente_Mail = @mail , Cliente_Fecha_Nac = @fechaNacimiento, Cliente_Codigo_Postal = @codigoPostal, Cliente_Direccion = @direccion, Cliente_Activo = @activo WHERE Cliente_Telefono = @telefonoPreModificacion");
             cmdCliente.Connection = DBconnection.getInstance();
             cmdCliente.Parameters.Add("@nombre", SqlDbType.VarChar).Value = clienteAModificar.Nombre;
             cmdCliente.Parameters.Add("@apellido", SqlDbType.VarChar).Value = clienteAModificar.Apellido;

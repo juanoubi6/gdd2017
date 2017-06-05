@@ -22,7 +22,7 @@ namespace UberFrba.Facturacion
             DataTable dtViajes = new DataTable();
 
             //Creo el comando a ejecutar para traer todos los viajes de un cliente entre las fechas de facturación indicadas
-            SqlCommand cmd = new SqlCommand("SELECT Viaje_Cant_Kilometros,Viaje_Fecha_Hora_Inicio,Viaje_Fecha_Hora_Fin,Viaje_Chofer as Dni_Chofer_Viaje,Viaje_Auto,Turno_Descripcion,Turno_Valor_Kilometro,Turno_Precio_Base FROM Viaje JOIN Turno on Viaje_Turno = Turno_Codigo WHERE Viaje_Cliente = @cliente AND (Viaje_Fecha_Hora_Inicio BETWEEN @fechaInicioFact AND @fechaFinFact)");
+            SqlCommand cmd = new SqlCommand("SELECT Viaje_Cant_Kilometros,Viaje_Fecha_Hora_Inicio,Viaje_Fecha_Hora_Fin,Viaje_Chofer as Dni_Chofer_Viaje,Viaje_Auto,Turno_Descripcion,Turno_Valor_Kilometro,Turno_Precio_Base FROM SAPNU_PUAS.Viaje JOIN SAPNU_PUAS.Turno on Viaje_Turno = Turno_Codigo WHERE Viaje_Cliente = @cliente AND (Viaje_Fecha_Hora_Inicio BETWEEN @fechaInicioFact AND @fechaFinFact)");
             cmd.Connection = DBconnection.getInstance();
             cmd.Parameters.Add("@cliente", SqlDbType.Decimal).Value = clienteElegido.Telefono;
             cmd.Parameters.Add("@fechaInicioFact", SqlDbType.Date).Value = fechaInicio.Date;

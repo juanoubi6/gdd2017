@@ -112,7 +112,7 @@ namespace UberFrba.Abm_Turno
             //Creo el comando a ejecutar
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = DBconnection.getInstance();
-            String queryTurnos = "SELECT * FROM Turno WHERE 1=1";
+            String queryTurnos = "SELECT * FROM SAPNU_PUAS.Turno WHERE 1=1";
 
             //Armo la query dinamica en base a los parametros de busqueda que me hayan llegado
             if (!String.IsNullOrEmpty(descripcionTurno))
@@ -142,7 +142,7 @@ namespace UberFrba.Abm_Turno
             DataTable dtTurnos = new DataTable();
 
             //Creo el comando a ejecutar
-            SqlCommand cmd = new SqlCommand("SELECT Turno_Descripcion,Turno_Hora_Inicio,Turno_Hora_Fin,Turno_Codigo FROM Turno WHERE Turno_Codigo = @codigoTurno");
+            SqlCommand cmd = new SqlCommand("SELECT Turno_Descripcion,Turno_Hora_Inicio,Turno_Hora_Fin,Turno_Codigo FROM SAPNU_PUAS.Turno WHERE Turno_Codigo = @codigoTurno");
             cmd.Connection = DBconnection.getInstance();
             cmd.Parameters.Add("@codigoTurno", SqlDbType.Int).Value = codigoTurno;
             
@@ -167,7 +167,7 @@ namespace UberFrba.Abm_Turno
             //Creo el comando a ejecutar
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = DBconnection.getInstance();
-            String queryTurnos = "SELECT * FROM Turno WHERE Turno_Activo = 1";
+            String queryTurnos = "SELECT * FROM SAPNU_PUAS.Turno WHERE Turno_Activo = 1";
 
             //Armo la query dinamica en base a los parametros de busqueda que me hayan llegado
             if (!String.IsNullOrEmpty(descripcionTurno))
@@ -195,7 +195,7 @@ namespace UberFrba.Abm_Turno
         public static String[] eliminarTurno(Int32 codigoTurno)
         {
             //Creo el comando para dar de baja el turno
-            SqlCommand cmdTurno = new SqlCommand("UPDATE Turno SET Turno_Activo = 0 WHERE Turno_Codigo = @codigoTurno");
+            SqlCommand cmdTurno = new SqlCommand("UPDATE SAPNU_PUAS.Turno SET Turno_Activo = 0 WHERE Turno_Codigo = @codigoTurno");
             cmdTurno.Connection = DBconnection.getInstance();
             cmdTurno.Parameters.Add("@codigoTurno", SqlDbType.Int).Value = codigoTurno;
 

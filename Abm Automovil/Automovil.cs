@@ -51,7 +51,7 @@ namespace UberFrba.Abm_Automovil
             DataTable dtMarcas = new DataTable();
 
             //Creo el comando a ejecutar
-            SqlCommand cmd = new SqlCommand("SELECT * FROM Marca");
+            SqlCommand cmd = new SqlCommand("SELECT * FROM SAPNU_PUAS.Marca");
             cmd.Connection = DBconnection.getInstance();
 
             SqlDataAdapter adapterMarcas = new SqlDataAdapter(cmd);
@@ -127,7 +127,7 @@ namespace UberFrba.Abm_Automovil
             //Creo el comando a ejecutar
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = DBconnection.getInstance();
-            String queryAutos = "SELECT A.Auto_Marca, M.Marca_Nombre, A.Auto_Modelo, A.Auto_Patente, A.Auto_Rodado, A.Auto_Licencia,A.Auto_Chofer,C.Chofer_Nombre,C.Chofer_Apellido,A.Auto_Turno,T.Turno_Descripcion,A.Auto_Activo FROM Auto A JOIN Marca M on A.Auto_Marca = M.Marca_Codigo JOIN Chofer C on C.Chofer_Telefono = A.Auto_Chofer JOIN Turno T on T.Turno_Codigo = A.Auto_Turno WHERE 1=1";
+            String queryAutos = "SELECT A.Auto_Marca, M.Marca_Nombre, A.Auto_Modelo, A.Auto_Patente, A.Auto_Rodado, A.Auto_Licencia,A.Auto_Chofer,C.Chofer_Nombre,C.Chofer_Apellido,A.Auto_Turno,T.Turno_Descripcion,A.Auto_Activo FROM SAPNU_PUAS.Auto A JOIN SAPNU_PUAS.Marca M on A.Auto_Marca = M.Marca_Codigo JOIN SAPNU_PUAS.Chofer C on C.Chofer_Telefono = A.Auto_Chofer JOIN SAPNU_PUAS.Turno T on T.Turno_Codigo = A.Auto_Turno WHERE 1=1";
 
             //Armo la query dinamica en base a los parametros de busqueda que me hayan llegado
             if (!String.IsNullOrEmpty(patente))
@@ -169,7 +169,7 @@ namespace UberFrba.Abm_Automovil
         public static String[] eliminarAuto(String patente)
         {
             //Creo el comando para dar de baja el turno
-            SqlCommand cmdAuto = new SqlCommand("UPDATE Auto SET Auto_Activo = 0 WHERE Auto_Patente = @patente");
+            SqlCommand cmdAuto = new SqlCommand("UPDATE SAPNU_PUAS.Auto SET Auto_Activo = 0 WHERE Auto_Patente = @patente");
             cmdAuto.Connection = DBconnection.getInstance();
             cmdAuto.Parameters.Add("@patente", SqlDbType.VarChar).Value = patente;
 

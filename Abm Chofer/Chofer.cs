@@ -76,7 +76,7 @@ namespace UberFrba.Abm_Chofer
             //Valido si el DNI del chofer ya existe en la base de datos
             DataTable dtChofer = new DataTable();
 
-            SqlCommand cmd = new SqlCommand("SELECT * FROM Chofer WHERE Chofer_Dni = @dni");
+            SqlCommand cmd = new SqlCommand("SELECT * FROM SAPNU_PUAS.Chofer WHERE Chofer_Dni = @dni");
             cmd.Connection = DBconnection.getInstance();
             cmd.Parameters.Add("@dni", SqlDbType.Decimal).Value = Decimal.Parse(dni);
 
@@ -156,7 +156,7 @@ namespace UberFrba.Abm_Chofer
             //Creo el comando a ejecutar
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = DBconnection.getInstance();
-            String queryChoferes = "SELECT * FROM Chofer WHERE 1=1";
+            String queryChoferes = "SELECT * FROM SAPNU_PUAS.Chofer WHERE 1=1";
 
             //Armo la query dinamica en base a los parametros de busqueda que me hayan llegado
             if (!String.IsNullOrEmpty(nombreChofer))
@@ -195,7 +195,7 @@ namespace UberFrba.Abm_Chofer
             DataTable dtChoferes = new DataTable();
 
             //Creo el comando a ejecutar para buscar un chofer en base a su telefono
-            SqlCommand cmd = new SqlCommand("SELECT Chofer_Nombre,Chofer_Apellido,Chofer_Telefono FROM Chofer WHERE Chofer_Telefono = @telefonoChofer");
+            SqlCommand cmd = new SqlCommand("SELECT Chofer_Nombre,Chofer_Apellido,Chofer_Telefono FROM SAPNU_PUAS.Chofer WHERE Chofer_Telefono = @telefonoChofer");
             cmd.Connection = DBconnection.getInstance();
             cmd.Parameters.Add("@telefonoChofer", SqlDbType.Decimal).Value = telefonoChofer;
            
@@ -220,7 +220,7 @@ namespace UberFrba.Abm_Chofer
             //Creo el comando a ejecutar
             SqlCommand cmd = new SqlCommand();
             cmd.Connection = DBconnection.getInstance();
-            String queryChoferes = "SELECT * FROM Chofer WHERE Chofer_Activo = 1";
+            String queryChoferes = "SELECT * FROM SAPNU_PUAS.Chofer WHERE Chofer_Activo = 1";
 
             //Armo la query dinamica en base a los parametros de busqueda que me hayan llegado
             if (!String.IsNullOrEmpty(nombreChofer))
@@ -258,7 +258,7 @@ namespace UberFrba.Abm_Chofer
         {
 
             //Creo el comando necesario para modificar el chofer
-            SqlCommand cmdChofer = new SqlCommand("UPDATE Chofer SET Chofer_Nombre = @nombre, Chofer_Apellido = @apellido, Chofer_Dni = @dni, Chofer_Telefono = @telefono , Chofer_Mail = @mail , Chofer_Fecha_Nac = @fechaNacimiento, Chofer_Direccion = @direccion, Chofer_Activo = @activo WHERE Chofer_Telefono = @telefonoPreModificacion");
+            SqlCommand cmdChofer = new SqlCommand("UPDATE SAPNU_PUAS.Chofer SET Chofer_Nombre = @nombre, Chofer_Apellido = @apellido, Chofer_Dni = @dni, Chofer_Telefono = @telefono , Chofer_Mail = @mail , Chofer_Fecha_Nac = @fechaNacimiento, Chofer_Direccion = @direccion, Chofer_Activo = @activo WHERE Chofer_Telefono = @telefonoPreModificacion");
             cmdChofer.Connection = DBconnection.getInstance();
             cmdChofer.Parameters.Add("@nombre", SqlDbType.VarChar).Value = choferAModificar.Nombre;
             cmdChofer.Parameters.Add("@apellido", SqlDbType.VarChar).Value = choferAModificar.Apellido;
@@ -289,7 +289,7 @@ namespace UberFrba.Abm_Chofer
         {
 
             //Creo el comando para dar de baja el chofer
-            SqlCommand cmdChofer = new SqlCommand("UPDATE Chofer SET Chofer_Activo = 0 WHERE Chofer_Dni = @telefonoChofer");
+            SqlCommand cmdChofer = new SqlCommand("UPDATE SAPNU_PUAS.Chofer SET Chofer_Activo = 0 WHERE Chofer_Dni = @telefonoChofer");
             cmdChofer.Connection = DBconnection.getInstance();
             cmdChofer.Parameters.Add("@telefonoChofer", SqlDbType.Decimal).Value = telefonoChofer;
 
@@ -323,7 +323,7 @@ namespace UberFrba.Abm_Chofer
             DataTable dtAutoBuscado = new DataTable();
 
             //Creo el comando a ejecutar
-            SqlCommand cmd = new SqlCommand("SELECT Auto_Patente FROM Auto WHERE Auto_Chofer = @choferTelefono AND Auto_Activo = 1");
+            SqlCommand cmd = new SqlCommand("SELECT Auto_Patente FROM SAPNU_PUAS.Auto WHERE Auto_Chofer = @choferTelefono AND Auto_Activo = 1");
             cmd.Connection = DBconnection.getInstance();
             cmd.Parameters.Add("@choferTelefono", SqlDbType.Decimal).Value = choferElegido.Telefono;
             
@@ -349,7 +349,7 @@ namespace UberFrba.Abm_Chofer
             DataTable dtDatosTurno = new DataTable();
 
             //Creo el comando a ejecutar
-            SqlCommand cmd = new SqlCommand("SELECT Auto_Turno AS Chofer_Turno, Turno_Descripcion,Turno_Hora_Inicio,Turno_Hora_Fin FROM Chofer join Auto ON Auto_Chofer = Chofer_Telefono join Turno ON Auto_Turno = Turno_Codigo WHERE Chofer_Telefono = @choferTel AND Auto_Activo = 1");
+            SqlCommand cmd = new SqlCommand("SELECT Auto_Turno AS Chofer_Turno, Turno_Descripcion,Turno_Hora_Inicio,Turno_Hora_Fin FROM SAPNU_PUAS.Chofer join SAPNU_PUAS.Auto ON Auto_Chofer = Chofer_Telefono join SAPNU_PUAS.Turno ON Auto_Turno = Turno_Codigo WHERE Chofer_Telefono = @choferTel AND Auto_Activo = 1");
             cmd.Connection = DBconnection.getInstance();
             cmd.Parameters.Add("@choferTel", SqlDbType.Decimal).Value = choferElegido.Telefono;
          

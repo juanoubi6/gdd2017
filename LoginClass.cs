@@ -21,7 +21,7 @@ namespace UberFrba
             DataTable dtUsuario = new DataTable();
 
             //Voy a buscar si existe el usuario
-            SqlCommand cmd = new SqlCommand("SELECT * FROM Usuario where Usuario_Username=@username");
+            SqlCommand cmd = new SqlCommand("SELECT * FROM SAPNU_PUAS.Usuario where Usuario_Username=@username");
             cmd.Connection = DBconnection.getInstance();
             cmd.Parameters.Add("@username", SqlDbType.VarChar);
             cmd.Parameters["@username"].Value = username;
@@ -37,7 +37,7 @@ namespace UberFrba
                 {
                     DataTable dtUsuarioYPassword = new DataTable();
 
-                    SqlCommand cmd2 = new SqlCommand("SELECT * FROM Usuario where Usuario_Username=@username and Usuario_Password=@password");
+                    SqlCommand cmd2 = new SqlCommand("SELECT * FROM SAPNU_PUAS.Usuario where Usuario_Username=@username and Usuario_Password=@password");
                     cmd2.Connection = DBconnection.getInstance();
                     cmd2.Parameters.Add("@username", SqlDbType.VarChar);
                     cmd2.Parameters.Add("@password", SqlDbType.VarChar);
@@ -85,7 +85,7 @@ namespace UberFrba
         private static void aumentarReintentos(DataTable dtUsuario)
         {
 
-            SqlCommand cmd = new SqlCommand("UPDATE Usuario SET Usuario_Reintentos = Usuario_Reintentos + 1 WHERE Usuario_Username = @username");
+            SqlCommand cmd = new SqlCommand("UPDATE SAPNU_PUAS.Usuario SET Usuario_Reintentos = Usuario_Reintentos + 1 WHERE Usuario_Username = @username");
             cmd.Connection = DBconnection.getInstance();
             cmd.Parameters.Add("@username", SqlDbType.VarChar);
             cmd.Parameters["@username"].Value = (dtUsuario.Rows[0]["Usuario_Username"]);
@@ -94,7 +94,7 @@ namespace UberFrba
             if ((Int16)(dtUsuario.Rows[0]["Usuario_Reintentos"]) + 1 == 3)
             {
                 //Sobreescribo el comando anterior para que además de incrementar el contador, cambie el estado del usuario
-                cmd.CommandText = "UPDATE Usuario SET Usuario_Reintentos = Usuario_Reintentos + 1,Usuario_Activo = 0 WHERE Usuario_Username = @username";
+                cmd.CommandText = "UPDATE SAPNU_PUAS.Usuario SET Usuario_Reintentos = Usuario_Reintentos + 1,Usuario_Activo = 0 WHERE Usuario_Username = @username";
             }
 
             try
@@ -113,7 +113,7 @@ namespace UberFrba
         private static void borrarReintentos(String username)
         {
             //Borro todos los reintentos del usuario
-            SqlCommand cmd = new SqlCommand("UPDATE Usuario SET Usuario_Reintentos = 0 WHERE Usuario_Username = @username");
+            SqlCommand cmd = new SqlCommand("UPDATE SAPNU_PUAS.Usuario SET Usuario_Reintentos = 0 WHERE Usuario_Username = @username");
             cmd.Connection = DBconnection.getInstance();
             cmd.Parameters.Add("@username", SqlDbType.VarChar);
             cmd.Parameters["@username"].Value = username;
@@ -136,7 +136,7 @@ namespace UberFrba
             DataTable dtRoles = new DataTable();
 
             //Traigo todos los roles asociados al usuario
-            SqlCommand cmd2 = new SqlCommand("SELECT R.Rol_Codigo,R.Rol_Nombre FROM Rol R join Rol_x_Usuario RU on R.Rol_Codigo = RU.Rol_Codigo where RU.Usuario_Username=@username");
+            SqlCommand cmd2 = new SqlCommand("SELECT R.Rol_Codigo,R.Rol_Nombre FROM SAPNU_PUAS.Rol R join SAPNU_PUAS.Rol_x_Usuario RU on R.Rol_Codigo = RU.Rol_Codigo where RU.Usuario_Username=@username");
             cmd2.Connection = DBconnection.getInstance();
             cmd2.Parameters.Add("@username", SqlDbType.VarChar);
             cmd2.Parameters["@username"].Value = username;
@@ -160,7 +160,7 @@ namespace UberFrba
             List<String> funcionalidades = new List<String>();
   
             //Busco todas las funcionalidades que posee el rol elegido
-            SqlCommand cmd = new SqlCommand("SELECT F.Funcionalidad_Nombre FROM Funcionalidad F join Funcionalidad_x_Rol FR on F.Funcionalidad_Codigo = FR.Funcionalidad_Codigo where Rol_Codigo = @codigoRol");
+            SqlCommand cmd = new SqlCommand("SELECT F.Funcionalidad_Nombre FROM SAPNU_PUAS.Funcionalidad F join SAPNU_PUAS.Funcionalidad_x_Rol FR on F.Funcionalidad_Codigo = FR.Funcionalidad_Codigo where Rol_Codigo = @codigoRol");
             cmd.Connection = DBconnection.getInstance();
             cmd.Parameters.Add("@codigoRol", SqlDbType.Int);
             cmd.Parameters["@codigoRol"].Value = codigo_rol;

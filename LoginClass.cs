@@ -15,16 +15,13 @@ namespace UberFrba
         public static DataTable login (String username, String password)
         {
 
-            //Encripto la contraseña con el algoritmo sha256
-            String hash = GenerateSHA256String(password);
 
             DataTable dtUsuario = new DataTable();
 
             //Voy a buscar si existe el usuario
             SqlCommand cmd = new SqlCommand("SELECT * FROM SAPNU_PUAS.Usuario where Usuario_Username=@username");
             cmd.Connection = DBconnection.getInstance();
-            cmd.Parameters.Add("@username", SqlDbType.VarChar);
-            cmd.Parameters["@username"].Value = username;
+            cmd.Parameters.Add("@username", SqlDbType.VarChar).Value = username;
 
             SqlDataAdapter adapterUsuario = new SqlDataAdapter(cmd);
 
@@ -37,12 +34,11 @@ namespace UberFrba
                 {
                     DataTable dtUsuarioYPassword = new DataTable();
 
-                    SqlCommand cmd2 = new SqlCommand("SELECT * FROM SAPNU_PUAS.Usuario where Usuario_Username=@username and Usuario_Password=@password");
+                    SqlCommand cmd2 = new SqlCommand("SELECT * FROM SAPNU_PUAS.Usuario where Usuario_Username=@username and Usuario_Password=HashBytes('SHA2_256',convert(varchar(255), @password))");
                     cmd2.Connection = DBconnection.getInstance();
-                    cmd2.Parameters.Add("@username", SqlDbType.VarChar);
-                    cmd2.Parameters.Add("@password", SqlDbType.VarChar);
-                    cmd2.Parameters["@username"].Value = username;
-                    cmd2.Parameters["@password"].Value = hash;
+                    cmd2.Parameters.Add("@username", SqlDbType.VarChar).Value = username;
+                    cmd2.Parameters.Add("@password", SqlDbType.VarChar).Value = password;
+
 
                     SqlDataAdapter adapterUsuarioYContraseña = new SqlDataAdapter(cmd2);
                     adapterUsuarioYContraseña.Fill(dtUsuarioYPassword);

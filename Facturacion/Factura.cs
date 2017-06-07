@@ -46,7 +46,7 @@ namespace UberFrba.Facturacion
         {
 
             //Creo el comando necesario para grabar la factura y sus items
-            SqlCommand cmdFactura = new SqlCommand("sp_fact_cliente");
+            SqlCommand cmdFactura = new SqlCommand("SAPNU_PUAS.sp_fact_cliente");
             cmdFactura.CommandType = CommandType.StoredProcedure;
             cmdFactura.Connection = DBconnection.getInstance();
             cmdFactura.Parameters.Add("@fecha_ini", SqlDbType.DateTime).Value = nuevaFactura.FechaInicio;

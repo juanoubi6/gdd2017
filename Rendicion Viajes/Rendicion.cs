@@ -45,7 +45,7 @@ namespace UberFrba.Rendicion_Viajes
         public static String[] grabarRendicion(Rendicion nuevaRendicion)
         {
             //Creo el comando necesario para grabar la rendicion y sus viajes
-            SqlCommand cmdRendicion = new SqlCommand("sp_rendicion_viajes");
+            SqlCommand cmdRendicion = new SqlCommand("SAPNU_PUAS.sp_rendicion_viajes");
             cmdRendicion.CommandType = CommandType.StoredProcedure;
             cmdRendicion.Connection = DBconnection.getInstance();
             cmdRendicion.Parameters.Add("@chofer_telefono", SqlDbType.Decimal).Value = nuevaRendicion.Chofer;

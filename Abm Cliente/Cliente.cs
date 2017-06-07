@@ -188,7 +188,7 @@ namespace UberFrba.Abm_Cliente
         {
 
             //Creo el comando necesario para grabar el cliente en la tabla de clientes
-            SqlCommand cmdCliente = new SqlCommand("sp_cliente_alta");
+            SqlCommand cmdCliente = new SqlCommand("SAPNU_PUAS.sp_cliente_alta");
             cmdCliente.CommandType = CommandType.StoredProcedure;
             cmdCliente.Connection = DBconnection.getInstance();
             cmdCliente.Parameters.Add("@nombre", SqlDbType.VarChar).Value = clienteAGrabar.Nombre;

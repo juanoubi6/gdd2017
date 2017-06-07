@@ -72,7 +72,7 @@ namespace UberFrba.Abm_Automovil
         {
 
             //Creo el comando necesario para grabar el turno en la tabla de turnos
-            SqlCommand cmdAuto = new SqlCommand("sp_auto_alta");
+            SqlCommand cmdAuto = new SqlCommand("SAPNU_PUAS.sp_auto_alta");
             cmdAuto.CommandType = CommandType.StoredProcedure;
             cmdAuto.Connection = DBconnection.getInstance();
             cmdAuto.Parameters.Add("@marca", SqlDbType.Int).Value = autoAGrabar.Marca;
@@ -190,7 +190,7 @@ namespace UberFrba.Abm_Automovil
 
         public static String[] modificarAuto(Automovil autoAModificar, String patenteAntigua)
         {
-            SqlCommand cmdAuto = new SqlCommand("sp_auto_modif");
+            SqlCommand cmdAuto = new SqlCommand("SAPNU_PUAS.sp_auto_modif");
             cmdAuto.CommandType = CommandType.StoredProcedure;
             cmdAuto.Connection = DBconnection.getInstance();
             cmdAuto.Parameters.Add("@marca", SqlDbType.Int).Value = autoAModificar.Marca;

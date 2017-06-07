@@ -60,7 +60,7 @@ namespace UberFrba.Abm_Turno
         {
 
             //Creo el comando necesario para grabar el turno en la tabla de turnos
-            SqlCommand cmdTurno = new SqlCommand("sp_turno_alta");
+            SqlCommand cmdTurno = new SqlCommand("SAPNU_PUAS.sp_turno_alta");
             cmdTurno.CommandType = CommandType.StoredProcedure;
             cmdTurno.Connection = DBconnection.getInstance();
             cmdTurno.Parameters.Add("@horaInicio", SqlDbType.Decimal).Value = turnoAGrabar.HoraInicio;
@@ -216,7 +216,7 @@ namespace UberFrba.Abm_Turno
 
         public static String[] modificarTurno(Turno turnoAModificar)
         {
-            SqlCommand cmdTurno = new SqlCommand("sp_turno_modif");
+            SqlCommand cmdTurno = new SqlCommand("SAPNU_PUAS.sp_turno_modif");
             cmdTurno.CommandType = CommandType.StoredProcedure;
             cmdTurno.Connection = DBconnection.getInstance();
             cmdTurno.Parameters.Add("@codigo", SqlDbType.Int).Value = turnoAModificar.Codigo;

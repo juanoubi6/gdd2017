@@ -101,7 +101,7 @@ namespace UberFrba.Abm_Chofer
         {
 
             //Creo el comando necesario para grabar el chofer en la tabla de choferes
-            SqlCommand cmdChofer = new SqlCommand("sp_chofer_alta");
+            SqlCommand cmdChofer = new SqlCommand("SAPNU_PUAS.sp_chofer_alta");
             cmdChofer.CommandType = CommandType.StoredProcedure;
             cmdChofer.Connection = DBconnection.getInstance();
             cmdChofer.Parameters.Add("@nombre", SqlDbType.VarChar).Value = choferAGrabar.Nombre;

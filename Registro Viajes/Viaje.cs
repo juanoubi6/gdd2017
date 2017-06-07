@@ -67,7 +67,7 @@ namespace UberFrba.Registro_Viajes
         public static String[] registrarViaje(Viaje viajeAGrabar)
         {
             //Creo el comando necesario para grabar el turno en la tabla de turnos
-            SqlCommand cmdViaje = new SqlCommand("sp_viaje_alta");
+            SqlCommand cmdViaje = new SqlCommand("SAPNU_PUAS.sp_viaje_alta");
             cmdViaje.CommandType = CommandType.StoredProcedure;
             cmdViaje.Connection = DBconnection.getInstance();
             cmdViaje.Parameters.Add("@viaje_cant_km", SqlDbType.Decimal).Value = viajeAGrabar.CantidadKm;

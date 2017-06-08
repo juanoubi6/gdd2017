@@ -159,7 +159,7 @@ namespace UberFrba.Abm_Cliente
             cmdCliente.Parameters["@telefonoCliente"].Value = telefonoCliente;
 
             //Creo el comando para dar de baja el usuario del cliente
-            SqlCommand cmdUsuario = new SqlCommand("UPDATE Usuario SET Usuario_Activo = 0 WHERE Usuario_Username = @telefonoCliente");
+            SqlCommand cmdUsuario = new SqlCommand("UPDATE SAPNU_PUAS.Usuario SET Usuario_Activo = 0 WHERE Usuario_Username = @telefonoCliente");
             cmdUsuario.Connection = DBconnection.getInstance();
             cmdUsuario.Parameters.Add("@telefonoCliente", SqlDbType.VarChar);
             cmdUsuario.Parameters["@telefonoCliente"].Value = telefonoCliente.ToString();

@@ -294,7 +294,7 @@ namespace UberFrba.Abm_Chofer
             cmdChofer.Parameters.Add("@telefonoChofer", SqlDbType.Decimal).Value = telefonoChofer;
 
             //Creo el comando para dar de baja el usuario del chofer
-            SqlCommand cmdUsuario = new SqlCommand("UPDATE Usuario SET Usuario_Activo = 0 WHERE Usuario_Username = @telefonoChofer");
+            SqlCommand cmdUsuario = new SqlCommand("UPDATE SAPNU_PUAS.Usuario SET Usuario_Activo = 0 WHERE Usuario_Username = @telefonoChofer");
             cmdUsuario.Connection = DBconnection.getInstance();
             cmdUsuario.Parameters.Add("@telefonoChofer", SqlDbType.VarChar).Value = telefonoChofer.ToString();
 

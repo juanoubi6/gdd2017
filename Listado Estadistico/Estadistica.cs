@@ -33,7 +33,7 @@ namespace UberFrba.Listado_Estadistico
                     queryText = "SELECT * FROM SAPNU_PUAS.clientes_mayor_consumo(@año,@mesInicial,@mesFinal)";
                     break;
                 case 4:
-                    queryText = "SELECT * SAPNU_PUAS.top5ClienteAuto(@año,@mesInicial,@mesFinal)";
+                    queryText = "SELECT * FROM SAPNU_PUAS.top5ClienteAuto(@año,@mesInicial,@mesFinal)";
                     break;
                 default:
                     throw new Exception("Error con el listado de estadisticas pedido");

@@ -122,7 +122,7 @@ namespace UberFrba.Registro_Viajes
                     }
                     else
                     {
-                        MessageBox.Show("No puede seleccionar este turno ya que no esta activo", "Error", MessageBoxButtons.OK);
+                        MessageBox.Show("No puede seleccionar este cliente ya que no esta activo", "Error", MessageBoxButtons.OK);
                     }
                 }
                 catch (Exception ex)

@@ -303,8 +303,8 @@ namespace UberFrba.Abm_Chofer
                 using (TransactionScope scope = new TransactionScope())
                 {
                     cmdChofer.Connection.Open();
-                    if (cmdChofer.ExecuteNonQuery() == 0) throw new Exception("No se pudo dar de baja el chofer");
-                    if (cmdUsuario.ExecuteNonQuery() == 0) throw new Exception("No se pudo dar de baja el usuario asociado al chofer");
+                    cmdChofer.ExecuteNonQuery();
+                    cmdUsuario.ExecuteNonQuery();
                     scope.Complete();
                     cmdChofer.Connection.Close();
                 }

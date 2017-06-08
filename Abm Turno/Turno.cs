@@ -24,7 +24,7 @@ namespace UberFrba.Abm_Turno
             Decimal cantNumerica;
             if (String.IsNullOrEmpty(hora)) return "El campo no puede ser vacio";
             if (!Decimal.TryParse(hora, out cantNumerica)) return "El valor no es numérico";
-            if (Decimal.Parse(hora) < 0 || Decimal.Parse(hora) > 23) return "El valor debe ser mayor a 0 y menor o igual a 23";
+            if (Decimal.Parse(hora) < 0 || Decimal.Parse(hora) > 24) return "El valor debe ser mayor a 0 y menor o igual a 24";
             if (hora.Length > 2) return "El valor ingresado es invalido";
             return "";
         }

@@ -53,6 +53,7 @@
             this.listadoEstadisticoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listadoEstadisticoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.asignarRolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuOpciones.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -155,7 +156,8 @@
             // 
             this.rolToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.altaRolOpt,
-            this.listadoRolOpt});
+            this.listadoRolOpt,
+            this.asignarRolToolStripMenuItem});
             this.rolToolStripMenuItem.Name = "rolToolStripMenuItem";
             this.rolToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.rolToolStripMenuItem.Text = "Rol";
@@ -163,14 +165,14 @@
             // altaRolOpt
             // 
             this.altaRolOpt.Name = "altaRolOpt";
-            this.altaRolOpt.Size = new System.Drawing.Size(140, 22);
+            this.altaRolOpt.Size = new System.Drawing.Size(152, 22);
             this.altaRolOpt.Text = "Alta rol";
             this.altaRolOpt.Click += new System.EventHandler(this.altaRolOpt_Click);
             // 
             // listadoRolOpt
             // 
             this.listadoRolOpt.Name = "listadoRolOpt";
-            this.listadoRolOpt.Size = new System.Drawing.Size(140, 22);
+            this.listadoRolOpt.Size = new System.Drawing.Size(152, 22);
             this.listadoRolOpt.Text = "Listado roles";
             this.listadoRolOpt.Click += new System.EventHandler(this.listadoRolOpt_Click);
             // 
@@ -257,6 +259,13 @@
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
+            // asignarRolToolStripMenuItem
+            // 
+            this.asignarRolToolStripMenuItem.Name = "asignarRolToolStripMenuItem";
+            this.asignarRolToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.asignarRolToolStripMenuItem.Text = "Asignar rol";
+            this.asignarRolToolStripMenuItem.Click += new System.EventHandler(this.asignarRolToolStripMenuItem_Click);
+            // 
             // MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -300,5 +309,6 @@
         private System.Windows.Forms.ToolStripMenuItem listadoAutoOpt;
         private System.Windows.Forms.ToolStripMenuItem altaTurnoOpt;
         private System.Windows.Forms.ToolStripMenuItem listadoTurnoOpt;
+        private System.Windows.Forms.ToolStripMenuItem asignarRolToolStripMenuItem;
     }
 }

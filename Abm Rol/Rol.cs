@@ -213,15 +213,21 @@ namespace UberFrba.Abm_Rol
 
         public static String[] eliminarRol(Int32 codigoRol)
         {
+            //Hago la baja logica del rol
             SqlCommand cmd = new SqlCommand("UPDATE SAPNU_PUAS.Rol SET Rol_Activo = 0 WHERE Rol_Codigo = @codigoRol");
             cmd.Connection = DBconnection.getInstance();
-            cmd.Parameters.Add("@codigoRol", SqlDbType.Int);
-            cmd.Parameters["@codigoRol"].Value = codigoRol;
+            cmd.Parameters.Add("@codigoRol", SqlDbType.Int).Value = codigoRol;
+
+            //Se quita el rol inhabilitado de todos los usuarios que lo posean
+            SqlCommand cmd2 = new SqlCommand("DELETE FROM SAPNU_PUAS.Rol WHERE Rol_Codigo = @codigoRol");
+            cmd2.Connection = DBconnection.getInstance();
+            cmd.Parameters.Add("@codigoRol", SqlDbType.Int).Value = codigoRol;
           
             try
             {
                 cmd.Connection.Open();
                 cmd.ExecuteNonQuery();
+                cmd2.ExecuteNonQuery();
                 cmd.Connection.Close();
             }
             catch (Exception ex)
@@ -267,7 +273,77 @@ namespace UberFrba.Abm_Rol
 
             return funcionalidades;
 
-        }        
+        }
 
+        public static DataTable obtenerRoles()
+        {
+            DataTable dtRoles = new DataTable();
+
+            SqlCommand cmd = new SqlCommand("SELECT Rol_Codigo,Rol_Nombre FROM SAPNU_PUAS.Rol");
+            cmd.Connection = DBconnection.getInstance();
+
+            SqlDataAdapter adapterRoles = new SqlDataAdapter(cmd);
+
+            try
+            {
+                adapterRoles.Fill(dtRoles);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+            return dtRoles;
+        }
+
+        public static String[] asignarRoles(Usuario usuarioElegido, List<Int32> codigosRoles)
+        {
+            //Creo el comando necesario para grabar el turno en la tabla de turnos
+            SqlCommand cmdAsignacion = new SqlCommand("SAPNU_PUAS.sp_asignar_rol");
+            cmdAsignacion.CommandType = CommandType.StoredProcedure;
+            cmdAsignacion.Connection = DBconnection.getInstance();
+            cmdAsignacion.Parameters.Add("@codigoRol", SqlDbType.Int);
+            cmdAsignacion.Parameters.Add("@username", SqlDbType.VarChar).Value = usuarioElegido.Username;
+
+            //Creo los parametro respuesta
+            SqlParameter responseMsg = new SqlParameter();
+            SqlParameter responseErr = new SqlParameter();
+            responseMsg.ParameterName = "@resultado";
+            responseErr.ParameterName = "@codOp";
+            responseMsg.SqlDbType = System.Data.SqlDbType.VarChar;
+            responseMsg.Direction = System.Data.ParameterDirection.Output;
+            responseMsg.Size = 255;
+            responseErr.SqlDbType = System.Data.SqlDbType.Int;
+            responseErr.Direction = System.Data.ParameterDirection.Output;
+            cmdAsignacion.Parameters.Add(responseMsg);
+            cmdAsignacion.Parameters.Add(responseErr);
+
+            try
+            {
+                //Se asignan los roles al usuario en el ambito de una transacción
+                using (TransactionScope scope = new TransactionScope())
+                {
+                    cmdAsignacion.Connection.Open();
+
+                    //Obtengo cada codigo del rol y se lo inserto a un usuario en la tabla Rol_x_Usuario
+                    foreach (Int32 codigoRol in codigosRoles)
+                    {
+                        cmdAsignacion.Parameters["@codigoRol"].Value = codigoRol;
+                        cmdAsignacion.ExecuteNonQuery();
+                        int codigoError = Convert.ToInt32(cmdAsignacion.Parameters["@codOp"].Value);
+                    }
+
+                    scope.Complete();
+                    cmdAsignacion.Connection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                cmdAsignacion.Connection.Close();
+                return new String[2] { "Error", ex.Message };
+            }
+
+            return new String[2] { "Ok", "Rol/es asignado/s satisfactoriamente" };
+        }
     }
 }

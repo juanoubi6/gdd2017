@@ -132,7 +132,7 @@ namespace UberFrba
             DataTable dtRoles = new DataTable();
 
             //Traigo todos los roles asociados al usuario
-            SqlCommand cmd2 = new SqlCommand("SELECT R.Rol_Codigo,R.Rol_Nombre FROM SAPNU_PUAS.Rol R join SAPNU_PUAS.Rol_x_Usuario RU on R.Rol_Codigo = RU.Rol_Codigo where RU.Usuario_Username=@username");
+            SqlCommand cmd2 = new SqlCommand("SELECT R.Rol_Codigo,R.Rol_Nombre FROM SAPNU_PUAS.Rol R join SAPNU_PUAS.Rol_x_Usuario RU on R.Rol_Codigo = RU.Rol_Codigo where RU.Usuario_Username=@username AND R.Rol_Activo = 1");
             cmd2.Connection = DBconnection.getInstance();
             cmd2.Parameters.Add("@username", SqlDbType.VarChar);
             cmd2.Parameters["@username"].Value = username;

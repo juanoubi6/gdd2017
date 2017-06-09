@@ -121,11 +121,23 @@
     <Compile Include="Abm Rol\AltaRol.Designer.cs">
       <DependentUpon>AltaRol.cs</DependentUpon>
     </Compile>
+    <Compile Include="Abm Rol\AsignacionRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Rol\AsignacionRol.Designer.cs">
+      <DependentUpon>AsignacionRol.cs</DependentUpon>
+    </Compile>
     <Compile Include="Abm Rol\ListadoRol.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Abm Rol\ListadoRol.Designer.cs">
       <DependentUpon>ListadoRol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Abm Rol\ListadoUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Abm Rol\ListadoUsuario.Designer.cs">
+      <DependentUpon>ListadoUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Abm Rol\ModificarRol.cs">
       <SubType>Form</SubType>
@@ -227,6 +239,7 @@
       <DependentUpon>RendicionViaje.cs</DependentUpon>
     </Compile>
     <Compile Include="Rendicion Viajes\Rendicion.cs" />
+    <Compile Include="Usuario.cs" />
     <EmbeddedResource Include="Abm Automovil\AltaAutomovil.resx">
       <DependentUpon>AltaAutomovil.cs</DependentUpon>
     </EmbeddedResource>
@@ -263,8 +276,14 @@
     <EmbeddedResource Include="Abm Rol\AltaRol.resx">
       <DependentUpon>AltaRol.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Abm Rol\AsignacionRol.resx">
+      <DependentUpon>AsignacionRol.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Abm Rol\ListadoRol.resx">
       <DependentUpon>ListadoRol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Abm Rol\ListadoUsuario.resx">
+      <DependentUpon>ListadoUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Abm Rol\ModificarRol.resx">
       <DependentUpon>ModificarRol.cs</DependentUpon>

@@ -156,5 +156,11 @@ namespace UberFrba
             if (!funcionalidades.Contains("ListadoEstadistico")) listadoEstadisticoToolStripMenuItem1.Visible = false;
         }
 
+        private void asignarRolToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AsignacionRol asignacionRol = new AsignacionRol();
+            asignacionRol.Show();
+        }
+
     }
 }

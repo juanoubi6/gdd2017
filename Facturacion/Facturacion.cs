@@ -95,6 +95,13 @@ namespace UberFrba.Facturacion
                 errorFechaFin.Text = "La fecha de fin no puede ser menor a la fecha de inicio";
             }
 
+            //Las fechas de facturacion no son del mismo mes
+            if (dtpFin.Value.Month != dtpInicio.Value.Month)
+            {
+                contadorErrores++;
+                MessageBox.Show("Las fechas en las que se factura deben pertenecer al mismo mes ya que la facturacion es mensual", "Error", MessageBoxButtons.OK);
+            }
+
             if (contadorErrores == 0)
             {
                 Factura nuevaFactura = new Factura();

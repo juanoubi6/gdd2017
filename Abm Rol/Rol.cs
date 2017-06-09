@@ -219,9 +219,9 @@ namespace UberFrba.Abm_Rol
             cmd.Parameters.Add("@codigoRol", SqlDbType.Int).Value = codigoRol;
 
             //Se quita el rol inhabilitado de todos los usuarios que lo posean
-            SqlCommand cmd2 = new SqlCommand("DELETE FROM SAPNU_PUAS.Rol WHERE Rol_Codigo = @codigoRol");
+            SqlCommand cmd2 = new SqlCommand("DELETE FROM SAPNU_PUAS.Rol_x_Usuario WHERE Rol_Codigo = @codigoRolASacar");
             cmd2.Connection = DBconnection.getInstance();
-            cmd.Parameters.Add("@codigoRol", SqlDbType.Int).Value = codigoRol;
+            cmd2.Parameters.Add("@codigoRolASacar", SqlDbType.Int).Value = codigoRol;
           
             try
             {
@@ -279,7 +279,7 @@ namespace UberFrba.Abm_Rol
         {
             DataTable dtRoles = new DataTable();
 
-            SqlCommand cmd = new SqlCommand("SELECT Rol_Codigo,Rol_Nombre FROM SAPNU_PUAS.Rol");
+            SqlCommand cmd = new SqlCommand("SELECT Rol_Codigo,Rol_Nombre FROM SAPNU_PUAS.Rol WHERE Rol_Activo = 1");
             cmd.Connection = DBconnection.getInstance();
 
             SqlDataAdapter adapterRoles = new SqlDataAdapter(cmd);

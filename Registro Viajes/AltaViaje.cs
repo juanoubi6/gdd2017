@@ -82,6 +82,13 @@ namespace UberFrba.Registro_Viajes
                 contadorErrores++;
             }
 
+            //El viaje comienza y termina dentro del mismo dia
+            if (dtpInicio.Value.Day != dtpFin.Value.Day)
+            {
+                MessageBox.Show("El viaje debe comenzar y terminar en el mismo dia", "Error", MessageBoxButtons.OK);
+                contadorErrores++;
+            }
+
             //Si no hay errores, se intenta guardar el nuevo Turno
             if (contadorErrores == 0)
             {

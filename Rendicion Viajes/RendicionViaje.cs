@@ -118,5 +118,10 @@ namespace UberFrba.Rendicion_Viajes
                 mostrarViajes();
             }
         }
+
+        private void RendicionViaje_Load(object sender, EventArgs e)
+        {
+            txtPorcentaje.Text = (Convert.ToDecimal(ConfigurationManager.AppSettings["PorcentajeRendicion"])*100).ToString() + "%";
+        }
     }
 }

@@ -64,6 +64,8 @@ namespace UberFrba.Registro_Viajes
                     btnSeleccionar.UseColumnTextForButtonValue = true;
                     grillaChofer.Columns.Add(btnSeleccionar);
 
+                    grillaChofer.Columns["Chofer_Persona"].Visible = false;
+
                     errorDni.Text = "";
 
                 }

@@ -39,24 +39,40 @@ namespace UberFrba.Abm_Turno
             //Si no hay errores, se intenta guardar el nuevo Turno
             if (contadorErrores == 0)
             {
-                Turno turnoAGrabar = new Turno();
-                turnoAGrabar.HoraInicio = Decimal.Parse(txtHoraInicio.Text);
-                turnoAGrabar.HoraFin = Decimal.Parse(txtHoraFin.Text);
-                turnoAGrabar.Descripcion = txtDescripcion.Text;
-                turnoAGrabar.ValorKm = Decimal.Parse(txtValorkm.Text);
-                turnoAGrabar.PrecioBase = Decimal.Parse(txtPrecioBase.Text);
-                turnoAGrabar.Activo = 1;
 
+                //Valido que las horas de inicio y fin sean correctas
+                Decimal horaInicio = Decimal.Parse(txtHoraInicio.Text);
+                Decimal horaFin = Decimal.Parse(txtHoraFin.Text);
 
-                String[] respuesta = Turno.grabarTurno(turnoAGrabar);
-                if (respuesta[0] == "Error")
+                if (horaInicio == horaFin)
                 {
-                    lblErrorBaseDatos.Text = respuesta[1];
-                    grpErrorBaseDatos.Visible = true;
+                    MessageBox.Show("Las horas de inicio y fin deben ser distintas", "Error", MessageBoxButtons.OK);
+                }
+                else if (horaInicio > horaFin)
+                {
+                    MessageBox.Show("La hora de inicio no puede ser mayor a la hora de fin", "Error", MessageBoxButtons.OK);
                 }
                 else
                 {
-                    MessageBox.Show(respuesta[1], "Operación exitosa", MessageBoxButtons.OK);
+                    Turno turnoAGrabar = new Turno();
+                    turnoAGrabar.HoraInicio = horaInicio;
+                    turnoAGrabar.HoraFin = horaFin;
+                    turnoAGrabar.Descripcion = txtDescripcion.Text;
+                    turnoAGrabar.ValorKm = Decimal.Parse(txtValorkm.Text);
+                    turnoAGrabar.PrecioBase = Decimal.Parse(txtPrecioBase.Text);
+                    turnoAGrabar.Activo = 1;
+
+
+                    String[] respuesta = Turno.grabarTurno(turnoAGrabar);
+                    if (respuesta[0] == "Error")
+                    {
+                        lblErrorBaseDatos.Text = respuesta[1];
+                        grpErrorBaseDatos.Visible = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show(respuesta[1], "Operación exitosa", MessageBoxButtons.OK);
+                    }
                 }
             }
             

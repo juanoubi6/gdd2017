@@ -44,6 +44,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtTurno = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtPorcentaje = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.grillaViajesRendicion)).BeginInit();
             this.grpErrorBaseDatos.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -100,6 +102,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtPorcentaje);
+            this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.errorChofer);
             this.groupBox1.Controls.Add(this.btnSelectChofer);
             this.groupBox1.Controls.Add(this.label7);
@@ -205,6 +209,23 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Fecha*";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(789, 83);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(169, 13);
+            this.label2.TabIndex = 31;
+            this.label2.Text = "% que cobra cada chofer por viaje";
+            // 
+            // txtPorcentaje
+            // 
+            this.txtPorcentaje.Location = new System.Drawing.Point(963, 80);
+            this.txtPorcentaje.Name = "txtPorcentaje";
+            this.txtPorcentaje.ReadOnly = true;
+            this.txtPorcentaje.Size = new System.Drawing.Size(36, 20);
+            this.txtPorcentaje.TabIndex = 32;
+            // 
             // RendicionViaje
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -217,6 +238,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "RendicionViaje";
             this.Text = "Rendicion de Viajes";
+            this.Load += new System.EventHandler(this.RendicionViaje_Load);
             ((System.ComponentModel.ISupportInitialize)(this.grillaViajesRendicion)).EndInit();
             this.grpErrorBaseDatos.ResumeLayout(false);
             this.grpErrorBaseDatos.PerformLayout();
@@ -244,5 +266,7 @@
         private System.Windows.Forms.TextBox txtTurno;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label errorChofer;
+        private System.Windows.Forms.TextBox txtPorcentaje;
+        private System.Windows.Forms.Label label2;
     }
 }

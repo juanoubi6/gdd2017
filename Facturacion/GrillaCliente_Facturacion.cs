@@ -63,6 +63,8 @@ namespace UberFrba.Facturacion
                     btnSeleccionar.UseColumnTextForButtonValue = true;
                     grillaCliente.Columns.Add(btnSeleccionar);
 
+                    grillaCliente.Columns["Cliente_Persona"].Visible = false;
+
                     errorDni.Text = "";
 
                 }

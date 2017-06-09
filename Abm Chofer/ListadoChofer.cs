@@ -65,6 +65,8 @@ namespace UberFrba.Abm_Chofer
                     btnBorrar.UseColumnTextForButtonValue = true;
                     grillaChofer.Columns.Add(btnBorrar);
 
+                    grillaChofer.Columns["Chofer_Persona"].Visible = false;
+
                     errorDni.Text = "";
 
                 }

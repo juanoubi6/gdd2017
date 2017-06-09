@@ -33,7 +33,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.errorCliente = new System.Windows.Forms.Label();
             this.errorChofer = new System.Windows.Forms.Label();
-            this.errorAuto = new System.Windows.Forms.Label();
             this.errorCantKm = new System.Windows.Forms.Label();
             this.errorFechaHoraFin = new System.Windows.Forms.Label();
             this.errorFechaHoraIni = new System.Windows.Forms.Label();
@@ -55,6 +54,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.grpErrorBaseDatos = new System.Windows.Forms.GroupBox();
             this.lblErrorBaseDatos = new System.Windows.Forms.Label();
+            this.errorAuto = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.grpErrorBaseDatos.SuspendLayout();
             this.SuspendLayout();
@@ -127,15 +127,6 @@
             this.errorChofer.Name = "errorChofer";
             this.errorChofer.Size = new System.Drawing.Size(0, 13);
             this.errorChofer.TabIndex = 24;
-            // 
-            // errorAuto
-            // 
-            this.errorAuto.AutoSize = true;
-            this.errorAuto.ForeColor = System.Drawing.Color.Red;
-            this.errorAuto.Location = new System.Drawing.Point(185, 134);
-            this.errorAuto.Name = "errorAuto";
-            this.errorAuto.Size = new System.Drawing.Size(0, 13);
-            this.errorAuto.TabIndex = 23;
             // 
             // errorCantKm
             // 
@@ -321,6 +312,15 @@
             this.lblErrorBaseDatos.Size = new System.Drawing.Size(0, 13);
             this.lblErrorBaseDatos.TabIndex = 0;
             // 
+            // errorAuto
+            // 
+            this.errorAuto.AutoSize = true;
+            this.errorAuto.ForeColor = System.Drawing.Color.Red;
+            this.errorAuto.Location = new System.Drawing.Point(185, 134);
+            this.errorAuto.Name = "errorAuto";
+            this.errorAuto.Size = new System.Drawing.Size(0, 13);
+            this.errorAuto.TabIndex = 23;
+            // 
             // AltaViaje
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -363,11 +363,11 @@
         private System.Windows.Forms.DateTimePicker dtpInicio;
         private System.Windows.Forms.Label errorCliente;
         private System.Windows.Forms.Label errorChofer;
-        private System.Windows.Forms.Label errorAuto;
         private System.Windows.Forms.Label errorCantKm;
         private System.Windows.Forms.Label errorFechaHoraFin;
         private System.Windows.Forms.Label errorFechaHoraIni;
         private System.Windows.Forms.GroupBox grpErrorBaseDatos;
         private System.Windows.Forms.Label lblErrorBaseDatos;
+        private System.Windows.Forms.Label errorAuto;
     }
 }

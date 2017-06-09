@@ -63,6 +63,8 @@ namespace UberFrba.Rendicion_Viajes
                     btnSeleccionar.UseColumnTextForButtonValue = true;
                     grillaChofer.Columns.Add(btnSeleccionar);
 
+                    grillaChofer.Columns["Chofer_Persona"].Visible = false;
+
                     errorDni.Text = "";
 
                 }
@@ -127,7 +129,7 @@ namespace UberFrba.Rendicion_Viajes
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Ha ocurrido un error al realizar la seleccion del cliente: " + ex.Message, "Error", MessageBoxButtons.OK);
+                    MessageBox.Show("Ha ocurrido un error al realizar la seleccion del chofer: " + ex.Message, "Error", MessageBoxButtons.OK);
                 }
             }
 

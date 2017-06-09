@@ -22,7 +22,7 @@ namespace UberFrba.Rendicion_Viajes
             DataTable dtViajes = new DataTable();
 
             //Creo el comando a ejecutar
-            SqlCommand cmd = new SqlCommand("SELECT V.Viaje_Fecha_Hora_Inicio,V.Viaje_Fecha_Hora_Fin,CH.Chofer_Nombre,CH.Chofer_Apellido,C.Cliente_Nombre,C.Cliente_Apellido,T.Turno_Descripcion FROM SAPNU_PUAS.Viaje V JOIN SAPNU_PUAS.Cliente C on C.Cliente_Telefono = V.Viaje_Cliente JOIN SAPNU_PUAS.Chofer CH on CH.Chofer_Telefono = V.Viaje_Chofer join SAPNU_PUAS.Turno T on V.Viaje_Turno = T.Turno_Codigo WHERE V.Viaje_Chofer = @chofer AND CONVERT(date,V.Viaje_Fecha_Hora_Inicio) = @fecha");
+            SqlCommand cmd = new SqlCommand("SELECT Viaje_Cant_Kilometros,Viaje_Fecha_Hora_Inicio,Viaje_Fecha_Hora_Fin,Viaje_Chofer as Dni_Chofer_Viaje,Viaje_Auto,Turno_Descripcion,Turno_Valor_Kilometro,Turno_Precio_Base FROM SAPNU_PUAS.Viaje JOIN SAPNU_PUAS.Turno on Viaje_Turno = Turno_Codigo WHERE Viaje_Chofer = @chofer AND CONVERT(date,Viaje_Fecha_Hora_Inicio) = @fecha");
             cmd.Connection = DBconnection.getInstance();
             cmd.Parameters.Add("@chofer", SqlDbType.Decimal).Value = choferElegido.Telefono;
             cmd.Parameters.Add("@fecha", SqlDbType.Date).Value = fecha.Date;

@@ -65,6 +65,8 @@ namespace UberFrba.Abm_Cliente
                     btnBorrar.UseColumnTextForButtonValue = true;
                     grillaCliente.Columns.Add(btnBorrar);
 
+                    grillaCliente.Columns["Cliente_Persona"].Visible = false;
+
                     errorDni.Text = "";
 
                 }

@@ -64,6 +64,8 @@ namespace UberFrba.Registro_Viajes
                     btnSeleccionar.UseColumnTextForButtonValue = true;
                     grillaCliente.Columns.Add(btnSeleccionar);
 
+                    grillaCliente.Columns["Cliente_Persona"].Visible = false;
+
                     errorDni.Text = "";
 
                 }

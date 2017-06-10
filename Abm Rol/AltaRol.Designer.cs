@@ -45,7 +45,7 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(443, 192);
+            this.btnGuardar.Location = new System.Drawing.Point(443, 268);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 6;
@@ -55,7 +55,7 @@
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(12, 192);
+            this.btnLimpiar.Location = new System.Drawing.Point(12, 268);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
             this.btnLimpiar.TabIndex = 5;
@@ -73,7 +73,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(506, 174);
+            this.groupBox1.Size = new System.Drawing.Size(506, 250);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Carga de Campos";
@@ -100,7 +100,7 @@
             this.lstFuncionalidad.Location = new System.Drawing.Point(85, 53);
             this.lstFuncionalidad.Name = "lstFuncionalidad";
             this.lstFuncionalidad.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.lstFuncionalidad.Size = new System.Drawing.Size(120, 95);
+            this.lstFuncionalidad.Size = new System.Drawing.Size(120, 173);
             this.lstFuncionalidad.TabIndex = 13;
             // 
             // label2
@@ -131,7 +131,7 @@
             // grpErrorBaseDatos
             // 
             this.grpErrorBaseDatos.Controls.Add(this.lblErrorBaseDatos);
-            this.grpErrorBaseDatos.Location = new System.Drawing.Point(12, 232);
+            this.grpErrorBaseDatos.Location = new System.Drawing.Point(12, 297);
             this.grpErrorBaseDatos.Name = "grpErrorBaseDatos";
             this.grpErrorBaseDatos.Size = new System.Drawing.Size(506, 67);
             this.grpErrorBaseDatos.TabIndex = 16;
@@ -151,7 +151,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(530, 321);
+            this.ClientSize = new System.Drawing.Size(530, 372);
             this.Controls.Add(this.grpErrorBaseDatos);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnLimpiar);

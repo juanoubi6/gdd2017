@@ -46,6 +46,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.grillaViajesFactura = new System.Windows.Forms.DataGridView();
+            this.errorCliente = new System.Windows.Forms.Label();
             this.grpErrorBaseDatos.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grillaViajesFactura)).BeginInit();
@@ -92,6 +93,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.errorCliente);
             this.groupBox1.Controls.Add(this.btnSelectCliente);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.txtCliente);
@@ -228,6 +230,15 @@
             this.grillaViajesFactura.Size = new System.Drawing.Size(1016, 232);
             this.grillaViajesFactura.TabIndex = 21;
             // 
+            // errorCliente
+            // 
+            this.errorCliente.AutoSize = true;
+            this.errorCliente.ForeColor = System.Drawing.Color.Red;
+            this.errorCliente.Location = new System.Drawing.Point(264, 83);
+            this.errorCliente.Name = "errorCliente";
+            this.errorCliente.Size = new System.Drawing.Size(0, 13);
+            this.errorCliente.TabIndex = 30;
+            // 
             // Facturacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -269,5 +280,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView grillaViajesFactura;
+        private System.Windows.Forms.Label errorCliente;
     }
 }

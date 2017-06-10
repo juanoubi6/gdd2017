@@ -40,6 +40,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.grpErrorBaseDatos.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -85,6 +86,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.btnSeleccionUsuario);
             this.groupBox1.Controls.Add(this.errorRoles);
             this.groupBox1.Controls.Add(this.errorUsuario);
@@ -160,6 +162,15 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Usuario";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(184, 135);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(214, 13);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "Para seleccionar más de uno,  presionar Ctrl";
+            // 
             // AsignacionRol
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -194,5 +205,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
     }
 }

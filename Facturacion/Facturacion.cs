@@ -76,6 +76,12 @@ namespace UberFrba.Facturacion
                 errorViajes.Text = "No se puede facturar un cliente si no tiene viajes que facturar";
             }
 
+            if (clienteElegido == null)
+            {
+                contadorErrores++;
+                errorCliente.Text = "Se debe elegir un cliente al cual facturarle";
+            }
+
             if (dtpInicio.Value == dtpFin.Value)
             {
                 contadorErrores++;
@@ -136,6 +142,7 @@ namespace UberFrba.Facturacion
             errorFechaFin.Text = "";
             errorFechaIni.Text = "";
             errorViajes.Text = "";
+            errorCliente.Text = "";
             grillaViajesFactura.DataSource = null;
         }
     }

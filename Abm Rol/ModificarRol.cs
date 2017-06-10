@@ -34,6 +34,8 @@ namespace UberFrba.Abm_Rol
                 lstFuncionalidad.DisplayMember = "Funcionalidad_Nombre";
                 lstFuncionalidad.ValueMember = "Funcionalidad_Codigo";
 
+                lstFuncionalidad.SelectedValue = -1;
+
                 List<Int32> funcionalidadesDelRol = Rol.obtenerFuncionalidadesDeRol(rolAModificar.Codigo);
 
                 foreach (Int32 funcionalidad in funcionalidadesDelRol)

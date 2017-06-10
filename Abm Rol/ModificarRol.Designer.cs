@@ -39,6 +39,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.grpErrorBaseDatos.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -46,7 +47,7 @@
             // grpErrorBaseDatos
             // 
             this.grpErrorBaseDatos.Controls.Add(this.lblErrorBaseDatos);
-            this.grpErrorBaseDatos.Location = new System.Drawing.Point(12, 232);
+            this.grpErrorBaseDatos.Location = new System.Drawing.Point(11, 319);
             this.grpErrorBaseDatos.Name = "grpErrorBaseDatos";
             this.grpErrorBaseDatos.Size = new System.Drawing.Size(506, 67);
             this.grpErrorBaseDatos.TabIndex = 20;
@@ -64,7 +65,7 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(12, 192);
+            this.btnGuardar.Location = new System.Drawing.Point(12, 290);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(75, 23);
             this.btnGuardar.TabIndex = 19;
@@ -74,6 +75,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.errorFuncionalidad);
             this.groupBox1.Controls.Add(this.errorNombre);
             this.groupBox1.Controls.Add(this.lstFuncionalidad);
@@ -83,7 +85,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(506, 174);
+            this.groupBox1.Size = new System.Drawing.Size(506, 272);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Carga de Campos";
@@ -110,13 +112,13 @@
             this.lstFuncionalidad.Location = new System.Drawing.Point(85, 53);
             this.lstFuncionalidad.Name = "lstFuncionalidad";
             this.lstFuncionalidad.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
-            this.lstFuncionalidad.Size = new System.Drawing.Size(120, 95);
+            this.lstFuncionalidad.Size = new System.Drawing.Size(120, 186);
             this.lstFuncionalidad.TabIndex = 13;
             // 
             // chkHabilitado
             // 
             this.chkHabilitado.AutoSize = true;
-            this.chkHabilitado.Location = new System.Drawing.Point(6, 151);
+            this.chkHabilitado.Location = new System.Drawing.Point(2, 249);
             this.chkHabilitado.Name = "chkHabilitado";
             this.chkHabilitado.Size = new System.Drawing.Size(73, 17);
             this.chkHabilitado.TabIndex = 12;
@@ -148,11 +150,20 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre*";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(212, 226);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(214, 13);
+            this.label3.TabIndex = 18;
+            this.label3.Text = "Para seleccionar más de uno,  presionar Ctrl";
+            // 
             // ModificarRol
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(529, 313);
+            this.ClientSize = new System.Drawing.Size(529, 398);
             this.Controls.Add(this.grpErrorBaseDatos);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.groupBox1);
@@ -180,5 +191,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
     }
 }

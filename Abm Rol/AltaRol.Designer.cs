@@ -99,7 +99,7 @@
             this.lstFuncionalidad.FormattingEnabled = true;
             this.lstFuncionalidad.Location = new System.Drawing.Point(85, 53);
             this.lstFuncionalidad.Name = "lstFuncionalidad";
-            this.lstFuncionalidad.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.lstFuncionalidad.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.lstFuncionalidad.Size = new System.Drawing.Size(120, 173);
             this.lstFuncionalidad.TabIndex = 13;
             // 

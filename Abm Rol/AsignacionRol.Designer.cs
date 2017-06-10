@@ -132,7 +132,7 @@
             this.lstRoles.FormattingEnabled = true;
             this.lstRoles.Location = new System.Drawing.Point(51, 53);
             this.lstRoles.Name = "lstRoles";
-            this.lstRoles.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.lstRoles.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.lstRoles.Size = new System.Drawing.Size(120, 95);
             this.lstRoles.TabIndex = 13;
             // 
@@ -167,9 +167,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(184, 135);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(214, 13);
+            this.label3.Size = new System.Drawing.Size(266, 13);
             this.label3.TabIndex = 17;
-            this.label3.Text = "Para seleccionar más de uno,  presionar Ctrl";
+            this.label3.Text = "Mantener presionado Ctrl para seleccionas mas de uno";
             // 
             // AsignacionRol
             // 

@@ -39,7 +39,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.grpErrorBaseDatos.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -75,7 +74,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.errorFuncionalidad);
             this.groupBox1.Controls.Add(this.errorNombre);
             this.groupBox1.Controls.Add(this.lstFuncionalidad);
@@ -111,7 +109,7 @@
             this.lstFuncionalidad.FormattingEnabled = true;
             this.lstFuncionalidad.Location = new System.Drawing.Point(85, 53);
             this.lstFuncionalidad.Name = "lstFuncionalidad";
-            this.lstFuncionalidad.SelectionMode = System.Windows.Forms.SelectionMode.MultiExtended;
+            this.lstFuncionalidad.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.lstFuncionalidad.Size = new System.Drawing.Size(120, 186);
             this.lstFuncionalidad.TabIndex = 13;
             // 
@@ -150,15 +148,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre*";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(212, 226);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(214, 13);
-            this.label3.TabIndex = 18;
-            this.label3.Text = "Para seleccionar más de uno,  presionar Ctrl";
-            // 
             // ModificarRol
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -191,6 +180,5 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
     }
 }

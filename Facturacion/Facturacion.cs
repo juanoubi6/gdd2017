@@ -70,7 +70,7 @@ namespace UberFrba.Facturacion
             int contadorErrores = 0;
 
             //Si no hay viajes no se puede facturar
-            if (txtCantViajes.Text == "")
+            if (txtCantViajes.Text == "0")
             {
                 contadorErrores++;
                 errorViajes.Text = "No se puede facturar un cliente si no tiene viajes que facturar";

@@ -62,23 +62,13 @@ namespace UberFrba.Abm_Chofer
             if (!Decimal.TryParse(telefono, out cantNumerica))  return "El valor no es numérico";
             if (Decimal.Parse(telefono) <= 0)                   return "El valor debe ser mayor a 0";
             if (telefono.Length > 18)                           return "El valor ingresado es demasiado grande";
-            return "";
-        }
 
-        public static String validarDni(String dni)
-        {
-            Decimal cantNumerica;
-            if (String.IsNullOrEmpty(dni)) return "El campo no puede ser vacio";
-            if (!Decimal.TryParse(dni, out cantNumerica)) return "El valor no es numérico";
-            if (Decimal.Parse(dni) <= 0) return "El valor debe ser mayor a 0";
-            if (dni.Length > 18) return "El valor ingresado es demasiado grande";
-
-            //Valido si el DNI del chofer ya existe en la base de datos
+            //Valido si el Telefono del chofer ya existe en la base de datos
             DataTable dtChofer = new DataTable();
 
-            SqlCommand cmd = new SqlCommand("SELECT * FROM SAPNU_PUAS.Chofer WHERE Chofer_Dni = @dni");
+            SqlCommand cmd = new SqlCommand("SELECT * FROM SAPNU_PUAS.Chofer WHERE Chofer_Telefono = @telefono");
             cmd.Connection = DBconnection.getInstance();
-            cmd.Parameters.Add("@dni", SqlDbType.Decimal).Value = Decimal.Parse(dni);
+            cmd.Parameters.Add("@telefono", SqlDbType.Decimal).Value = Decimal.Parse(telefono);
 
             SqlDataAdapter adapterChofer = new SqlDataAdapter(cmd);
 
@@ -91,10 +81,21 @@ namespace UberFrba.Abm_Chofer
                 throw ex;
             }
 
-            if (dtChofer.Rows.Count > 0) return "Ya existe un chofer con el DNI ingresado";
+            if (dtChofer.Rows.Count > 0) return "Ya existe un chofer con el Telefono ingresado";
 
             return "";
 
+        }
+
+        public static String validarDni(String dni)
+        {
+            Decimal cantNumerica;
+            if (String.IsNullOrEmpty(dni)) return "El campo no puede ser vacio";
+            if (!Decimal.TryParse(dni, out cantNumerica)) return "El valor no es numérico";
+            if (Decimal.Parse(dni) <= 0) return "El valor debe ser mayor a 0";
+            if (dni.Length > 18) return "El valor ingresado es demasiado grande";
+            return "";
+        
         }
 
         public static String[] grabarChofer(Chofer choferAGrabar)

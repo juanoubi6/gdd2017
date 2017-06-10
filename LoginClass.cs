@@ -15,7 +15,6 @@ namespace UberFrba
         public static DataTable login (String username, String password)
         {
 
-
             DataTable dtUsuario = new DataTable();
 
             //Voy a buscar si existe el usuario

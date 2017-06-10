@@ -135,6 +135,7 @@ namespace UberFrba.Facturacion
             grpErrorBaseDatos.Visible = false;
             errorFechaFin.Text = "";
             errorFechaIni.Text = "";
+            errorViajes.Text = "";
             grillaViajesFactura.DataSource = null;
         }
     }

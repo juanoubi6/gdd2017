@@ -332,6 +332,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "AltaViaje";
             this.Text = "Registro de Viaje";
+            this.Load += new System.EventHandler(this.AltaViaje_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.grpErrorBaseDatos.ResumeLayout(false);

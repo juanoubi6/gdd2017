@@ -92,6 +92,14 @@ namespace UberFrba.Registro_Viajes
             //Si no hay errores, se intenta guardar el nuevo Turno
             if (contadorErrores == 0)
             {
+
+                //Valido que el horario del viaje coincida con el horario del turno
+                if (dtpInicio.Value.Hour < turnoElegido.HoraInicio || dtpFin.Value.Hour > turnoElegido.HoraFin)
+                {
+                    MessageBox.Show("El horario del viaje no coincide con el horario del turno del chofer", "Error", MessageBoxButtons.OK);
+                    return;
+                }
+
                 Viaje viajeAGrabar = new Viaje();
                 viajeAGrabar.FechaHoraInicio = dtpInicio.Value;
                 viajeAGrabar.FechaHoraFin = dtpFin.Value;
@@ -110,6 +118,8 @@ namespace UberFrba.Registro_Viajes
                 else
                 {
                     MessageBox.Show(respuesta[1], "Operación exitosa", MessageBoxButtons.OK);
+                    lblErrorBaseDatos.Text = String.Empty;
+                    grpErrorBaseDatos.Visible = false;
                 }
             }
 
@@ -142,6 +152,8 @@ namespace UberFrba.Registro_Viajes
             DataTable dtTurnoActual = Chofer.buscarTurnoActual(choferElegido);
             Turno nuevoTurno = new Turno();
             nuevoTurno.Codigo = (Int32)dtTurnoActual.Rows[0]["Chofer_Turno"];
+            nuevoTurno.HoraInicio = (Decimal)dtTurnoActual.Rows[0]["Turno_Hora_Inicio"];
+            nuevoTurno.HoraFin = (Decimal)dtTurnoActual.Rows[0]["Turno_Hora_Fin"];
             turnoElegido = nuevoTurno;
             txtTurno.Text = dtTurnoActual.Rows[0]["Turno_Descripcion"].ToString() + " (" + dtTurnoActual.Rows[0]["Turno_Hora_Inicio"].ToString() + " a " + dtTurnoActual.Rows[0]["Turno_Hora_Fin"].ToString() + ")";
         }
@@ -175,6 +187,14 @@ namespace UberFrba.Registro_Viajes
             errorCliente.Text = "";
             errorFechaHoraFin.Text = "";
             errorFechaHoraIni.Text = "";
+        }
+
+        private void AltaViaje_Load(object sender, EventArgs e)
+        {
+            dtpInicio.Format = DateTimePickerFormat.Custom;
+            dtpInicio.CustomFormat = "dd/MM/yyyy HH:mm:ss";
+            dtpFin.Format = DateTimePickerFormat.Custom;
+            dtpFin.CustomFormat = "dd/MM/yyyy HH:mm:ss";
         }
 
     }

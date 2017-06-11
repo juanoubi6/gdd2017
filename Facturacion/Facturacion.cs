@@ -125,6 +125,8 @@ namespace UberFrba.Facturacion
                 else
                 {
                     MessageBox.Show(respuesta[1], "Operación exitosa", MessageBoxButtons.OK);
+                    lblErrorBaseDatos.Text = String.Empty;
+                    grpErrorBaseDatos.Visible = false;
                 }
             }
 

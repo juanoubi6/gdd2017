@@ -31,7 +31,6 @@
             this.grpErrorBaseDatos = new System.Windows.Forms.GroupBox();
             this.lblErrorBaseDatos = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnLimpiar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.errorChofer = new System.Windows.Forms.Label();
             this.errorTurno = new System.Windows.Forms.Label();
@@ -83,15 +82,6 @@
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
-            // btnLimpiar
-            // 
-            this.btnLimpiar.Location = new System.Drawing.Point(12, 204);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
-            this.btnLimpiar.TabIndex = 19;
-            this.btnLimpiar.Text = "Limpiar";
-            this.btnLimpiar.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
@@ -280,7 +270,6 @@
             this.ClientSize = new System.Drawing.Size(677, 332);
             this.Controls.Add(this.grpErrorBaseDatos);
             this.Controls.Add(this.btnGuardar);
-            this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.groupBox1);
             this.Name = "ModificarAutomovil";
             this.Text = "ModificarAutomovil";
@@ -298,7 +287,6 @@
         private System.Windows.Forms.GroupBox grpErrorBaseDatos;
         private System.Windows.Forms.Label lblErrorBaseDatos;
         private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label errorChofer;
         private System.Windows.Forms.Label errorTurno;

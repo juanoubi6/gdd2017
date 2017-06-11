@@ -89,6 +89,8 @@ namespace UberFrba.Abm_Automovil
                 autoAModificarEnBD.Patente = txtPatente.Text;
                 autoAModificarEnBD.Chofer = choferElegido.Telefono;
                 autoAModificarEnBD.Turno = turnoElegido.Codigo;
+                autoAModificarEnBD.Licencia = autoAModificar.Licencia;
+                autoAModificarEnBD.Rodado = autoAModificar.Rodado;
                 autoAModificarEnBD.Activo = (chkHabilitado.Checked) ? (Byte)1 : (Byte)0; ;
 
                 String[] respuesta = Automovil.modificarAuto(autoAModificarEnBD,autoAModificar.Patente);

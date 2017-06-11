@@ -223,7 +223,14 @@ namespace UberFrba.Abm_Automovil
                 //Ejecuto el SP y veo el codigo de error
                 cmdAuto.ExecuteNonQuery();
                 int codigoError = Convert.ToInt32(cmdAuto.Parameters["@codOp"].Value);
-                if (codigoError != 0) throw new Exception(cmdAuto.Parameters["@resultado"].Value.ToString());
+                if (codigoError == 547)
+                {
+                    throw new Exception("No se puede modificar la patente de este auto ya que posee viajes asociados con su patente actual");
+                }
+                else if (codigoError != 0)
+                {
+                    throw new Exception(cmdAuto.Parameters["@resultado"].Value.ToString());
+                }
 
                 cmdAuto.Connection.Close();
             }

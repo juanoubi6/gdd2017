@@ -49,6 +49,7 @@ namespace UberFrba.Abm_Automovil
             txtChofer.Text = "";
             txtModelo.Text = "";
             txtPatente.Text = "";
+            telefonoChoferFiltro = 0;
             grillaAutomovil.DataSource = null;
             grillaAutomovil.Columns.Clear();
         }

@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Globalization;
+using System.Configuration;
+using System.Threading;
 
 namespace UberFrba
 {
@@ -16,7 +19,13 @@ namespace UberFrba
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            CultureInfo ci = new CultureInfo(ConfigurationManager.AppSettings["FechaSistema"].ToString());
+            Application.CurrentCulture = new CultureInfo(ConfigurationManager.AppSettings["FechaSistema"].ToString());
+            CultureInfo.DefaultThreadCurrentCulture = ci;
+            CultureInfo.DefaultThreadCurrentUICulture = ci;
+            Thread.CurrentThread.CurrentCulture = ci;
+            Thread.CurrentThread.CurrentUICulture = ci;
+            Application.Run(new Login());
         }
     }
 }
